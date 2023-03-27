@@ -1,6 +1,6 @@
 using System;
 
-namespace Model.LevelObjects.Spawner
+namespace Domain.LevelObjects.Spawner
 {
     public class BordersRandomPosition
     {

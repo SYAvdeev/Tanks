@@ -1,7 +1,7 @@
-using Model.LevelObjects.Behaviour;
-using Model.LevelObjects.Config;
+using Domain.LevelObjects.Behaviour;
+using Domain.LevelObjects.Config;
 
-namespace Model.LevelObjects
+namespace Domain.LevelObjects
 {
     public class EnemyModel : CharacterModel
     {

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Model.LevelObjects;
-using Model.UseCase;
+using Domain.LevelObjects;
+using Domain.UseCase;
 using Presentation.LevelObjects;
 using UI;
 using UnityEngine;

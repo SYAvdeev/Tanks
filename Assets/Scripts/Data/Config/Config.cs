@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using Model.LevelObjects.Config;
-using Model.UseCase;
+using Domain.LevelObjects.Config;
+using Domain.UseCase;
 using UnityEngine;
 
 namespace Data.Config

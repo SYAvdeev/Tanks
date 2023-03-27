@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Model.LevelObjects;
+using Domain.LevelObjects;
 
-namespace Model.UseCase
+namespace Domain.UseCase
 {
     public interface IGameplayPresenter
     {

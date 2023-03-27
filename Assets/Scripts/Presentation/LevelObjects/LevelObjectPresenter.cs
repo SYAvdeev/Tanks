@@ -1,4 +1,4 @@
-using Model.LevelObjects;
+using Domain.LevelObjects;
 using UnityEngine;
 
 namespace Presentation.LevelObjects

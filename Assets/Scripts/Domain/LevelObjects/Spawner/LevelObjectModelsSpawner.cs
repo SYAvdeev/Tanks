@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Model.LevelObjects.Config;
+using Domain.LevelObjects.Config;
 
-namespace Model.LevelObjects.Spawner
+namespace Domain.LevelObjects.Spawner
 {
     public class LevelObjectModelsSpawner
     {

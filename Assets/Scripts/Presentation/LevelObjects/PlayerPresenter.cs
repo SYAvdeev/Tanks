@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Data.Config;
-using Model.LevelObjects;
-using Model.LevelObjects.Config;
+using Domain.LevelObjects;
+using Domain.LevelObjects.Config;
 using UnityEngine;
 
 namespace Presentation.LevelObjects

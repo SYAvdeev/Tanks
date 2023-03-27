@@ -1,5 +1,5 @@
 using Data.Config;
-using Model.UseCase;
+using Domain.UseCase;
 using UnityEngine;
 
 namespace Presentation

@@ -1,4 +1,4 @@
-namespace Model.LevelObjects.Config
+namespace Domain.LevelObjects.Config
 {
     public class EnemyModelConfig : CharacterModelConfig
     {

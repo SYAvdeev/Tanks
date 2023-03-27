@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Model.LevelObjects.Behaviour;
-using Model.LevelObjects.Config;
-using Model.LevelObjects.Spawner;
+using Domain.LevelObjects.Behaviour;
+using Domain.LevelObjects.Config;
+using Domain.LevelObjects.Spawner;
 
-namespace Model.LevelObjects
+namespace Domain.LevelObjects
 {
     public class PlayerModel : CharacterModel
     {

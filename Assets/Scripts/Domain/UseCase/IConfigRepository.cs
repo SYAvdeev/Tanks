@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Model.LevelObjects.Config;
+using Domain.LevelObjects.Config;
 
-namespace Model.UseCase
+namespace Domain.UseCase
 {
     public interface IConfigRepository
     {

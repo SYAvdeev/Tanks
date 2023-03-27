@@ -1,8 +1,8 @@
 using System;
-using Model.LevelObjects.Behaviour;
-using Model.LevelObjects.Config;
+using Domain.LevelObjects.Behaviour;
+using Domain.LevelObjects.Config;
 
-namespace Model.LevelObjects
+namespace Domain.LevelObjects
 {
     public abstract class CharacterModel : LevelObjectModel
     {

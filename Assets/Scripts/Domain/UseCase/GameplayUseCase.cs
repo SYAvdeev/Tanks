@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Model.LevelObjects;
-using Model.LevelObjects.Spawner;
+using Domain.LevelObjects;
+using Domain.LevelObjects.Spawner;
 
-namespace Model.UseCase
+namespace Domain.UseCase
 {
     public class GameplayUseCase
     {

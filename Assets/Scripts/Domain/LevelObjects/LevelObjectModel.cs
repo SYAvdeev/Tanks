@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Model.LevelObjects.Behaviour;
+using Domain.LevelObjects.Behaviour;
 
-namespace Model.LevelObjects
+namespace Domain.LevelObjects
 {
     public class LevelObjectModel
     {

@@ -1,4 +1,4 @@
-using Model.LevelObjects.Config;
+using Domain.LevelObjects.Config;
 using UnityEngine;
 
 namespace Data.Config

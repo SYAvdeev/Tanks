@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Data.Config;
-using Model.LevelObjects;
+using Domain.LevelObjects;
 using Presentation.LevelObjects;
 using UnityEngine;
 

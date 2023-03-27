@@ -1,6 +1,6 @@
 using System;
 
-namespace Model.LevelObjects.Behaviour
+namespace Domain.LevelObjects.Behaviour
 {
     public class MoveBehaviour : TickBehaviour
     {

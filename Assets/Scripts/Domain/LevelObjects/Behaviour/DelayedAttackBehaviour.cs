@@ -1,4 +1,4 @@
-namespace Model.LevelObjects.Behaviour
+namespace Domain.LevelObjects.Behaviour
 {
     public class DelayedAttackBehaviour : DelayedBehaviour
     {
