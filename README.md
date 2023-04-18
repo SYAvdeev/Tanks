@@ -1,5 +1,7 @@
 ## Тестовое задание
 
+https://docs.google.com/document/d/1yWIRRGxtG-OXTr5zsnPVCFVaoZewpERXGDOAROFw9xI/edit
+
 Реализовано без применения сторонних плагинов, вроде UniRx и Zenject.
 
 В качестве архитектуры была попытка реализовать Clean Architecture, доменная модель игры выделена в отдельный слой и находится в Scripts/Model. Точка входа находится в классе Installer.
