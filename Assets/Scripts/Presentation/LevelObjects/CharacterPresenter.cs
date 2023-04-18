@@ -1,13 +1,12 @@
 using Domain.LevelObjects;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Presentation.LevelObjects
 {
     public class CharacterPresenter : LevelObjectPresenter<CharacterModel>
     {
         [SerializeField] private Transform _rotateTransform;
-        [SerializeField] private Image _health;
+        [SerializeField] private Transform _health;
 
         public override void SetLevelObject(LevelObjectModel levelObjectModel)
         {
@@ -23,7 +22,7 @@ namespace Presentation.LevelObjects
 
         private void OnHealthChanged(float health)
         {
-            _health.fillAmount = LevelObjectModel.Health / LevelObjectModel.MaxHealth;
+            _health.localScale = new Vector3(LevelObjectModel.Health / LevelObjectModel.MaxHealth, _health.localScale.y);
         }
     }
 }
