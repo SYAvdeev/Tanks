@@ -1,4 +1,4 @@
-using Domain.LevelObjects;
+using Domain.Models;
 using UnityEngine;
 
 namespace Presentation
@@ -14,11 +14,11 @@ namespace Presentation
         [SerializeField] private KeyCode _previousWeaponKey;
         [SerializeField] private KeyCode _pauseKey;
         
-        private PlayerModel _playerModel;
+        private WeaponsInventoryModel _weaponsInventoryModel;
 
-        public void SetPlayer(PlayerModel playerModel)
+        public void SetPlayer(WeaponsInventoryModel weaponsInventoryModel)
         {
-            _playerModel = playerModel;
+            _weaponsInventoryModel = weaponsInventoryModel;
         }
 
         private void Update()
@@ -27,43 +27,43 @@ namespace Presentation
             {
                 if (Input.GetKeyDown(_moveKey))
                 {
-                    _playerModel.SetMove(true);
+                    _weaponsInventoryModel.SetMove(true);
                 }
                 else if (Input.GetKeyUp(_moveKey))
                 {
-                    _playerModel.SetMove(false);
+                    _weaponsInventoryModel.SetMove(false);
                 }
 
                 if (Input.GetKeyDown(_rotateRightKey))
                 {
-                    _playerModel.StartRotation(true);
+                    _weaponsInventoryModel.StartRotation(true);
                 }
                 else if (Input.GetKeyUp(_rotateRightKey))
                 {
-                    _playerModel.StopRotation();
+                    _weaponsInventoryModel.StopRotation();
                 }
                 else if (Input.GetKeyDown(_rotateLeftKey))
                 {
-                    _playerModel.StartRotation(false);
+                    _weaponsInventoryModel.StartRotation(false);
                 }
                 else if (Input.GetKeyUp(_rotateLeftKey))
                 {
-                    _playerModel.StopRotation();
+                    _weaponsInventoryModel.StopRotation();
                 }
 
                 if (Input.GetKey(_shootKey))
                 {
-                    _playerModel.Shoot();
+                    _weaponsInventoryModel.Shoot();
                 }
             
                 if (Input.GetKeyDown(_nextWeaponKey))
                 {
-                    _playerModel.NextWeapon();
+                    _weaponsInventoryModel.NextWeapon();
                 }
             
                 if (Input.GetKeyDown(_previousWeaponKey))
                 {
-                    _playerModel.PreviousWeapon();
+                    _weaponsInventoryModel.PreviousWeapon();
                 }
             }
             

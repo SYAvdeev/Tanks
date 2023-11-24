@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Data.Config;
-using Domain.LevelObjects;
+using Domain.Models;
 using Presentation.LevelObjects;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ namespace Presentation
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private Transform _poolParent;
-        [SerializeField] private Config _config;
+        [SerializeField] private ConfigScriptableObject configScriptableObject;
         [SerializeField] private GameObject _bulletPresenterPrefab;
 
         private readonly Dictionary<string, Stack<LevelObjectPresenter>> _enemiesPool = new();
@@ -24,17 +24,17 @@ namespace Presentation
                 _enemiesPool[enemyName] = new Stack<LevelObjectPresenter>();
             }
             
-            EnemyConfig enemyConfig = _config.GetEnemyConfig(enemyName);
+            EnemyConfig enemyConfig = configScriptableObject.GetEnemyConfig(enemyName);
             return (EnemyPresenter)SpawnLevelObjectPresenter(enemyModel, _enemiesPool[enemyName], enemyConfig.Prefab, parent);
         }
         
-        public BulletPresenter SpawnBullet(BulletModel bulletModel, Transform parent)
+        public BulletPresenter SpawnBullet(DamagerModel damagerModel, Transform parent)
         {
-            return (BulletPresenter)SpawnLevelObjectPresenter(bulletModel, _bulletsPool, _bulletPresenterPrefab, parent);
+            return (BulletPresenter)SpawnLevelObjectPresenter(damagerModel, _bulletsPool, _bulletPresenterPrefab, parent);
         }
 
         private LevelObjectPresenter SpawnLevelObjectPresenter<T>(T levelObject, Stack<LevelObjectPresenter> pool,
-            GameObject prefab, Transform parent) where T : LevelObjectModel
+            GameObject prefab, Transform parent) where T : TransformableModel
         {
             if (!pool.TryPop(out LevelObjectPresenter presenter))
             {

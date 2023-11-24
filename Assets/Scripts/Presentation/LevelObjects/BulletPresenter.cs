@@ -1,9 +1,9 @@
-using Domain.LevelObjects;
+using Domain.Models;
 using UnityEngine;
 
 namespace Presentation.LevelObjects
 {
-    public class BulletPresenter : LevelObjectPresenter<BulletModel>
+    public class BulletPresenter : LevelObjectPresenter<DamagerModel>
     {
         private const string EnemyTag = "Enemy";
         private void OnCollisionEnter2D(Collision2D collision)
@@ -15,9 +15,9 @@ namespace Presentation.LevelObjects
             }
         }
 
-        protected override void Destroy(LevelObjectModel levelObjectModel)
+        protected override void Destroy(TransformableModel transformableModel)
         {
-            base.Destroy(levelObjectModel);
+            base.Destroy(transformableModel);
             _sceneObjectsSpawner.AddToPool(this);
         }
     }

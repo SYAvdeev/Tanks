@@ -1,23 +1,24 @@
 using System.Collections.Generic;
 using Data.Config;
-using Domain.LevelObjects;
-using Domain.LevelObjects.Config;
+using Domain.Model.Config;
+using Domain.Models;
+using Repositories.Configs;
 using UnityEngine;
 
 namespace Presentation.LevelObjects
 {
     public class PlayerPresenter : CharacterPresenter
     {
-        [SerializeField] private Config _config;
+        [SerializeField] private ConfigScriptableObject configScriptableObject;
         [SerializeField] private Transform _weaponsParent;
         private readonly List<KeyValuePair<string, GameObject>> _weapons = new();
-        private PlayerModel PlayerModel => (PlayerModel)_levelObjectModel;
+        private WeaponsInventoryModel WeaponsInventoryModel => (WeaponsInventoryModel)TransformableModel;
 
-        public override void SetLevelObject(LevelObjectModel levelObjectModel)
+        public override void SetLevelObject(TransformableModel transformableModel)
         {
-            base.SetLevelObject(levelObjectModel);
-            PlayerModel.OnWeaponChanged += OnWeaponChanged;
-            OnWeaponChanged(PlayerModel.CurrentWeaponModel);
+            base.SetLevelObject(transformableModel);
+            WeaponsInventoryModel.OnWeaponChanged += OnWeaponChanged;
+            OnWeaponChanged(WeaponsInventoryModel.CurrentWeaponModel);
         }
 
         private void OnWeaponChanged(WeaponModelConfig weaponModelConfig)
@@ -36,7 +37,7 @@ namespace Presentation.LevelObjects
 
             if (!contains)
             {
-                WeaponConfig weaponConfig = _config.GetWeaponConfig(weaponName);
+                WeaponConfig weaponConfig = configScriptableObject.GetWeaponConfig(weaponName);
                 _weapons.Add(new KeyValuePair<string, GameObject>(weaponName, Instantiate(weaponConfig.Prefab, _weaponsParent)));
             }
         }

@@ -1,16 +1,16 @@
-using Domain.LevelObjects;
+using Domain.Models;
 using UnityEngine;
 
 namespace Presentation.LevelObjects
 {
-    public class CharacterPresenter : LevelObjectPresenter<CharacterModel>
+    public class CharacterPresenter : LevelObjectPresenter<DamageableModel>
     {
         [SerializeField] private Transform _rotateTransform;
         [SerializeField] private Transform _health;
 
-        public override void SetLevelObject(LevelObjectModel levelObjectModel)
+        public override void SetLevelObject(TransformableModel transformableModel)
         {
-            base.SetLevelObject(levelObjectModel);
+            base.SetLevelObject(transformableModel);
             LevelObjectModel.OnHealthChanged += OnHealthChanged;
             OnHealthChanged(LevelObjectModel.Health);
         }

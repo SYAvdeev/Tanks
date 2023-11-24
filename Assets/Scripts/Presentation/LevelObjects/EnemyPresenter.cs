@@ -1,4 +1,4 @@
-using Domain.LevelObjects;
+using Domain.Models;
 using UnityEngine;
 
 namespace Presentation.LevelObjects
@@ -7,7 +7,7 @@ namespace Presentation.LevelObjects
     {
         private const string PlayerTag = "Player";
 
-        public EnemyModel EnemyModel => (EnemyModel)_levelObjectModel;
+        public EnemyModel EnemyModel => (EnemyModel)TransformableModel;
         
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -25,9 +25,9 @@ namespace Presentation.LevelObjects
             }
         }
         
-        protected override void Destroy(LevelObjectModel levelObjectModel)
+        protected override void Destroy(TransformableModel transformableModel)
         {
-            base.Destroy(levelObjectModel);
+            base.Destroy(transformableModel);
             _sceneObjectsSpawner.AddToPool(this);
         }
     }

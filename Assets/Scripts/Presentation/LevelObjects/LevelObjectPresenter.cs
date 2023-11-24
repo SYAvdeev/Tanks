@@ -1,11 +1,11 @@
-using Domain.LevelObjects;
+using Domain.Models;
 using UnityEngine;
 
 namespace Presentation.LevelObjects
 {
     public abstract class LevelObjectPresenter : MonoBehaviour
     {
-        protected LevelObjectModel _levelObjectModel;
+        protected TransformableModel TransformableModel;
         protected SceneObjectsSpawner _sceneObjectsSpawner;
         private float _positionScale = 50f;
 
@@ -15,22 +15,21 @@ namespace Presentation.LevelObjects
             _positionScale = positionScale;
         }
 
-        public virtual void SetLevelObject(LevelObjectModel levelObjectModel)
+        public virtual void SetLevelObject(TransformableModel transformableModel)
         {
-            if (_levelObjectModel != null)
+            if (TransformableModel != null)
             {
-                _levelObjectModel.OnPositionUpdate -= OnPositionUpdate;
-                _levelObjectModel.OnRotationUpdate -= OnRotationUpdate;
-                _levelObjectModel.OnDestroy -= Destroy;
+                TransformableModel.OnPositionUpdate -= OnPositionUpdate;
+                TransformableModel.OnRotationUpdate -= OnRotationUpdate;
             }
             
-            _levelObjectModel = levelObjectModel;
-            _levelObjectModel.OnPositionUpdate += OnPositionUpdate;
-            _levelObjectModel.OnRotationUpdate += OnRotationUpdate;
-            _levelObjectModel.OnDestroy += Destroy;
-
-            OnPositionUpdate(levelObjectModel.PositionX, levelObjectModel.PositionY);
-            OnRotationUpdate(levelObjectModel.DirectionAngle);
+            TransformableModel = transformableModel;
+            TransformableModel.OnPositionUpdate += OnPositionUpdate;
+            TransformableModel.OnRotationUpdate += OnRotationUpdate;
+            
+            
+            OnPositionUpdate(transformableModel.PositionX, transformableModel.PositionY);
+            OnRotationUpdate(transformableModel.DirectionAngle);
         }
         protected virtual void OnRotationUpdate(float angle)
         {
@@ -40,14 +39,10 @@ namespace Presentation.LevelObjects
         {
             transform.localPosition = _positionScale * new Vector3(x, y);
         }
-        protected virtual void Destroy(LevelObjectModel levelObjectModel)
-        {
-            gameObject.SetActive(false);
-        }
     }
     
-    public abstract class LevelObjectPresenter<T> : LevelObjectPresenter where T : LevelObjectModel
+    public abstract class LevelObjectPresenter<T> : LevelObjectPresenter where T : TransformableModel
     {
-        public T LevelObjectModel => (T)_levelObjectModel;
+        public T LevelObjectModel => (T)TransformableModel;
     }
 }

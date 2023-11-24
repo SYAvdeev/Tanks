@@ -8,11 +8,11 @@ namespace Presentation
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private GameplayPresenter _gameplayPresenter;
-        [SerializeField] private Config _config;
+        [SerializeField] private ConfigScriptableObject configScriptableObject;
     
         private void Start()
         {
-            GameplayUseCase gameplayUseCase = new GameplayUseCase(_gameplayPresenter, _config, _camera.aspect);
+            GameplayUseCase gameplayUseCase = new GameplayUseCase(_gameplayPresenter, configScriptableObject, _camera.aspect);
             _gameplayPresenter.Initialize(gameplayUseCase);
         }
     }

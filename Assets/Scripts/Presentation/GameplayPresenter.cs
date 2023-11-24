@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Domain.LevelObjects;
+using Domain.Models;
 using Domain.UseCase;
 using Presentation.LevelObjects;
 using UI;
@@ -56,11 +56,11 @@ namespace Presentation
             Pause = false;
         }
 
-        public void OnGameStarted(PlayerModel playerModel, List<EnemyModel> enemies)
+        public void OnGameStarted(WeaponsInventoryModel weaponsInventoryModel, List<EnemyModel> enemies)
         {
             _playerPresenter.gameObject.SetActive(true);
-            _playerPresenter.SetLevelObject(playerModel);
-            _playerInputHandler.SetPlayer(playerModel);
+            _playerPresenter.SetLevelObject(weaponsInventoryModel);
+            _playerInputHandler.SetPlayer(weaponsInventoryModel);
 
             for (int i = 0; i < enemies.Count; i++)
             {
@@ -84,9 +84,9 @@ namespace Presentation
             _playerInputHandler.enabled = false;
         }
 
-        public void OnShoot(BulletModel bulletModel)
+        public void OnShoot(DamagerModel damagerModel)
         {
-            _sceneObjectsSpawner.SpawnBullet(bulletModel, _levelObjectsParent);
+            _sceneObjectsSpawner.SpawnBullet(damagerModel, _levelObjectsParent);
         }
 
         public void OnEnemySpawned(EnemyModel enemyModel)
