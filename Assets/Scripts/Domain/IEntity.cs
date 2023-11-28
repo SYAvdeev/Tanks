@@ -5,7 +5,7 @@ namespace Domain
 {
     public interface IEntity
     {
-        IModel Models { get; }
+        IModel Model { get; }
         IEnumerable<ILogic> LogicSet { get; }
     }
 }

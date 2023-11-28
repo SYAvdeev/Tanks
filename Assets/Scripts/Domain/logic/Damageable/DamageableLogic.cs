@@ -7,13 +7,11 @@ namespace Domain.Logic.Damageable
     {
         private readonly IReactiveProperty<float> _health;
         private readonly float _protection;
-        private readonly float _minHealth;
 
-        public DamageableLogic(IReactiveProperty<float> health, float protection, float minHealth)
+        public DamageableLogic(IReactiveProperty<float> health, float protection)
         {
             _health = health;
             _protection = protection;
-            _minHealth = minHealth;
         }
 
         public event Action<IDamageableLogic> Died;
@@ -21,7 +19,7 @@ namespace Domain.Logic.Damageable
         public void GetDamage(float damage)
         {
             float difference = _health.Value - (damage * _protection);
-            _health.Value = difference < _minHealth ? _minHealth : difference;
+            _health.Value = difference < 0f ? 0f : difference;
         }
     }
 }

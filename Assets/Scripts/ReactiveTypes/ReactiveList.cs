@@ -254,5 +254,7 @@ namespace ReactiveTypes
                 }
             }
         }
+
+        object IReactiveListReadOnlyUntyped.this[int index] => this[index];
     }
 }

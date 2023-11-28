@@ -4,6 +4,6 @@ namespace Domain.Logic.Damager
 {
     public interface IDamagerLogic
     {
-        void SetDamage(float damage, IDamageableLogic damageable);
+        void Damage(float damage, IDamageableLogic damageable);
     }
 }

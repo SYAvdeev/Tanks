@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Data.Models;
 using Domain.Models;
+using ReactiveTypes;
 
 namespace Data.Service
 {
@@ -15,9 +16,9 @@ namespace Data.Service
 
         public void Map(IModelData modelData, IModel model)
         {
-            foreach (KeyValuePair<string, IModelProperty> pair in model.ModelProperties)
+            foreach (KeyValuePair<ModelPropertyName, IReactivePropertyReadonlyUntyped> pair in model.Properties)
             {
-                IModelProperty modelProperty = pair.Value;
+                IReactivePropertyReadonlyUntyped property = pair.Value;
 
                 if (!modelData.PropertiesData.ContainsKey(pair.Key))
                 {
@@ -25,10 +26,18 @@ namespace Data.Service
                 }
                 
                 ModelPropertyData propertyData = modelData.PropertiesData[pair.Key];
-                object modelPropertyValue = modelProperty.Value;
+                object modelPropertyValue = property.Value;
                 
-                propertyData.ValueTypeNameName = ModelPropertyValueTypeName.Bool.GetValueTypeName(modelPropertyValue);
+                propertyData.ValueTypeName = ValueTypeName.Bool.GetValueTypeName(modelPropertyValue);
                 propertyData.SerializedValue = _serializeService.Serialize(modelPropertyValue);
+            }
+
+            foreach (KeyValuePair<ModelListName, IReactiveListReadOnlyUntyped> pair in model.Lists)
+            {
+                IReactiveListReadOnlyUntyped list = pair.Value;
+                
+                
+                
             }
         }
     }

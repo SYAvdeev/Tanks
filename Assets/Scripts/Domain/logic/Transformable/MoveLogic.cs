@@ -9,9 +9,7 @@ namespace Domain.Logic.Transformable
         private readonly IReactiveProperty<float> _transformablePositionY;
         private readonly IReactiveProperty<float> _transformableDirectionAngle;
         
-        private float _speed;
-        protected float _cachedSpeedX;
-        protected float _cachedSpeedY;
+        private readonly float _speed;
 
         private readonly IMoveRestrictionLogic _moveRestrictionLogic;
 
@@ -25,8 +23,7 @@ namespace Domain.Logic.Transformable
             _transformablePositionY = transformablePositionY;
             _transformableDirectionAngle = transformableDirectionAngle;
             
-            SetSpeed(speed);
-            _transformableDirectionAngle.OnValueChanged += OnDirectionAngleChanged;
+            _speed = speed;
         }
         
         public MoveLogic(
@@ -40,22 +37,12 @@ namespace Domain.Logic.Transformable
             _moveRestrictionLogic = moveRestrictionLogic;
         }
 
-        public void SetSpeed(float speed)
-        {
-            _speed = speed;
-            OnDirectionAngleChanged(_transformableDirectionAngle.Value);
-        }
-
-        private void OnDirectionAngleChanged(float angle)
-        {
-            _cachedSpeedX = (float)(_speed * Math.Sin(angle));
-            _cachedSpeedY = (float)(_speed * Math.Cos(angle));
-        }
-        
         public virtual void Tick(float deltaTime)
         {
-            float x = _transformablePositionX.Value + _cachedSpeedX * deltaTime;
-            float y = _transformablePositionY.Value + _cachedSpeedY * deltaTime;
+            float angle = _transformableDirectionAngle.Value;
+
+            float x = _transformablePositionX.Value + (float)(_speed * Math.Sin(angle)) * deltaTime;
+            float y = _transformablePositionY.Value + (float)(_speed * Math.Cos(angle)) * deltaTime;
 
             _moveRestrictionLogic?.Restrict(ref x, ref y);
 

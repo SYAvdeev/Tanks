@@ -13,7 +13,7 @@ namespace Data.Models
         public ModelData(IModel model)
         {
             //_model = model;
-            PropertiesData = new Dictionary<string, ModelPropertyData>(model.ModelProperties.Count);
+            PropertiesData = new Dictionary<string, ModelPropertyData>(model.Properties.Count);
         }
     }
 }

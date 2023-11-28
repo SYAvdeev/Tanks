@@ -2,16 +2,22 @@
 
 namespace ReactiveTypes
 {
-    public interface IReactiveProperty<T> : IReactivePropertyReadonly<T>
+    public interface IReactivePropertyReadonlyUntyped
     {
-        T Value { get; set; }
+        event Action<object> OnValueChangedUntyped;
+        object Value { get; }
     }
 
-    public interface IReactivePropertyReadonly<T>
+    public interface IReactivePropertyReadonly<T> : IReactivePropertyReadonlyUntyped
     {
         event Action<T> OnValueChanged;
         event Action<T, T> OnValueChangedExtended;
         T Value { get; }
+    }
+    
+    public interface IReactiveProperty<T> : IReactivePropertyReadonly<T>
+    {
+        T Value { get; set; }
     }
 
     public enum TypeDispatchEventMode
@@ -39,6 +45,7 @@ namespace ReactiveTypes
 
         public event Action<T> OnValueChanged;
         public event Action<T, T> OnValueChangedExtended;
+        public event Action<object> OnValueChangedUntyped;
 
         public T Value
         {
@@ -54,9 +61,12 @@ namespace ReactiveTypes
 
                     OnValueChanged?.Invoke(_value);
                     OnValueChangedExtended?.Invoke(oldValue, value);
+                    OnValueChangedUntyped?.Invoke(_value);
                 }
             }
         }
+        
+        object IReactivePropertyReadonlyUntyped.Value => _value;
 
         public override string ToString()
         {

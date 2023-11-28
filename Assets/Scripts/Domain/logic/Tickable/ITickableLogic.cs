@@ -12,6 +12,6 @@ namespace Domain.Logic
     public interface IDelayedActionLogic : ITickableLogic
     {
         float CurrentDelay { get; }
-        void ResetDelay();
+        void ResetCurrentDelay();
     }
 }

@@ -20,15 +20,15 @@ namespace Services
         }
         
         public IModelProperty CreateModelProperty(ModelPropertyData modelPropertyData) =>
-            modelPropertyData.ValueTypeNameName switch
+            modelPropertyData.ValueTypeName switch
             {
-                ModelPropertyValueTypeName.Bool => new ModelProperty<bool>(
+                ValueTypeName.Bool => new ModelProperty<bool>(
                     Convert.ToBoolean(modelPropertyData.SerializedValue)),
-                ModelPropertyValueTypeName.Int => new ModelProperty<int>(
+                ValueTypeName.Int => new ModelProperty<int>(
                     Convert.ToInt32(modelPropertyData.SerializedValue)),
-                ModelPropertyValueTypeName.Float => new ModelProperty<float>(
+                ValueTypeName.Float => new ModelProperty<float>(
                     Convert.ToSingle(modelPropertyData.SerializedValue)),
-                ModelPropertyValueTypeName.String => new ModelProperty<string>(
+                ValueTypeName.String => new ModelProperty<string>(
                     modelPropertyData.SerializedValue),
                 _ => throw new ArgumentOutOfRangeException()
             };

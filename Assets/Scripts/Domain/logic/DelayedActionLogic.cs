@@ -1,25 +1,25 @@
+using Domain.Logic.Tickable;
+using Services;
+
 namespace Domain.Logic
 {
-    public abstract class DelayedActionLogic : IDelayedActionLogic
+    public abstract class DelayedActionLogic : TickableLogic, IDelayedActionLogic
     {
-        private readonly float _delay;
-        
+        public float Delay;
         public float CurrentDelay { get; protected set; }
-
-        protected DelayedActionLogic(float delay)
+        
+        protected DelayedActionLogic(ITickService tickService) : base(tickService)
         {
-            _delay = delay;
-            ResetDelay();
         }
 
-        public void ResetDelay()
+        public void ResetCurrentDelay()
         {
-            CurrentDelay = _delay;
+            CurrentDelay = Delay;
         }
 
         protected abstract void Action();
         
-        public void Tick(float deltaTime)
+        public override void Tick(float deltaTime)
         {
             if (CurrentDelay > 0f)
             {
@@ -27,7 +27,7 @@ namespace Domain.Logic
             }
             else
             {
-                CurrentDelay = _delay;
+                CurrentDelay = Delay;
                 Action();
             }
         }

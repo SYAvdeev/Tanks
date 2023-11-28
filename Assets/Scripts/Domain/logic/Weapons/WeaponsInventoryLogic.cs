@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ReactiveTypes;
 
 namespace Domain.Logic.Weapons
@@ -18,6 +19,22 @@ namespace Domain.Logic.Weapons
             
             int currentWeaponID = weaponInventoryCurrentWeaponID.Value;
             _currentWeaponIndex = weaponInventoryIDs.IndexOf(currentWeaponID);
+            
+            weaponInventoryIDs.OnClear += WeaponInventoryIDsOnOnClear;
+            weaponInventoryIDs.OnRemoveItem += WeaponInventoryIDsOnOnRemoveItem;
+        }
+
+        private void WeaponInventoryIDsOnOnRemoveItem(GenericPairEventArgs<int, int> pair)
+        {
+            if (_weaponInventoryCurrentWeaponID.Value == pair.Value)
+            {
+                SetWeapon(0);
+            }
+        }
+
+        private void WeaponInventoryIDsOnOnClear(GenericEventArg<IEnumerable<int>> obj)
+        {
+            SetWeapon(0);
         }
 
         public void SetWeapon(int id)
