@@ -15,7 +15,7 @@ namespace Features.Movable
             PositionX = model.GetProperty<float>(ModelPropertyName.PositionX);
             PositionY = model.GetProperty<float>(ModelPropertyName.PositionY);
             
-            ReactiveProperty<float> angleModelProperty = model.GetProperty<float>(ModelPropertyName.DirectionAngle);
+            IReactiveProperty<float> angleModelProperty = model.GetProperty<float>(ModelPropertyName.DirectionAngle);
             angleModelProperty.OnValueChanged += AngleModelPropertyOnOnValueChanged;
             AngleDegrees = new ReactiveProperty<float>(-angleModelProperty.Value * Mathf.Rad2Deg);
         }

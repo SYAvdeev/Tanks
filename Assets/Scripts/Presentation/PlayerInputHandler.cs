@@ -1,4 +1,3 @@
-using Domain.Models;
 using UnityEngine;
 
 namespace Presentation

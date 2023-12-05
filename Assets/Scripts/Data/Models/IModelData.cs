@@ -6,6 +6,6 @@ namespace Data.Models
     public interface IModelData
     {
         IDictionary<ModelPropertyName, ModelPropertyData> PropertiesData { get; }
-        IDictionary<ModelListName, >
+        IDictionary<ModelListName, ModelListData> ListsData { get; }
     }
 }

@@ -2,9 +2,9 @@ using System;
 
 namespace Domain.Logic.Damageable
 {
-    public interface IDamageableLogic
+    public interface IDamageableLogic : ILogic
     {
-        event Action<IDamageableLogic> Died;
+        event Action Died;
         void GetDamage(float damage);
     }
 }

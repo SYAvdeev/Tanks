@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Domain.Models;
-using Domain.UseCase;
 using Presentation.LevelObjects;
 using UI;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace Presentation
 {

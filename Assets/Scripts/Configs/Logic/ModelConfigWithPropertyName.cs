@@ -1,4 +1,5 @@
 using System;
+using Configs.Model;
 
 namespace Configs.Logic
 {

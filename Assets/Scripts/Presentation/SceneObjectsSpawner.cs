@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using Data.Config;
-using Domain.Models;
-using Presentation.LevelObjects;
 using UnityEngine;
 
 namespace Presentation

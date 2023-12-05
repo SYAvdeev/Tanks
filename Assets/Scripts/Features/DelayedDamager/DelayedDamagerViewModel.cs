@@ -6,9 +6,9 @@ namespace Features.DelayedDamager
 {
     public class DelayedDamagerViewModel : BaseViewModel
     {
-        private readonly DelayedDamageLogic _delayedDamageLogic;
+        private readonly IDelayedDamageLogic _delayedDamageLogic;
 
-        public DelayedDamagerViewModel(IModel model, DelayedDamageLogic delayedDamageLogic) : base(model)
+        public DelayedDamagerViewModel(IModel model, IDelayedDamageLogic delayedDamageLogic) : base(model)
         {
             _delayedDamageLogic = delayedDamageLogic;
         }
@@ -19,12 +19,12 @@ namespace Features.DelayedDamager
             float delay = _model.GetProperty<float>(ModelPropertyName.Delay).Value;
             
             _delayedDamageLogic.SetParameters(damageableLogic, damage, delay);
-            _delayedDamageLogic.SubscribeToTickService(true);
+            _delayedDamageLogic.Subscribe(true);
         }
 
         public void StopDelayedDamageLogic()
         {
-            _delayedDamageLogic.SubscribeToTickService(false);
+            _delayedDamageLogic.Subscribe(false);
         }
     }
 }

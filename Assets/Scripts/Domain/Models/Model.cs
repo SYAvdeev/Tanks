@@ -7,8 +7,8 @@ namespace Domain.Models
     {
         public IDictionary<ModelPropertyName, IReactivePropertyReadonlyUntyped> Properties { get; }
         public IDictionary<ModelListName, IReactiveListReadOnlyUntyped> Lists { get; }
-        public ReactiveProperty<T> GetProperty<T>(ModelPropertyName propertyName) => (ReactiveProperty<T>)Properties[propertyName];
-        public ReactiveList<T> GetList<T>(ModelListName listName) => (ReactiveList<T>)Lists[listName];
+        public IReactiveProperty<T> GetProperty<T>(ModelPropertyName propertyName) => (IReactiveProperty<T>)Properties[propertyName];
+        public IReactiveList<T> GetList<T>(ModelListName listName) => (IReactiveList<T>)Lists[listName];
 
         public Model(
             IDictionary<ModelPropertyName, IReactivePropertyReadonlyUntyped> properties,

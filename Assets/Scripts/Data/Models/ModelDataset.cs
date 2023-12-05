@@ -8,7 +8,7 @@ namespace Data.Models
     public class ModelDataset : IModelDataset
     {
         private List<IModelData> _dataCollection;
-        private IMapModelToDataService _mapModelToDataService;
+        private IDataMapperService _dataMapperService;
         private List<IModelData> _modelsData;
 
         public string Name { get; }

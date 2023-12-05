@@ -2,11 +2,11 @@ using Domain.Models;
 
 namespace Features
 {
-    public class BaseViewModel
+    public abstract class BaseViewModel
     {
-        protected IModel _model;
+        protected readonly IModel _model;
 
-        public BaseViewModel(IModel model)
+        protected BaseViewModel(IModel model)
         {
             _model = model;
         }

@@ -3,7 +3,7 @@ using Domain.Models;
 
 namespace Services
 {
-    public interface IModelFactoryService
+    public interface ModelFactoryService
     {
         IModel CreateModel(IModelData modelData);
         IModelProperty CreateModelProperty(ModelPropertyData modelPropertyData);

@@ -1,9 +1,16 @@
 using Domain.Logic.Damageable;
+using Domain.Logic.Delayed;
+using Domain.Logic.Tickable;
 using Services;
 
 namespace Domain.Logic.Damager
 {
-    public class DelayedDamageLogic : DelayedActionLogic
+    public interface IDelayedDamageLogic : IDelayedActionLogic
+    {
+        void SetParameters(IDamageableLogic target, float damage, float delay);
+    }
+
+    public class DelayedDamageLogic : DelayedActionLogic, IDelayedDamageLogic
     {
         private readonly IDamagerLogic _damagerLogic;
         

@@ -1,37 +1,27 @@
+using Domain.Logic.Subscribable;
 using Services;
 
 namespace Domain.Logic.Tickable
 {
-    public abstract class TickableLogic : ITickableLogic
+    public abstract class TickableLogic : SubscribableLogic, ITickableLogic
     {
         private readonly ITickService _tickService;
-        
-        private bool _isSubscribed;
 
         protected TickableLogic(ITickService tickService)
         {
             _tickService = tickService;
         }
+        
+        public abstract void Tick(float deltaTime);
 
-        public void SubscribeToTickService(bool isSubscribe)
+        protected override void Subscribe()
         {
-            if (isSubscribe == _isSubscribed)
-            {
-                return;
-            }
-            
-            if (isSubscribe)
-            {
-                _tickService.Tick += Tick;
-            }
-            else
-            {
-                _tickService.Tick -= Tick;
-            }
-
-            _isSubscribed = isSubscribe;
+            _tickService.Tick += Tick;
         }
 
-        public abstract void Tick(float deltaTime);
+        protected override void Unsubscribe()
+        {
+            _tickService.Tick -= Tick;
+        }
     }
 }

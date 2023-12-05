@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Data.Models
 {
@@ -29,6 +30,16 @@ namespace Data.Models
                 float => ValueTypeName.Float,
                 string => ValueTypeName.String,
                 bool => ValueTypeName.Bool,
+                _ => throw new ArgumentOutOfRangeException(nameof(value))
+            };
+        
+        public static ValueTypeName GetCollectionTypeName(this ValueTypeName valueTypeName, object value) =>
+            value switch
+            {
+                ICollection<int> => ValueTypeName.Int,
+                ICollection<float> => ValueTypeName.Float,
+                ICollection<string> => ValueTypeName.String,
+                ICollection<bool> => ValueTypeName.Bool,
                 _ => throw new ArgumentOutOfRangeException(nameof(value))
             };
     }

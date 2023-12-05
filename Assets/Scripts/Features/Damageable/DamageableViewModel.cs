@@ -9,8 +9,8 @@ namespace Features.Damageable
         public IReactiveProperty<float> HealthNormalized { get; }
         public IDamageableLogic DamageableLogic { get; }
 
-        private readonly ReactiveProperty<float> _healthProperty;
-        private readonly ReactiveProperty<float> _maxHealthProperty;
+        private readonly IReactiveProperty<float> _healthProperty;
+        private readonly IReactiveProperty<float> _maxHealthProperty;
 
         public DamageableViewModel(IModel model, IDamageableLogic damageableLogic) : base(model)
         {

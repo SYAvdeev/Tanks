@@ -7,13 +7,13 @@ namespace Data.Models
     [Serializable]
     public class ModelData : IModelData
     {
-        //private readonly IModel _model;
-        public IDictionary<string, ModelPropertyData> PropertiesData { get; }
+        public IDictionary<ModelPropertyName, ModelPropertyData> PropertiesData { get; }
+        public IDictionary<ModelListName, ModelListData> ListsData { get; }
 
         public ModelData(IModel model)
         {
-            //_model = model;
-            PropertiesData = new Dictionary<string, ModelPropertyData>(model.Properties.Count);
+            PropertiesData = new Dictionary<ModelPropertyName, ModelPropertyData>(model.Properties.Count);
+            ListsData = new Dictionary<ModelListName, ModelListData>(model.Lists.Count);
         }
     }
 }

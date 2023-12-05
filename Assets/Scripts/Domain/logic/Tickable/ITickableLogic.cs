@@ -1,17 +1,9 @@
-namespace Domain.Logic
+using Domain.Logic.Subscribable;
+
+namespace Domain.Logic.Tickable
 {
-    public interface ITickableLogic
+    public interface ITickableLogic : ISubscribableLogic
     {
         void Tick(float deltaTime);
-    }
-
-    public interface IMoveLogic : ITickableLogic { }
-    
-    public interface IRotateLogic : ITickableLogic { }
-
-    public interface IDelayedActionLogic : ITickableLogic
-    {
-        float CurrentDelay { get; }
-        void ResetCurrentDelay();
     }
 }

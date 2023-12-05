@@ -8,6 +8,9 @@ namespace Domain.Models
         PositionX,
         PositionY,
         DirectionAngle,
-        Delay
+        Delay,
+        ViewKey,
+        SizeX,
+        SizeY
     }
 }

@@ -1,9 +1,11 @@
 using System;
+using Domain.Logic.Tickable;
 using ReactiveTypes;
+using Services;
 
 namespace Domain.Logic.Transformable
 {
-    public class LookAtLogic : ITickableLogic
+    public class LookAtLogic : TickableLogic
     {
         private readonly IReactiveProperty<float> _transformablePositionX;
         private readonly IReactiveProperty<float> _transformablePositionY;
@@ -12,11 +14,12 @@ namespace Domain.Logic.Transformable
         private readonly IReactiveProperty<float> _targetPositionY;
 
         public LookAtLogic(
+            ITickService tickService,
             IReactiveProperty<float> transformablePositionX,
             IReactiveProperty<float> transformablePositionY, 
             IReactiveProperty<float> transformableDirectionAngle,
             IReactiveProperty<float> targetPositionX,
-            IReactiveProperty<float> targetPositionY)
+            IReactiveProperty<float> targetPositionY) : base(tickService)
         {
             _transformablePositionX = transformablePositionX;
             _transformablePositionY = transformablePositionY;
@@ -25,7 +28,7 @@ namespace Domain.Logic.Transformable
             _targetPositionY = targetPositionY;
         }
 
-        public void Tick(float deltaTime)
+        public override void Tick(float deltaTime)
         {
             float x = _targetPositionX.Value - _transformablePositionX.Value;
             float y = _targetPositionY.Value - _transformablePositionY.Value;

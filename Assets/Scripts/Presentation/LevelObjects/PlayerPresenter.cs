@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using Data.Config;
-using Domain.Model.Config;
-using Domain.Models;
 using Repositories.Configs;
 using UnityEngine;
 
