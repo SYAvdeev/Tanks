@@ -1,7 +1,7 @@
 using System;
 using Domain.Logic.Tickable;
+using Domain.Services;
 using ReactiveTypes;
-using Services;
 
 namespace Domain.Logic.Transformable
 {
@@ -10,8 +10,7 @@ namespace Domain.Logic.Transformable
         private readonly IReactiveProperty<float> _positionXProperty;
         private readonly IReactiveProperty<float> _positionYProperty;
         private readonly IReactiveProperty<float> _directionAngleProperty;
-        
-        private readonly float _speed;
+        private readonly IReactiveProperty<float> _speedProperty;
 
         private readonly IMoveRestrictionLogic _moveRestrictionLogic;
 
@@ -20,27 +19,14 @@ namespace Domain.Logic.Transformable
             IReactiveProperty<float> positionXProperty,
             IReactiveProperty<float> positionYProperty,
             IReactiveProperty<float> directionAngleProperty,
-            float speed) : base(tickService)
+            IReactiveProperty<float> speedProperty,
+            IMoveRestrictionLogic moveRestrictionLogic)
+            : base(tickService)
         {
             _positionXProperty = positionXProperty;
             _positionYProperty = positionYProperty;
             _directionAngleProperty = directionAngleProperty;
-            _speed = speed;
-        }
-
-        public MoveForwardLogic(
-            ITickService tickService,
-            IReactiveProperty<float> positionXProperty,
-            IReactiveProperty<float> positionYProperty,
-            IReactiveProperty<float> directionAngleProperty,
-            float speed,
-            IMoveRestrictionLogic moveRestrictionLogic) : 
-            this(tickService, positionXProperty, positionYProperty, directionAngleProperty, speed)
-        {
-            _positionXProperty = positionXProperty;
-            _positionYProperty = positionYProperty;
-            _directionAngleProperty = directionAngleProperty;
-            _speed = speed;
+            _speedProperty = speedProperty;
             _moveRestrictionLogic = moveRestrictionLogic;
         }
 
@@ -48,8 +34,8 @@ namespace Domain.Logic.Transformable
         {
             float angle = _directionAngleProperty.Value;
 
-            float x = _positionXProperty.Value + (float)(_speed * Math.Sin(angle)) * deltaTime;
-            float y = _positionYProperty.Value + (float)(_speed * Math.Cos(angle)) * deltaTime;
+            float x = _positionXProperty.Value + (float)(_speedProperty.Value * Math.Sin(angle)) * deltaTime;
+            float y = _positionYProperty.Value + (float)(_speedProperty.Value * Math.Cos(angle)) * deltaTime;
 
             _moveRestrictionLogic?.Restrict(ref x, ref y);
 

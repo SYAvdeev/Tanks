@@ -1,6 +1,6 @@
 using Domain.Logic.Tickable;
+using Domain.Services;
 using ReactiveTypes;
-using Services;
 
 namespace Domain.Logic.Transformable
 {

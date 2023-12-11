@@ -2,6 +2,11 @@ namespace Domain.Models
 {
     public enum ModelListName
     {
-        Weapons
+        ItemIDs,
+        SpawnOnStartFeatureIDs,
+        PlayerFeatureIDs,
+        RandomEnemiesFeatureIDs,
+        SpawnOnShootFeatureIDs,
+        RandomEnemiesSpawnCount
     }
 }

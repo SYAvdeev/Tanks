@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using ReactiveTypes;
 
-namespace Domain.Logic.Weapons
+namespace Domain.Logic.Inventory
 {
     public class InventoryLogic : IInventoryLogic
     {

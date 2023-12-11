@@ -1,33 +1,39 @@
 using Domain.Logic.Tickable;
-using Services;
+using Domain.Services;
+using ReactiveTypes;
 
 namespace Domain.Logic.Delayed
 {
     public abstract class DelayedActionLogic : TickableLogic, IDelayedActionLogic
     {
-        public float Delay;
-        public float CurrentDelay { get; protected set; }
+        protected IReactivePropertyReadonly<float> Delay { get; }
+        protected IReactiveProperty<float> CurrentDelay { get; }
         
-        protected DelayedActionLogic(ITickService tickService) : base(tickService)
+        protected DelayedActionLogic(
+            ITickService tickService,
+            IReactivePropertyReadonly<float> delay,
+            IReactiveProperty<float> currentDelay) : base(tickService)
         {
+            Delay = delay;
+            CurrentDelay = currentDelay;
         }
 
         public void ResetCurrentDelay()
         {
-            CurrentDelay = Delay;
+            CurrentDelay.Value = Delay.Value;
         }
 
         protected abstract void Action();
         
         public override void Tick(float deltaTime)
         {
-            if (CurrentDelay > 0f)
+            if (CurrentDelay.Value > 0f)
             {
-                CurrentDelay -= deltaTime;
+                CurrentDelay.Value -= deltaTime;
             }
             else
             {
-                CurrentDelay = Delay;
+                CurrentDelay.Value = Delay.Value;
                 Action();
             }
         }

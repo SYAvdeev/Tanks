@@ -1,12 +1,20 @@
 using Domain.Logic.Damageable;
+using ReactiveTypes;
 
 namespace Domain.Logic.Damager
 {
     public class DamagerLogic : IDamagerLogic
     {
-        public void Damage(float damage, IDamageableLogic damageable)
+        public IReactivePropertyReadonly<float> DamageProperty { get; }
+
+        public DamagerLogic(IReactivePropertyReadonly<float> damageProperty)
         {
-            damageable.GetDamage(damage);
+            DamageProperty = damageProperty;
+        }
+
+        public void Damage(IDamageableLogic damageable)
+        {
+            damageable.GetDamage(DamageProperty.Value);
         }
     }
 }

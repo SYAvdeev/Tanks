@@ -8,9 +8,14 @@ namespace Domain.Models
         PositionX,
         PositionY,
         DirectionAngle,
+        Speed,
+        RotationSpeed,
         Delay,
+        CurrentDelay,
         ViewKey,
         SizeX,
-        SizeY
+        SizeY,
+        RandomEnemiesSpawnCount,
+        CurrentItemID
     }
 }

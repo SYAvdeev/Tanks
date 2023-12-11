@@ -1,11 +1,11 @@
 using System;
 using Domain.Logic.Tickable;
+using Domain.Services;
 using ReactiveTypes;
-using Services;
 
 namespace Domain.Logic.Transformable
 {
-    public class LookAtLogic : TickableLogic
+    public class LookAtLogic : TickableLogic, ILookAtLogic
     {
         private readonly IReactiveProperty<float> _transformablePositionX;
         private readonly IReactiveProperty<float> _transformablePositionY;

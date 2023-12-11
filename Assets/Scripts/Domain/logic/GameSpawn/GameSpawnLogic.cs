@@ -1,41 +1,47 @@
 using System;
 using System.Collections.Generic;
-using Domain.Logic.Startable;
-using Domain.Services;
-using Common.Extensions;
 using Domain.Features;
 using Domain.Logic.Damageable;
+using Domain.Logic.Level;
+using Domain.Logic.Startable;
 using Domain.Models;
+using Domain.Services;
+using ReactiveTypes;
+using ReactiveTypes.Extensions;
 
 namespace Domain.Logic.GameSpawn
 {
     public class GameSpawnLogic : StartableLogic, IGameSpawnLogic
     {
-        private readonly IList<string> _spawnOnStartFeatureIDs;
-        private readonly IList<string> _playerFeatureIDs;
-        private readonly IList<string> _randomEnemiesFeatureIDs;
-        private readonly IList<string> _spawnOnShootFeatureIDs;
-        private readonly int _randomFeaturesSpawnCount;
+        private readonly IReactiveListReadOnly<string> _spawnOnStartFeatureIDs;
+        private readonly IReactiveListReadOnly<string> _playerFeatureIDs;
+        private readonly IReactiveListReadOnly<string> _randomEnemiesFeatureIDs;
+        private readonly IReactiveListReadOnly<string> _spawnOnShootFeatureIDs;
+        private readonly IReactiveProperty<int> _randomEnemiesSpawnCount;
+        private readonly ISpawnOffScreenPositionLogic _spawnOffScreenPositionLogic;
         private readonly ISpawnFeatureService _spawnFeatureService;
         private readonly Random _random;
 
         private readonly IList<IFeature> _playerFeatures;
         private readonly IList<IFeature> _enemyFeatures;
 
-        public GameSpawnLogic(IStartService startService,
-            IList<string> spawnOnStartFeatureIDs,
-            IList<string> playerFeatureIDs, 
-            IList<string> randomEnemiesFeatureIDs,
-            IList<string> spawnOnShootFeatureIDs,
-            int randomFeaturesSpawnCount,
+        public GameSpawnLogic(
+            IStartService startService,
             ISpawnFeatureService spawnFeatureService,
+            IReactiveListReadOnly<string> spawnOnStartFeatureIDs,
+            IReactiveListReadOnly<string> playerFeatureIDs, 
+            IReactiveListReadOnly<string> randomEnemiesFeatureIDs,
+            IReactiveListReadOnly<string> spawnOnShootFeatureIDs,
+            IReactiveProperty<int> randomEnemiesSpawnCount,
+            ISpawnOffScreenPositionLogic spawnOffScreenPositionLogic,
             Random random) : base(startService)
         {
             _spawnOnStartFeatureIDs = spawnOnStartFeatureIDs;
             _playerFeatureIDs = playerFeatureIDs;
             _randomEnemiesFeatureIDs = randomEnemiesFeatureIDs;
             _spawnOnShootFeatureIDs = spawnOnShootFeatureIDs;
-            _randomFeaturesSpawnCount = randomFeaturesSpawnCount;
+            _randomEnemiesSpawnCount = randomEnemiesSpawnCount;
+            _spawnOffScreenPositionLogic = spawnOffScreenPositionLogic;
             _spawnFeatureService = spawnFeatureService;
             _random = random;
 
@@ -56,23 +62,36 @@ namespace Domain.Logic.GameSpawn
                 _playerFeatures.Add(playerFeature);
             }
 
-            for (int i = 0; i < _randomFeaturesSpawnCount; i++)
+            for (int i = 0; i < _randomEnemiesSpawnCount.Value; i++)
             {
-                string randomID = _randomEnemiesFeatureIDs.Random(_random);
-                IFeature enemyFeature = _spawnFeatureService.Create(randomID);
-                _enemyFeatures.Add(enemyFeature);
-                var reactiveProperty = enemyFeature.Model.GetProperty<float>(ModelPropertyName.PositionX);
-
-                if (enemyFeature.LogicCollection.TryGet(out IDamageableLogic damageableLogic))
-                {
-                    damageableLogic.Died += DamageableLogicOnDied;
-                }
+                SpawnRandomEnemy();
             }
         }
 
-        private void DamageableLogicOnDied()
+        private void SpawnRandomEnemy()
         {
-            _spawnFeatureService.Delete();
+            string randomID = _randomEnemiesFeatureIDs.Random(_random);
+            IFeature enemyFeature = _spawnFeatureService.Create(randomID);
+            _enemyFeatures.Add(enemyFeature);
+
+            IModel enemyFeatureModel = enemyFeature.Model;
+            IReactiveProperty<float> positionXProperty = enemyFeatureModel.GetProperty<float>(ModelPropertyName.PositionX);
+            IReactiveProperty<float> positionYProperty = enemyFeatureModel.GetProperty<float>(ModelPropertyName.PositionY);
+
+            (float, float) enemyCoordinates = _spawnOffScreenPositionLogic.GetRandomOffScreenSpawnPosition();
+
+            positionXProperty.Value = enemyCoordinates.Item1;
+            positionYProperty.Value = enemyCoordinates.Item2;
+
+            if (enemyFeature.LogicCollection.TryGet(out IDamageableLogic damageableLogic))
+            {
+                damageableLogic.Died += OnEnemyDied;
+            }
+        }
+
+        private void OnEnemyDied()
+        {
+            SpawnRandomEnemy();
         }
 
         public void SpawnOnShoot()
@@ -81,11 +100,6 @@ namespace Domain.Logic.GameSpawn
             {
                 _spawnFeatureService.Create(featureID);
             }
-        }
-
-        public void SpawnOnDied()
-        {
-            
         }
     }
 }

@@ -1,37 +1,33 @@
 using Domain.Logic.Damageable;
 using Domain.Logic.Delayed;
-using Domain.Logic.Tickable;
-using Services;
+using Domain.Services;
+using ReactiveTypes;
 
 namespace Domain.Logic.Damager
 {
-    public interface IDelayedDamageLogic : IDelayedActionLogic
-    {
-        void SetParameters(IDamageableLogic target, float damage, float delay);
-    }
-
     public class DelayedDamageLogic : DelayedActionLogic, IDelayedDamageLogic
     {
         private readonly IDamagerLogic _damagerLogic;
         
-        private float _damage;
         private IDamageableLogic _target;
 
-        public DelayedDamageLogic(IDamagerLogic damagerLogic, ITickService tickService) : base(tickService)
+        public DelayedDamageLogic(
+            ITickService tickService,
+            IReactivePropertyReadonly<float> delay,
+            IReactiveProperty<float> currentDelay,
+            IDamagerLogic damagerLogic) : base(tickService, delay, currentDelay)
         {
             _damagerLogic = damagerLogic;
         }
 
-        public void SetParameters(IDamageableLogic target, float damage, float delay)
+        public void SetTarget(IDamageableLogic target)
         {
-            _damage = damage;
             _target = target;
-            Delay = delay;
         }
 
         protected override void Action()
         {
-            _damagerLogic.Damage(_damage, _target);
+            _damagerLogic.Damage(_target);
         }
     }
 }

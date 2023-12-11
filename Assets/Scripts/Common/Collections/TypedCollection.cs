@@ -7,7 +7,7 @@ namespace Common.Collections
     {
         private readonly IDictionary<Type, TBase> _dictionary;
 
-        public TypedCollection()
+        protected TypedCollection()
         {
             _dictionary = new Dictionary<Type, TBase>();
         }
@@ -23,6 +23,8 @@ namespace Common.Collections
             value = default;
             return false;
         }
+
+        public T Get<T>() where T : TBase => (T)_dictionary[typeof(T)];
 
         public void Add<T>(T value) where T : TBase => _dictionary[typeof(T)] = value;
     }

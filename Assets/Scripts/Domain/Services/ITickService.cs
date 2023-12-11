@@ -1,6 +1,6 @@
 using System;
 
-namespace Services
+namespace Domain.Services
 {
     public interface ITickService
     {

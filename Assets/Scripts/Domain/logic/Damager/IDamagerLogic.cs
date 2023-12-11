@@ -2,8 +2,8 @@ using Domain.Logic.Damageable;
 
 namespace Domain.Logic.Damager
 {
-    public interface IDamagerLogic
+    public interface IDamagerLogic : ILogic
     {
-        void Damage(float damage, IDamageableLogic damageable);
+        void Damage(IDamageableLogic damageable);
     }
 }

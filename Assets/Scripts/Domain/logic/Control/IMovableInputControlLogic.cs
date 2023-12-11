@@ -1,6 +1,6 @@
 namespace Domain.Logic.Control
 {
-    public interface IMovableInputControlLogic
+    public interface IMovableInputControlLogic : ILogic
     {
     }
 }

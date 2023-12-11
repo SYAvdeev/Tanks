@@ -1,6 +1,7 @@
 using Domain.Logic.Damageable;
 using Domain.Models;
-using Services;
+using Services.Pool;
+using UnityEngine;
 
 namespace Features.Poolable
 {
@@ -8,7 +9,12 @@ namespace Features.Poolable
     {
         private readonly IDamageableLogic _damageableLogic;
 
-        public PoolableDamageableViewModel(IModel model, IPoolService poolService, IDamageableLogic damageableLogic) : base(model, poolService)
+        public PoolableDamageableViewModel(
+            IModel model, 
+            IPoolService<GameObject> poolService,
+            IDamageableLogic damageableLogic,
+            PoolableViewLogic poolableViewLogic) :
+            base(model, poolService, poolableViewLogic)
         {
             _damageableLogic = damageableLogic;
             damageableLogic.Died += AddToPool;

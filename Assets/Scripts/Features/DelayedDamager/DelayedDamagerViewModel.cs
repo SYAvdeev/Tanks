@@ -15,10 +15,7 @@ namespace Features.DelayedDamager
 
         public void StartDelayedDamageLogic(IDamageableLogic damageableLogic)
         {
-            float damage = _model.GetProperty<float>(ModelPropertyName.Damage).Value;
-            float delay = _model.GetProperty<float>(ModelPropertyName.Delay).Value;
-            
-            _delayedDamageLogic.SetParameters(damageableLogic, damage, delay);
+            _delayedDamageLogic.SetTarget(damageableLogic);
             _delayedDamageLogic.Subscribe(true);
         }
 

@@ -1,7 +1,6 @@
-using Configs.Prototype;
 using UnityEngine;
 
-namespace Configs
+namespace Configs.Prototype
 {
     public class AddressablesPrototypesConfig : ScriptableObject
     {

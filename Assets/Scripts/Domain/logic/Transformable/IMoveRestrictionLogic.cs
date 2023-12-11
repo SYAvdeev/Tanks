@@ -1,6 +1,6 @@
 namespace Domain.Logic.Transformable
 {
-    public interface IMoveRestrictionLogic
+    public interface IMoveRestrictionLogic : ILogic
     {
         void Restrict(ref float x, ref float y);
     }

@@ -1,6 +1,6 @@
-namespace Domain.Logic.Weapons
+namespace Domain.Logic.Inventory
 {
-    public interface IInventoryLogic
+    public interface IInventoryLogic : ILogic
     {
         void SetCurrentItem(int id);
 

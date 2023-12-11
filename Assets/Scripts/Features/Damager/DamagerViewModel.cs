@@ -15,9 +15,7 @@ namespace Features.Damager
 
         public virtual void Damage(IDamageableLogic damageableLogic)
         {
-            float damage = _model.GetProperty<float>(ModelPropertyName.Damage).Value;
-            
-            _damagerLogic.Damage(damage, damageableLogic);
+            _damagerLogic.Damage(damageableLogic);
         }
     }
 }

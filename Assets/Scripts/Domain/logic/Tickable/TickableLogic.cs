@@ -1,5 +1,5 @@
 using Domain.Logic.Subscribable;
-using Services;
+using Domain.Services;
 
 namespace Domain.Logic.Tickable
 {
