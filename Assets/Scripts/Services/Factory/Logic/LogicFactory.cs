@@ -11,9 +11,10 @@ using Domain.Logic.Transformable;
 using Domain.Models;
 using Domain.Services;
 using Domain.Services.Input;
+using Services.Factory.Features;
 using Zenject;
 
-namespace Services.Factory
+namespace Services.Factory.Logic
 {
     public class LogicFactory : ILogicFactory
     {
@@ -50,7 +51,7 @@ namespace Services.Factory
                     
                 case LogicFactoryType.DestroyFeatureOnDie:
 
-                    return new DestroyFeatureOnDieLogic(feature, _container.Resolve<ISpawnFeatureService>());
+                    return new DestroyableFeatureLogic(feature, _container.Resolve<ISpawnFeatureService>());
                     
                 case LogicFactoryType.GameSpawn:
                     

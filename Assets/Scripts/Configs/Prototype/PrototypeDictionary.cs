@@ -1,9 +1,9 @@
 using System;
 using Common;
-using UnityEngine.ResourceManagement.ResourceLocations;
+using UnityEngine.AddressableAssets;
 
 namespace Configs.Prototype
 {
     [Serializable]
-    public class PrototypeDictionary : UnitySerializedDictionary<string, IResourceLocation> { }
+    public class PrototypeDictionary : UnitySerializedDictionary<string, AssetReference > { }
 }

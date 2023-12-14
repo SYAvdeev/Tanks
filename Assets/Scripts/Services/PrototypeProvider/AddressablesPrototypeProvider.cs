@@ -28,8 +28,8 @@ namespace Services.PrototypeProvider
 
             if (!_cachedPrototypes.TryGetValue(key, out GameObject gameObject))
             {
-                IResourceLocation resourceLocation = _config.PrototypeDictionary[key];
-                gameObject = await Addressables.LoadAssetAsync<GameObject>(resourceLocation).ToUniTask();
+                AssetReference assetReference = _config.PrototypeDictionary[key];
+                gameObject = await Addressables.LoadAssetAsync<GameObject>(assetReference).ToUniTask();
                 _cachedPrototypes[key] = gameObject;
             }
 

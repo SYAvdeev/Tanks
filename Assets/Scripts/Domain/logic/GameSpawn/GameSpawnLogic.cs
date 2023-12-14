@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Domain.Features;
 using Domain.Logic.Damageable;
+using Domain.Logic.Destroyable;
 using Domain.Logic.Level;
 using Domain.Logic.Startable;
 using Domain.Models;
@@ -83,14 +84,17 @@ namespace Domain.Logic.GameSpawn
             positionXProperty.Value = enemyCoordinates.Item1;
             positionYProperty.Value = enemyCoordinates.Item2;
 
-            if (enemyFeature.LogicCollection.TryGet(out IDamageableLogic damageableLogic))
+            if (enemyFeature.LogicCollection.TryGet(out IDestroyableFeatureLogic destroyableFeatureLogic))
             {
-                damageableLogic.Died += OnEnemyDied;
+                destroyableFeatureLogic.Destroyed += OnEnemyDestroyed;
             }
+            
+            _enemyFeatures.Add(enemyFeature);
         }
 
-        private void OnEnemyDied()
+        private void OnEnemyDestroyed(IFeature enemyFeature)
         {
+            _enemyFeatures.Remove(enemyFeature);
             SpawnRandomEnemy();
         }
 

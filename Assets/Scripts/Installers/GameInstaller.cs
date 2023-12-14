@@ -16,7 +16,7 @@ namespace Installers
         {
             
             
-            Container.Bind<IFeature>().WithId("Pidor").FromMethod()
+            Container.Bind<IFeature>().WithId("id").FromMethod()
             
         }
         

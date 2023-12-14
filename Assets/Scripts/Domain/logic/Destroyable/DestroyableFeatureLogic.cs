@@ -4,14 +4,14 @@ using Domain.Services;
 
 namespace Domain.Logic.Destroyable
 {
-    public class DestroyFeatureOnDieLogic : IDestroyableFeatureLogic
+    public class DestroyableFeatureLogic : IDestroyableFeatureLogic
     {
         private readonly IFeature _feature;
         private readonly ISpawnFeatureService _spawnFeatureService;
 
         public event Action<IFeature> Destroyed;
 
-        public DestroyFeatureOnDieLogic(IFeature feature, ISpawnFeatureService spawnFeatureService)
+        public DestroyableFeatureLogic(IFeature feature, ISpawnFeatureService spawnFeatureService)
         {
             _feature = feature;
             _spawnFeatureService = spawnFeatureService;

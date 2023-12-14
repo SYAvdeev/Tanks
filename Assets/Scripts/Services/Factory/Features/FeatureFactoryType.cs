@@ -1,4 +1,4 @@
-namespace Services.Factory
+namespace Services.Factory.Features
 {
     public enum FeatureFactoryType
     {

@@ -1,5 +1,4 @@
 using Configs.Model;
-using Configs.ViewModel;
 using Data.Models;
 using Services.Factory;
 using UnityEngine;
@@ -16,9 +15,11 @@ namespace Configs
         [SerializeField]
         private LogicFactoryType[] _logicTypes;
         [SerializeField]
-        private ViewModelConfig[] _viewModelConfigs;
+        private string _featureRootAssetKey;
 
         public string ID => _id;
         public IModelData ModelData => _modelConfig;
+        public LogicFactoryType[] LogicTypes => _logicTypes;
+        public string FeatureRootAssetKey => _featureRootAssetKey;
     }
 }

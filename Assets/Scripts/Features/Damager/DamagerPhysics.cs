@@ -1,19 +1,16 @@
+using System;
 using System.Collections.Generic;
 using Features.Damageable;
 using UnityEngine;
 
 namespace Features.Damager
 {
-    public class CollisionDamagerPhysics : MonoBehaviour
+    public class DamagerPhysics : MonoBehaviour
     {
-        private DamagerViewModel _damagerViewModel;
+        [SerializeField]
         private List<string> _damageableTags;
 
-        public void Initialize(DamagerViewModel damagerViewModel, List<string> damageableTags)
-        {
-            _damagerViewModel = damagerViewModel;
-            _damageableTags = damageableTags;
-        }
+        public event Action<DamageablePhysics> CollisionWithDamageable;
         
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -24,7 +21,7 @@ namespace Features.Damager
                 if (collisionGameObject.CompareTag(_damageableTags[i]))
                 {
                     DamageablePhysics damageablePhysics = collisionGameObject.GetComponent<DamageablePhysics>();
-                    _damagerViewModel.Damage(damageablePhysics.DamageableViewModel.DamageableLogic);
+                    CollisionWithDamageable?.Invoke(damageablePhysics);
                     return;
                 }
             }

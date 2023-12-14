@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Features.Damageable;
 using UnityEngine;
@@ -6,14 +7,11 @@ namespace Features.DelayedDamager
 {
     public class DelayedDamagerPhysics : MonoBehaviour
     {
-        private DelayedDamagerViewModel _delayedDamagerViewModel;
+        [SerializeField]
         private List<string> _damageableTags;
-
-        public void Initialize(DelayedDamagerViewModel delayedDamagerViewModel, List<string> damageableTags)
-        {
-            _delayedDamagerViewModel = delayedDamagerViewModel;
-            _damageableTags = damageableTags;
-        }
+        
+        public event Action<DamageablePhysics> CollisionEnterWithDamageable;
+        public event Action CollisionExitWithDamageable;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -24,7 +22,7 @@ namespace Features.DelayedDamager
                 if (collisionGameObject.CompareTag(_damageableTags[i]))
                 {
                     DamageablePhysics damageablePhysics = collisionGameObject.GetComponent<DamageablePhysics>();
-                    _delayedDamagerViewModel.StartDelayedDamageLogic(damageablePhysics.DamageableViewModel.DamageableLogic);
+                    CollisionEnterWithDamageable?.Invoke(damageablePhysics);
                     return;
                 }
             }
@@ -38,7 +36,7 @@ namespace Features.DelayedDamager
             {
                 if (collisionGameObject.CompareTag(_damageableTags[i]))
                 {
-                    _delayedDamagerViewModel.StopDelayedDamageLogic();
+                    CollisionExitWithDamageable?.Invoke();
                     return;
                 }
             }

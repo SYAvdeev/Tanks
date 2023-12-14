@@ -4,11 +4,11 @@ namespace Features.Damageable
 {
     public class DamageablePhysics : MonoBehaviour
     {
-        public DamageableViewModel DamageableViewModel { get; private set; }
+        public DamageableViewLogic DamageableViewLogic { get; private set; }
 
-        public void Initialize(DamageableViewModel damageableViewModel)
+        public void Initialize(DamageableViewLogic damageableViewLogic)
         {
-            DamageableViewModel = damageableViewModel;
+            DamageableViewLogic = damageableViewLogic;
         }
     }
 }

@@ -1,18 +1,15 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Features.Poolable
+namespace Features.Destroyable
 {
-    public class PoolableOnCollisionPhysics : MonoBehaviour
+    public class DestroyableOnCollisionPhysics : MonoBehaviour
     {
-        public PoolableViewModel PoolableViewModel { get; private set; }
+        [SerializeField]
         private List<string> _collisionTags;
 
-        public void Initialize(PoolableViewModel poolableViewModel, List<string> collisionTags)
-        {
-            PoolableViewModel = poolableViewModel;
-            _collisionTags = collisionTags;
-        }
+        public event Action Collision;
         
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -22,7 +19,7 @@ namespace Features.Poolable
             {
                 if (collisionGameObject.CompareTag(_collisionTags[i]))
                 {
-                    PoolableViewModel.AddToPool();
+                    Collision?.Invoke();
                     return;
                 }
             }

@@ -2,23 +2,21 @@ using UnityEngine;
 
 namespace Features.Damageable
 {
-    public class DamageableViewLogic
+    public class DamageableViewLogic : BaseViewLogic<DamageableViewModel, DamageableViewFacade>
     {
-        private readonly DamageableViewFacade _damageableViewFacade;
-        private readonly DamageableViewModel _damageableViewModel;
-
-        public DamageableViewLogic(DamageableViewFacade damageableViewFacade, DamageableViewModel damageableViewModel)
+        public DamageableViewModel DamageableViewModel => _viewModel;
+        
+        public DamageableViewLogic(DamageableViewModel damageableViewModel, DamageableViewFacade damageableViewFacade) : 
+            base(damageableViewModel, damageableViewFacade)
         {
-            _damageableViewFacade = damageableViewFacade;
-            _damageableViewModel = damageableViewModel;
-            
-            _damageableViewModel.HealthNormalized.OnValueChanged += HealthScaleOnOnValueChanged;
+            _viewModel.HealthNormalized.OnValueChanged += HealthScaleOnOnValueChanged;
+            _viewFacade.DamageablePhysics.Initialize(this);
         }
 
         private void HealthScaleOnOnValueChanged(float healthScale)
         {
-            Transform healthTransform = _damageableViewFacade.HealthTransform;
-            _damageableViewFacade.HealthTransform.localScale = new Vector3(healthScale, healthTransform.localScale.y);
+            Transform healthTransform = _viewFacade.HealthTransform;
+            _viewFacade.HealthTransform.localScale = new Vector3(healthScale, healthTransform.localScale.y);
         }
     }
 }

@@ -10,13 +10,13 @@ namespace Features
         public string ID { get; }
         public IModel Model { get; }
         public ILogicCollection LogicCollection { get; }
-        private IEnumerable<BaseViewModel> _viewModels;
+        public IEnumerable<BaseViewModel> ViewModels { get; }
 
         public Feature(string id, IModel model, IEnumerable<BaseViewModel> viewModels, ILogicCollection logicCollection)
         {
             ID = id;
             Model = model;
-            _viewModels = viewModels;
+            ViewModels = viewModels;
             LogicCollection = logicCollection;
         }
     }
