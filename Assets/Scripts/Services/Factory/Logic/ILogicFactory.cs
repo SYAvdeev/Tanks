@@ -1,5 +1,6 @@
 using Domain.Features;
 using Domain.Logic;
+using Services.Factory.Logic;
 
 namespace Services.Factory
 {

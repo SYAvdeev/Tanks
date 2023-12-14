@@ -1,3 +1,4 @@
+using Domain.Logic;
 using Domain.Logic.Damageable;
 using Domain.Logic.Damager;
 using Domain.Models;
@@ -8,9 +9,9 @@ namespace Features.DelayedDamager
     {
         private readonly IDelayedDamageLogic _delayedDamageLogic;
 
-        public DelayedDamagerViewModel(IModel model, IDelayedDamageLogic delayedDamageLogic) : base(model)
+        public DelayedDamagerViewModel(IModel model, ILogicCollection logicCollection) : base(model, logicCollection)
         {
-            _delayedDamageLogic = delayedDamageLogic;
+            _delayedDamageLogic = logicCollection.Get<IDelayedDamageLogic>();
         }
 
         public void StartDelayedDamageLogic(IDamageableLogic damageableLogic)

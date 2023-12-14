@@ -6,7 +6,7 @@ using Services.Factory.ViewModel;
 namespace Configs.ViewModel
 {
     [Serializable]
-    public class ViewFacadeDictionary : UnitySerializedDictionary<ViewModelFactoryType, BaseViewFacade>
+    public class ViewFacadeDictionary : UnitySerializedDictionary<ViewType, BaseViewFacade>
     {
         
     }

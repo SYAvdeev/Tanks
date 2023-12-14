@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Domain.Features;
-using Domain.Logic.Damageable;
 using Domain.Logic.Destroyable;
 using Domain.Logic.Level;
 using Domain.Logic.Startable;
@@ -20,6 +19,7 @@ namespace Domain.Logic.GameSpawn
         private readonly IReactiveListReadOnly<string> _spawnOnShootFeatureIDs;
         private readonly IReactiveProperty<int> _randomEnemiesSpawnCount;
         private readonly ISpawnOffScreenPositionLogic _spawnOffScreenPositionLogic;
+        
         private readonly ISpawnFeatureService _spawnFeatureService;
         private readonly Random _random;
 

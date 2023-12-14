@@ -37,6 +37,19 @@ namespace Services.Factory.Logic
                         feature.LogicCollection.Get<IRotateLogic>(), 
                         _container.Resolve<IInputService>());
                 
+                case LogicFactoryType.ShootInputControl:
+                    
+                    IFeature spawnFeature = _container.ResolveId<IFeature>(FeatureType.Spawn);
+                    return new ShootInputControlLogic(
+                        _container.Resolve<IInputService>(),
+                        spawnFeature.LogicCollection.Get<IGameSpawnLogic>());
+                    
+                case LogicFactoryType.InventoryInputControl:
+
+                    return new InventoryInputControlLogic(
+                        _container.Resolve<IInputService>(),
+                        feature.LogicCollection.Get<IInventoryLogic>());
+                    
                 case LogicFactoryType.Damager:
 
                     return new DamagerLogic(feature.Model.GetProperty<float>(ModelPropertyName.Damage));
@@ -74,7 +87,7 @@ namespace Services.Factory.Logic
                 
                 case LogicFactoryType.SpawnOffScreenPosition:
 
-                    IFeature cameraFeature = _container.ResolveId<IFeature>(FeatureFactoryType.Camera);
+                    IFeature cameraFeature = _container.ResolveId<IFeature>(FeatureType.Camera);
                     return new SpawnOffScreenPositionLogic(
                         cameraFeature.Model.GetProperty<float>(ModelPropertyName.PositionX),
                         cameraFeature.Model.GetProperty<float>(ModelPropertyName.PositionY),
@@ -84,7 +97,7 @@ namespace Services.Factory.Logic
                 
                 case LogicFactoryType.CameraCharacterMoveRestriction:
                     
-                    IFeature levelFeature = _container.ResolveId<IFeature>(FeatureFactoryType.Level);
+                    IFeature levelFeature = _container.ResolveId<IFeature>(FeatureType.Level);
                     return new CameraCharacterMoveRestrictionLogic(
                         feature.Model.GetProperty<float>(ModelPropertyName.SizeX),
                         feature.Model.GetProperty<float>(ModelPropertyName.SizeY),
@@ -93,14 +106,14 @@ namespace Services.Factory.Logic
                     
                 case LogicFactoryType.CharacterMoveRestriction:
                     
-                    cameraFeature = _container.ResolveId<IFeature>(FeatureFactoryType.Camera);
+                    cameraFeature = _container.ResolveId<IFeature>(FeatureType.Camera);
                     return new CharacterMoveRestrictionLogic(
                         cameraFeature.Model.GetProperty<float>(ModelPropertyName.SizeX),
                         cameraFeature.Model.GetProperty<float>(ModelPropertyName.SizeY));
                     
                 case LogicFactoryType.LookAtPlayer:
                     
-                    IFeature playerFeature = _container.ResolveId<IFeature>(FeatureFactoryType.Player);
+                    IFeature playerFeature = _container.ResolveId<IFeature>(FeatureType.Player);
                     return new LookAtLogic(
                         _container.Resolve<ITickService>(),
                         feature.Model.GetProperty<float>(ModelPropertyName.PositionX),
@@ -111,7 +124,7 @@ namespace Services.Factory.Logic
                     
                 case LogicFactoryType.MoveFollowPlayer:
                     
-                    playerFeature = _container.ResolveId<IFeature>(FeatureFactoryType.Player);
+                    playerFeature = _container.ResolveId<IFeature>(FeatureType.Player);
                     return new MoveFollowLogic(
                         _container.Resolve<ITickService>(),
                         feature.Model.GetProperty<float>(ModelPropertyName.PositionX),
@@ -136,7 +149,6 @@ namespace Services.Factory.Logic
                         _container.Resolve<ITickService>(),
                         feature.Model.GetProperty<float>(ModelPropertyName.RotationSpeed),
                         feature.Model.GetProperty<float>(ModelPropertyName.DirectionAngle));
-                    
                 default:
                     throw new ArgumentOutOfRangeException(nameof(logicType), logicType, null);
             }

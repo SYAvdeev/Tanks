@@ -1,3 +1,4 @@
+using Domain.Logic;
 using Domain.Models;
 using ReactiveTypes;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Features.Movable
         public IReactiveProperty<float> PositionY { get; }
         public IReactiveProperty<float> AngleDegrees { get; }
         
-        public MovableViewModel(IModel model) : base(model)
+        public MovableViewModel(IModel model, ILogicCollection logicCollection) : base(model, logicCollection)
         {
             PositionX = model.GetProperty<float>(ModelPropertyName.PositionX);
             PositionY = model.GetProperty<float>(ModelPropertyName.PositionY);

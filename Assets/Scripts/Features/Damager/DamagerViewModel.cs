@@ -1,3 +1,4 @@
+using Domain.Logic;
 using Domain.Logic.Damageable;
 using Domain.Logic.Damager;
 using Domain.Models;
@@ -8,9 +9,9 @@ namespace Features.Damager
     {
         private readonly IDamagerLogic _damagerLogic;
 
-        public DamagerViewModel(IModel model, IDamagerLogic damagerLogic) : base(model)
+        public DamagerViewModel(IModel model, ILogicCollection logicCollection) : base(model, logicCollection)
         {
-            _damagerLogic = damagerLogic;
+            _damagerLogic = logicCollection.Get<IDamagerLogic>();
         }
 
         public virtual void Damage(IDamageableLogic damageableLogic)

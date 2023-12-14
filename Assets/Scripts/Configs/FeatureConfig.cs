@@ -1,6 +1,6 @@
 using Configs.Model;
 using Data.Models;
-using Services.Factory;
+using Services.Factory.Logic;
 using UnityEngine;
 
 namespace Configs

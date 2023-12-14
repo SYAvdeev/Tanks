@@ -11,6 +11,11 @@ namespace Common.Collections
         {
             _dictionary = new Dictionary<Type, TBase>();
         }
+        
+        protected TypedCollection(int count)
+        {
+            _dictionary = new Dictionary<Type, TBase>(count);
+        }
 
         public bool TryGet<T>(out T value) where T : TBase
         {

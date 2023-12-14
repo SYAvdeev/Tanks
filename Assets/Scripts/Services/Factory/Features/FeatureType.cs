@@ -1,6 +1,6 @@
 namespace Services.Factory.Features
 {
-    public enum FeatureFactoryType
+    public enum FeatureType
     {
         Camera,
         Player,

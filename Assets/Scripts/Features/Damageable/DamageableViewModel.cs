@@ -1,3 +1,4 @@
+using Domain.Logic;
 using Domain.Logic.Damageable;
 using Domain.Models;
 using ReactiveTypes;
@@ -12,10 +13,10 @@ namespace Features.Damageable
         private readonly IReactiveProperty<float> _healthProperty;
         private readonly IReactiveProperty<float> _maxHealthProperty;
 
-        public DamageableViewModel(IModel model, IDamageableLogic damageableLogic) : base(model)
+        public DamageableViewModel(IModel model, ILogicCollection logicCollection) : base(model, logicCollection)
         {
             HealthNormalized = new ReactiveProperty<float>(CalculateHealthNormalized());
-            DamageableLogic = damageableLogic;
+            DamageableLogic = logicCollection.Get<IDamageableLogic>();
             
             _healthProperty = model.GetProperty<float>(ModelPropertyName.Health);
             _maxHealthProperty = model.GetProperty<float>(ModelPropertyName.MaxHealth);

@@ -1,6 +1,6 @@
 namespace Services.Factory.ViewModel
 {
-    public enum ViewModelFactoryType
+    public enum ViewType
     {
         Damageable,
         Damager,

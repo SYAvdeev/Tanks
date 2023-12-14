@@ -1,3 +1,4 @@
+using Domain.Logic;
 using Domain.Logic.Destroyable;
 using Domain.Models;
 
@@ -7,9 +8,10 @@ namespace Features.Destroyable
     {
         private readonly IDestroyableFeatureLogic _destroyableFeatureLogic;
 
-        public DestroyableViewModel(IModel model, IDestroyableFeatureLogic destroyableFeatureLogic) : base(model)
+        public DestroyableViewModel(IModel model, ILogicCollection logicCollection) :
+            base(model, logicCollection)
         {
-            _destroyableFeatureLogic = destroyableFeatureLogic;
+            _destroyableFeatureLogic = logicCollection.Get<IDestroyableFeatureLogic>();
         }
 
         public void Destroy()

@@ -9,7 +9,7 @@ namespace Domain.Services.Input
         StartTurnRight,
         StopTurnRight,
         Shoot,
-        NextWeapon,
-        PreviousWeapon
+        NextItem,
+        PreviousItem
     }
 }

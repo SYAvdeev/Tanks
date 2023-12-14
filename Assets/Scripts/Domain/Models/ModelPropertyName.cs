@@ -12,7 +12,6 @@ namespace Domain.Models
         RotationSpeed,
         Delay,
         CurrentDelay,
-        ViewKey,
         SizeX,
         SizeY,
         RandomEnemiesSpawnCount,
