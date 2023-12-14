@@ -62,7 +62,7 @@ namespace Data.Service
                     
                 }
                 
-                listData.SerializedValue = _serializeService.Serialize(list);
+                //listData.SerializedValue = _serializeService.Serialize(list);
             }
             
             foreach (KeyValuePair<ModelListName, IReactiveListReadOnlyUntyped> pair in model.Lists)
@@ -77,6 +77,11 @@ namespace Data.Service
         public void MapDataToModel(IModelData modelData, IModel model)
         {
             
+        }
+
+        public void MapModelToData(IModelData modelData, IModel model)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -50,7 +50,7 @@ namespace Domain.Logic.GameSpawn
             _enemyFeatures = new List<IFeature>();
         }
         
-        public override void Start()
+        public override async void Start()
         {
             foreach (string featureID in _spawnOnStartFeatureIDs)
             {
@@ -59,7 +59,7 @@ namespace Domain.Logic.GameSpawn
             
             foreach (string featureID in _playerFeatureIDs)
             {
-                IFeature playerFeature = _spawnFeatureService.Create(featureID);
+                IFeature playerFeature = await _spawnFeatureService.Create(featureID);
                 _playerFeatures.Add(playerFeature);
             }
 
@@ -69,10 +69,10 @@ namespace Domain.Logic.GameSpawn
             }
         }
 
-        private void SpawnRandomEnemy()
+        private async void SpawnRandomEnemy()
         {
             string randomID = _randomEnemiesFeatureIDs.Random(_random);
-            IFeature enemyFeature = _spawnFeatureService.Create(randomID);
+            IFeature enemyFeature = await _spawnFeatureService.Create(randomID);
             _enemyFeatures.Add(enemyFeature);
 
             IModel enemyFeatureModel = enemyFeature.Model;

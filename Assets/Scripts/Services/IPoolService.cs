@@ -1,4 +1,4 @@
-namespace Services.Pool
+namespace Services
 {
     public interface IPoolService<TObject>
     {
