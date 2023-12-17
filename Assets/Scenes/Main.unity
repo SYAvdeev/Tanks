@@ -588,6 +588,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8063632963490377969, guid: 4e62e0d8a38ff86488af67f7a4b2ba7e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8063632964358418102, guid: 4e62e0d8a38ff86488af67f7a4b2ba7e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

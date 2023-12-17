@@ -42,12 +42,7 @@ namespace Common.Collections
 
         public T Get<T>() where T : TBase
         {
-            if (TryGet(out T value))
-            {
-                return value;
-            }
-
-            throw new KeyNotFoundException($"Key {typeof(T)} was not found");
+            return TryGet(out T value) ? value : default;
         }
 
         public void Add<T>(T value) where T : TBase => _dictionary[value.GetType()] = value;

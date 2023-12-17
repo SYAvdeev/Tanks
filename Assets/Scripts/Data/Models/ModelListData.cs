@@ -7,6 +7,6 @@ namespace Data.Models
     public class ModelListData
     {
         public ValueTypeName ValueTypeName;
-        public List<string> SerializedValue;
+        public List<string> SerializedValues;
     }
 }

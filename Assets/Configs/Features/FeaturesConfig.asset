@@ -18,11 +18,13 @@ MonoBehaviour:
     - Player
     - Camera
     - Spawn
+    - Enemy0
     valueData:
     - {fileID: 11400000, guid: 0a3b1f224a52e3f41984bd80e5ef3dda, type: 2}
     - {fileID: 11400000, guid: 1e1ebdb10b360e04688d717ceb99595c, type: 2}
     - {fileID: 11400000, guid: fd9b90cb6130bda45b75f74ee482ad6f, type: 2}
     - {fileID: 11400000, guid: 02e1f9e36bddaa9429301c35eb111c6e, type: 2}
+    - {fileID: 11400000, guid: 1a41f5b540360ff4685c33463b4f5745, type: 2}
   bindableFeatureConfigs:
   - _featureID: Level
     _bindableFeatureType: 3

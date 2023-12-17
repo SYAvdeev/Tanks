@@ -6,6 +6,7 @@ using Domain.Logic.Control;
 using Domain.Logic.Damageable;
 using Domain.Logic.Damager;
 using Domain.Logic.Destroyable;
+using Domain.Logic.Enemy;
 using Domain.Logic.GameSpawn;
 using Domain.Logic.Inventory;
 using Domain.Logic.Level;
@@ -164,6 +165,14 @@ namespace Services.Factory.Logic
                         _container.Resolve<IStartService>(),
                         feature.Model.GetProperty<float>(ModelPropertyName.SizeX),
                         feature.Model.GetProperty<float>(ModelPropertyName.SizeY));
+
+                case LogicFactoryType.EnemySubscribe:
+
+                    return new EnemySubscribeLogic(
+                        feature.LogicCollection.Get<ILookAtLogic>(),
+                        feature.LogicCollection.Get<IMoveLogic>(),
+                        feature.LogicCollection.Get<IDelayedDamageLogic>(),
+                        feature.LogicCollection.Get<IDestroyableFeatureLogic>());
                 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(logicType), logicType, null);

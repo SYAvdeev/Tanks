@@ -18,6 +18,7 @@ namespace Services.Factory.Logic
         MoveFollowPlayer,
         MoveForward,
         Rotate,
-        CameraInitializeSize
+        CameraInitializeSize,
+        EnemySubscribe
     }
 }

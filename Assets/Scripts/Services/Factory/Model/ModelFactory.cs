@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using Data.Models;
 using Domain.Models;
 using ReactiveTypes;
@@ -43,10 +44,14 @@ namespace Services.Factory.Model
         public IReactiveListReadOnlyUntyped CreateModelList(ModelListData modelListData) =>
             modelListData.ValueTypeName switch
             {
-                ValueTypeName.Bool => new ReactiveList<bool>(),
-                ValueTypeName.Int => new ReactiveList<int>(),
-                ValueTypeName.Float => new ReactiveList<float>(),
-                ValueTypeName.String => new ReactiveList<string>(),
+                ValueTypeName.Bool =>
+                    new ReactiveList<bool>(modelListData.SerializedValues.Select(bool.Parse).ToList()),
+                ValueTypeName.Int => 
+                    new ReactiveList<int>(modelListData.SerializedValues.Select(int.Parse).ToList()),
+                ValueTypeName.Float =>
+                    new ReactiveList<float>(modelListData.SerializedValues.Select(float.Parse).ToList()),
+                ValueTypeName.String => 
+                    new ReactiveList<string>(modelListData.SerializedValues),
                 _ => throw new ArgumentOutOfRangeException()
             };
     }

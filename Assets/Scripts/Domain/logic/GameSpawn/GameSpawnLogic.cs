@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Domain.Features;
 using Domain.Logic.Destroyable;
+using Domain.Logic.Enemy;
 using Domain.Logic.Level;
 using Domain.Logic.Startable;
 using Domain.Models;
@@ -48,6 +49,7 @@ namespace Domain.Logic.GameSpawn
 
             _playerFeatures = new List<IFeature>();
             _enemyFeatures = new List<IFeature>();
+            Subscribe();
         }
         
         public override async void Start()
@@ -89,12 +91,21 @@ namespace Domain.Logic.GameSpawn
                 destroyableFeatureLogic.Destroyed += OnEnemyDestroyed;
             }
             
+            if (enemyFeature.LogicCollection.TryGet(out IEnemySubscribeLogic enemySubscribeLogic))
+            {
+                enemySubscribeLogic.Subscribe();
+            }
+            
             _enemyFeatures.Add(enemyFeature);
         }
 
         private void OnEnemyDestroyed(IFeature enemyFeature)
         {
             _enemyFeatures.Remove(enemyFeature);
+            if (enemyFeature.LogicCollection.TryGet(out IDestroyableFeatureLogic destroyableFeatureLogic))
+            {
+                destroyableFeatureLogic.Destroyed -= OnEnemyDestroyed;
+            }
             SpawnRandomEnemy();
         }
 

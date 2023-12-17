@@ -16,17 +16,16 @@ MonoBehaviour:
     keyData: 0d000000
     valueData:
     - ValueTypeName: 1
-      SerializedValue: 0
+      SerializedValue: 1
   _defaultListsData:
     keyData: 02000000010000000300000004000000
     valueData:
     - ValueTypeName: 3
-      SerializedValue:
-      - Player
+      SerializedValues: []
     - ValueTypeName: 3
-      SerializedValue:
-      - Camera
+      SerializedValues: []
     - ValueTypeName: 3
-      SerializedValue: []
+      SerializedValues:
+      - Enemy0
     - ValueTypeName: 3
-      SerializedValue: []
+      SerializedValues: []

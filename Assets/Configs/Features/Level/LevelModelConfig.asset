@@ -16,9 +16,9 @@ MonoBehaviour:
     keyData: 0b0000000c000000
     valueData:
     - ValueTypeName: 2
-      SerializedValue: 500
+      SerializedValue: 150
     - ValueTypeName: 2
-      SerializedValue: 500
+      SerializedValue: 150
   _defaultListsData:
     keyData: 
     valueData: []
