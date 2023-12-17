@@ -6,7 +6,6 @@ namespace Domain.Models
         SpawnOnStartFeatureIDs,
         PlayerFeatureIDs,
         RandomEnemiesFeatureIDs,
-        SpawnOnShootFeatureIDs,
-        RandomEnemiesSpawnCount
+        SpawnOnShootFeatureIDs
     }
 }

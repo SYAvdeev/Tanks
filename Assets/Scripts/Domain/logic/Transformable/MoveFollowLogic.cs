@@ -26,6 +26,8 @@ namespace Domain.Logic.Transformable
             _followingPositionXProperty = followingPositionXProperty;
             _followingPositionYProperty = followingPositionYProperty;
             _moveRestrictionLogic = moveRestrictionLogic;
+            
+            Subscribe();
         }
 
         public override void Tick(float deltaTime)

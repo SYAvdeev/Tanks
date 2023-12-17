@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Repositories.Configs
 {
-    [CreateAssetMenu(fileName ="Config", menuName = "Assets/Config/Spawn Config", order = 0)]
     public class SpawnConfig : ScriptableObject
     {
         [SerializeField] private float _playerSpawnPositionX;

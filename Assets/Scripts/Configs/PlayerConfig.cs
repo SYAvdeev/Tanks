@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Data.Config
 {
-    [CreateAssetMenu(fileName ="Config", menuName = "Assets/Config/Player Config", order = 2)]
     public class PlayerConfig : ScriptableObject
     {
         [SerializeField] private float _maxHealth;

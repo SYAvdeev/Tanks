@@ -1,21 +1,26 @@
 using System;
 using System.Collections.Generic;
-using Configs;
+using Configs.Feature;
 using Cysharp.Threading.Tasks;
 using Data.Models;
 using Domain.Features;
 using Domain.Logic;
 using Domain.Models;
 using Features;
+using Features.Camera;
 using Features.Damageable;
 using Features.Damager;
 using Features.DelayedDamager;
 using Features.Destroyable;
+using Features.Level;
 using Features.Movable;
 using Features.WeaponsInventory;
+using Services.Factory.GameObject;
 using Services.Factory.Logic;
+using Services.Factory.Model;
 using Services.Factory.View;
-using Services.Factory.ViewModel;
+using Services.PrototypeProvider;
+using Zenject;
 
 namespace Services.Factory.Features
 {
@@ -24,12 +29,12 @@ namespace Services.Factory.Features
         private readonly IModelFactory _modelFactory;
         private readonly ILogicFactory _logicFactory;
         private readonly IViewModelFactory _viewModelFactory;
-
         private readonly IPrototypeProvider _prototypeProvider;
         private readonly IGameObjectsFactory _gameObjectsFactory;
 
         private Feature _currentFeature;
 
+        [Inject]
         public FeatureBuilder(
             IModelFactory modelFactory,
             ILogicFactory logicFactory,
@@ -48,7 +53,10 @@ namespace Services.Factory.Features
         {
             BuildModel(featureConfig.ID, featureConfig.ModelData);
             BuildLogicCollection(featureConfig.LogicTypes);
-            await BuildView(featureConfig.FeatureRootAssetKey);
+            if (!string.IsNullOrEmpty(featureConfig.FeatureRootAssetKey))
+            {
+                await BuildView(featureConfig.FeatureRootAssetKey);
+            }
             return _currentFeature;
         }
 
@@ -85,12 +93,17 @@ namespace Services.Factory.Features
 
                 switch (pair.Key)
                 {
+                    case ViewType.Camera:
+                        CreateView<CameraViewModel, CameraViewFacade, CameraViewLogic>(_currentFeature, viewFacade);
+                        break;
+                    
                     case ViewType.Damageable:
                         
                         CreateView<DamageableViewModel, DamageableViewFacade, DamageableViewLogic>(_currentFeature, viewFacade);
                         break;
                     
                     case ViewType.Damager:
+                        
                         CreateView<DamagerViewModel, DamagerViewFacade, DamagerViewLogic>(_currentFeature, viewFacade);
                         break;
                     
@@ -113,7 +126,11 @@ namespace Services.Factory.Features
                         
                         CreateView<WeaponsInventoryViewModel, WeaponsInventoryViewFacade, WeaponsInventoryViewLogic>(_currentFeature, viewFacade);
                         break;
-                    
+
+                    case ViewType.Level:
+                        
+                        CreateView<LevelViewModel, LevelViewFacade, LevelViewLogic>(_currentFeature, viewFacade);
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

@@ -1,4 +1,4 @@
-namespace Services.Factory.ViewModel
+namespace Services.Factory.View
 {
     public enum ViewType
     {
@@ -7,6 +7,8 @@ namespace Services.Factory.ViewModel
         DelayedDamager,
         Movable,
         Destroyable,
-        WeaponsInventory
+        WeaponsInventory,
+        Camera,
+        Level
     }
 }

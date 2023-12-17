@@ -54,7 +54,7 @@ namespace Domain.Logic.GameSpawn
         {
             foreach (string featureID in _spawnOnStartFeatureIDs)
             {
-                _spawnFeatureService.Create(featureID);
+                await _spawnFeatureService.Create(featureID);
             }
             
             foreach (string featureID in _playerFeatureIDs)

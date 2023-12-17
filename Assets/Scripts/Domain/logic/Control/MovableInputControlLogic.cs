@@ -40,7 +40,7 @@ namespace Domain.Logic.Control
                     break;
                 case InputType.StartTurnRight:
                     _rotateLogic.IsClockwise = true;
-                    _rotateLogic.Subscribe(false);
+                    _rotateLogic.Subscribe(true);
                     break;
                 case InputType.StopTurnRight:
                     _rotateLogic.Subscribe(false);

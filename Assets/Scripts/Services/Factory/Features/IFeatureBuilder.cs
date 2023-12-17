@@ -1,4 +1,4 @@
-using Configs;
+using Configs.Feature;
 using Cysharp.Threading.Tasks;
 using Domain.Features;
 

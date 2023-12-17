@@ -30,8 +30,7 @@ namespace Domain.Logic.Level
             _borderIndices = new RandomUniqueCollection<LevelBorderType>(new []
             {
                 LevelBorderType.Top, LevelBorderType.Bottom, LevelBorderType.Left, LevelBorderType.Right
-            },
-                random);
+            }, random);
         }
 
         public (float, float) GetRandomOffScreenSpawnPosition()

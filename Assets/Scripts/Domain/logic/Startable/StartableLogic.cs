@@ -14,12 +14,12 @@ namespace Domain.Logic.Startable
 
         public abstract void Start();
 
-        protected override void Subscribe()
+        protected sealed override void Subscribe()
         {
             _startService.Start += Start;
         }
 
-        protected override void Unsubscribe()
+        protected sealed override void Unsubscribe()
         {
             _startService.Start -= Start;
         }

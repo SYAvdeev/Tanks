@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Data.Models;
 using Domain.Models;
 using ReactiveTypes;
 
-namespace Services.Factory
+namespace Services.Factory.Model
 {
     public class ModelFactory : IModelFactory
     {
@@ -26,15 +27,15 @@ namespace Services.Factory
                 modelLists.Add(pair.Key, CreateModelList(pair.Value));
             }
 
-            return new Model(modelProperties, modelLists);
+            return new Domain.Models.Model(modelProperties, modelLists);
         }
         
         public IReactivePropertyReadonlyUntyped CreateModelProperty(ModelPropertyData modelPropertyData) =>
             modelPropertyData.ValueTypeName switch
             {
-                ValueTypeName.Bool => new ReactiveProperty<bool>(Convert.ToBoolean(modelPropertyData.SerializedValue)),
-                ValueTypeName.Int => new ReactiveProperty<int>(Convert.ToInt32(modelPropertyData.SerializedValue)),
-                ValueTypeName.Float => new ReactiveProperty<float>(Convert.ToSingle(modelPropertyData.SerializedValue)),
+                ValueTypeName.Bool => new ReactiveProperty<bool>(bool.Parse(modelPropertyData.SerializedValue)),
+                ValueTypeName.Int => new ReactiveProperty<int>(int.Parse(modelPropertyData.SerializedValue)),
+                ValueTypeName.Float => new ReactiveProperty<float>(float.Parse(modelPropertyData.SerializedValue, CultureInfo.InvariantCulture)),
                 ValueTypeName.String => new ReactiveProperty<string>(modelPropertyData.SerializedValue),
                 _ => throw new ArgumentOutOfRangeException()
             };

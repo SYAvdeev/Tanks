@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Repositories.Configs
 {
-    [CreateAssetMenu(fileName ="Config", menuName = "Assets/Config/Weapon Config", order = 3)]
     public class WeaponConfig : ScriptableObject
     {
         [SerializeField] private string _name;

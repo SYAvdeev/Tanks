@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2437654375913566471}
-  - component: {fileID: 350992744816571113}
+  - component: {fileID: 952007144989804744}
+  - component: {fileID: 4961488400622388114}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -34,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &350992744816571113
+--- !u!114 &952007144989804744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,13 +44,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2437654375913566472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8611a3d8bd3b462eb232d36a16d00896, type: 3}
+  m_Script: {fileID: 11500000, guid: 67dd2395baa54f8f92869120cf201551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotateTransform: {fileID: 2437654376136421933}
-  _health: {fileID: 3312595683054262504}
-  _config: {fileID: 11400000, guid: e4d97b24694a9594798125cb8e3ddc36, type: 2}
-  _weaponsParent: {fileID: 2437654376196529089}
+  _viewFacadeDictionary:
+    keyData: 0000000003000000
+    valueData:
+    - {fileID: 5389707649235835752}
+    - {fileID: 4961488400622388114}
+--- !u!114 &4961488400622388114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2437654375913566472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03eb85be43843d9949237cc6244a48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 2437654375913566471}
+  _rotationTransform: {fileID: 2437654376136421933}
 --- !u!1 &2437654376136421934
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,6 +77,7 @@ GameObject:
   - component: {fileID: 2437654376136421933}
   - component: {fileID: 2437654376136421932}
   - component: {fileID: 1120956330792967864}
+  - component: {fileID: 4003911713842632718}
   m_Layer: 3
   m_Name: RotateObject
   m_TagString: Player
@@ -162,6 +179,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
+--- !u!114 &4003911713842632718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2437654376136421934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92490bf442254a028645e4cbb86e157a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2437654376196529090
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3312595683054262504}
   - component: {fileID: 7930801076730398602}
+  - component: {fileID: 5389707649235835752}
   m_Layer: 7
   m_Name: Health
   m_TagString: Untagged
@@ -277,3 +307,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5389707649235835752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2889429288543646173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b6063da3154056b5d9f2eed84921d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthTransform: {fileID: 3312595683054262504}
+  _damageablePhysics: {fileID: 4003911713842632718}

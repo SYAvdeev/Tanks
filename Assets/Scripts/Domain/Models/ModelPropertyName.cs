@@ -4,6 +4,7 @@ namespace Domain.Models
     {
         Health,
         MaxHealth,
+        Protection,
         Damage,
         PositionX,
         PositionY,

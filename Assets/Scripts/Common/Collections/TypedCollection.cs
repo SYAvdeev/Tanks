@@ -19,9 +19,20 @@ namespace Common.Collections
 
         public bool TryGet<T>(out T value) where T : TBase
         {
-            if (_dictionary.TryGetValue(typeof(T), out TBase valueBase))
+            Type type = typeof(T);
+            if (_dictionary.TryGetValue(type, out TBase valueBase))
             {
                 value = (T)valueBase;
+                return true;
+            }
+
+            foreach (KeyValuePair<Type, TBase> pair in _dictionary)
+            {
+                if (!type.IsAssignableFrom(pair.Key))
+                {
+                    continue;
+                }
+                value = (T)pair.Value;
                 return true;
             }
 
@@ -29,8 +40,16 @@ namespace Common.Collections
             return false;
         }
 
-        public T Get<T>() where T : TBase => (T)_dictionary[typeof(T)];
+        public T Get<T>() where T : TBase
+        {
+            if (TryGet(out T value))
+            {
+                return value;
+            }
 
-        public void Add<T>(T value) where T : TBase => _dictionary[typeof(T)] = value;
+            throw new KeyNotFoundException($"Key {typeof(T)} was not found");
+        }
+
+        public void Add<T>(T value) where T : TBase => _dictionary[value.GetType()] = value;
     }
 }

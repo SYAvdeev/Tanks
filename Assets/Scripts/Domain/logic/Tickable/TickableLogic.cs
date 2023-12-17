@@ -14,12 +14,12 @@ namespace Domain.Logic.Tickable
         
         public abstract void Tick(float deltaTime);
 
-        protected override void Subscribe()
+        protected sealed override void Subscribe()
         {
             _tickService.Tick += Tick;
         }
 
-        protected override void Unsubscribe()
+        protected sealed override void Unsubscribe()
         {
             _tickService.Tick -= Tick;
         }

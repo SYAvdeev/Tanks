@@ -1,7 +1,9 @@
 using System;
 using Domain.Features;
 using Domain.Logic;
+using Domain.Logic.Camera;
 using Domain.Logic.Control;
+using Domain.Logic.Damageable;
 using Domain.Logic.Damager;
 using Domain.Logic.Destroyable;
 using Domain.Logic.GameSpawn;
@@ -39,7 +41,7 @@ namespace Services.Factory.Logic
                 
                 case LogicFactoryType.ShootInputControl:
                     
-                    IFeature spawnFeature = _container.ResolveId<IFeature>(FeatureType.Spawn);
+                    IFeature spawnFeature = _container.ResolveId<IFeature>(BindableFeatureType.Spawn);
                     return new ShootInputControlLogic(
                         _container.Resolve<IInputService>(),
                         spawnFeature.LogicCollection.Get<IGameSpawnLogic>());
@@ -87,7 +89,7 @@ namespace Services.Factory.Logic
                 
                 case LogicFactoryType.SpawnOffScreenPosition:
 
-                    IFeature cameraFeature = _container.ResolveId<IFeature>(FeatureType.Camera);
+                    IFeature cameraFeature = _container.ResolveId<IFeature>(BindableFeatureType.Camera);
                     return new SpawnOffScreenPositionLogic(
                         cameraFeature.Model.GetProperty<float>(ModelPropertyName.PositionX),
                         cameraFeature.Model.GetProperty<float>(ModelPropertyName.PositionY),
@@ -97,7 +99,7 @@ namespace Services.Factory.Logic
                 
                 case LogicFactoryType.CameraCharacterMoveRestriction:
                     
-                    IFeature levelFeature = _container.ResolveId<IFeature>(FeatureType.Level);
+                    IFeature levelFeature = _container.ResolveId<IFeature>(BindableFeatureType.Level);
                     return new CameraCharacterMoveRestrictionLogic(
                         feature.Model.GetProperty<float>(ModelPropertyName.SizeX),
                         feature.Model.GetProperty<float>(ModelPropertyName.SizeY),
@@ -106,14 +108,14 @@ namespace Services.Factory.Logic
                     
                 case LogicFactoryType.CharacterMoveRestriction:
                     
-                    cameraFeature = _container.ResolveId<IFeature>(FeatureType.Camera);
+                    levelFeature = _container.ResolveId<IFeature>(BindableFeatureType.Level);
                     return new CharacterMoveRestrictionLogic(
-                        cameraFeature.Model.GetProperty<float>(ModelPropertyName.SizeX),
-                        cameraFeature.Model.GetProperty<float>(ModelPropertyName.SizeY));
+                        levelFeature.Model.GetProperty<float>(ModelPropertyName.SizeX),
+                        levelFeature.Model.GetProperty<float>(ModelPropertyName.SizeY));
                     
                 case LogicFactoryType.LookAtPlayer:
                     
-                    IFeature playerFeature = _container.ResolveId<IFeature>(FeatureType.Player);
+                    IFeature playerFeature = _container.ResolveId<IFeature>(BindableFeatureType.Player);
                     return new LookAtLogic(
                         _container.Resolve<ITickService>(),
                         feature.Model.GetProperty<float>(ModelPropertyName.PositionX),
@@ -124,7 +126,7 @@ namespace Services.Factory.Logic
                     
                 case LogicFactoryType.MoveFollowPlayer:
                     
-                    playerFeature = _container.ResolveId<IFeature>(FeatureType.Player);
+                    playerFeature = _container.ResolveId<IFeature>(BindableFeatureType.Player);
                     return new MoveFollowLogic(
                         _container.Resolve<ITickService>(),
                         feature.Model.GetProperty<float>(ModelPropertyName.PositionX),
@@ -149,6 +151,20 @@ namespace Services.Factory.Logic
                         _container.Resolve<ITickService>(),
                         feature.Model.GetProperty<float>(ModelPropertyName.RotationSpeed),
                         feature.Model.GetProperty<float>(ModelPropertyName.DirectionAngle));
+                
+                case LogicFactoryType.Damageable:
+
+                    return new DamageableLogic(
+                        feature.Model.GetProperty<float>(ModelPropertyName.Health),
+                        feature.Model.GetProperty<float>(ModelPropertyName.Protection));
+
+                case LogicFactoryType.CameraInitializeSize:
+
+                    return new CameraInitializeSizeLogic(
+                        _container.Resolve<IStartService>(),
+                        feature.Model.GetProperty<float>(ModelPropertyName.SizeX),
+                        feature.Model.GetProperty<float>(ModelPropertyName.SizeY));
+                
                 default:
                     throw new ArgumentOutOfRangeException(nameof(logicType), logicType, null);
             }

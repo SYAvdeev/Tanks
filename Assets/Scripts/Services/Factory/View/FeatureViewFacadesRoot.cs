@@ -1,7 +1,7 @@
 using Configs.ViewModel;
 using UnityEngine;
 
-namespace Services.Factory.ViewModel
+namespace Services.Factory.View
 {
     public class FeatureViewFacadesRoot : MonoBehaviour
     {

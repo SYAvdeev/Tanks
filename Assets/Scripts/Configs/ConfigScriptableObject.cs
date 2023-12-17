@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Data.Config
 {
-    [CreateAssetMenu(fileName ="Config", menuName = "Assets/Config/Main Config", order = 0)]
     public class ConfigScriptableObject : ScriptableObject
     {
         [SerializeField] private PlayerConfig playerConfig;

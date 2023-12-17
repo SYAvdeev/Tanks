@@ -2,7 +2,7 @@ using Data.Models;
 using Domain.Models;
 using ReactiveTypes;
 
-namespace Services.Factory
+namespace Services.Factory.Model
 {
     public interface IModelFactory
     {

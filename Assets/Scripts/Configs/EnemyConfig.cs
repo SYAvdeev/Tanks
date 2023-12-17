@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Data.Config
 {
-    [CreateAssetMenu(fileName ="Config", menuName = "Assets/Config/Enemy Config", order = 1)]
     public class EnemyConfig : ScriptableObject
     {
         [SerializeField] private string _name;

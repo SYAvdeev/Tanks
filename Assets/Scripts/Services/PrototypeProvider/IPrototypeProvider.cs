@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
 
-namespace Services
+namespace Services.PrototypeProvider
 {
     public interface IPrototypeProvider
     {

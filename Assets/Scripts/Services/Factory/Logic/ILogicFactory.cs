@@ -1,8 +1,7 @@
 using Domain.Features;
 using Domain.Logic;
-using Services.Factory.Logic;
 
-namespace Services.Factory
+namespace Services.Factory.Logic
 {
     public interface ILogicFactory
     {

@@ -15,11 +15,11 @@ namespace Features.Damageable
 
         public DamageableViewModel(IModel model, ILogicCollection logicCollection) : base(model, logicCollection)
         {
-            HealthNormalized = new ReactiveProperty<float>(CalculateHealthNormalized());
-            DamageableLogic = logicCollection.Get<IDamageableLogic>();
-            
             _healthProperty = model.GetProperty<float>(ModelPropertyName.Health);
             _maxHealthProperty = model.GetProperty<float>(ModelPropertyName.MaxHealth);
+            
+            HealthNormalized = new ReactiveProperty<float>(CalculateHealthNormalized());
+            DamageableLogic = logicCollection.Get<IDamageableLogic>();
 
             _healthProperty.OnValueChanged += HealthPropertyOnOnValueChanged;
         }

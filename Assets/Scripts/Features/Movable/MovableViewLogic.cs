@@ -25,7 +25,7 @@ namespace Features.Movable
 
         private void DirectionAngleOnOnValueChanged(float angle)
         {
-            _viewFacade.Transform.localRotation = Quaternion.Euler(0f, 0f, angle);
+            _viewFacade.RotationTransform.localRotation = Quaternion.Euler(0f, 0f, angle);
         }
     }
 }

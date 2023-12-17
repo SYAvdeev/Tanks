@@ -5,6 +5,7 @@ namespace Services.Factory.Logic
         MovableInputControl,
         ShootInputControl,
         InventoryInputControl,
+        Damageable,
         Damager,
         DelayedDamage,
         DestroyFeatureOnDie,
@@ -16,6 +17,7 @@ namespace Services.Factory.Logic
         LookAtPlayer,
         MoveFollowPlayer,
         MoveForward,
-        Rotate
+        Rotate,
+        CameraInitializeSize
     }
 }

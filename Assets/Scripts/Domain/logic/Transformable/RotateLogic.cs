@@ -7,23 +7,23 @@ namespace Domain.Logic.Transformable
     public class RotateLogic : TickableLogic, IRotateLogic
     {
         private readonly IReactiveProperty<float> _rotationSpeed;
-        private readonly IReactiveProperty<float> _transformableDirectionAngle;
+        private readonly IReactiveProperty<float> _directionAngle;
 
         public bool IsClockwise { private get; set; }
 
         public RotateLogic(
             ITickService tickService,
             IReactiveProperty<float> rotationSpeed,
-            IReactiveProperty<float> transformableDirectionAngle) : base(tickService)
+            IReactiveProperty<float> directionAngle) : base(tickService)
         {
             _rotationSpeed = rotationSpeed;
-            _transformableDirectionAngle = transformableDirectionAngle;
+            _directionAngle = directionAngle;
             IsClockwise = false;
         }
 
         public override void Tick(float deltaTime)
         {
-            _transformableDirectionAngle.Value += (IsClockwise ? 1f : -1f) * _rotationSpeed.Value * deltaTime;
+            _directionAngle.Value += (IsClockwise ? 1f : -1f) * _rotationSpeed.Value * deltaTime;
         }
     }
 }
