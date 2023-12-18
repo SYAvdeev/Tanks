@@ -5,6 +5,7 @@ using Domain.Logic.Destroyable;
 using Domain.Logic.Enemy;
 using Domain.Logic.Level;
 using Domain.Logic.Startable;
+using Domain.Logic.Transformable;
 using Domain.Models;
 using Domain.Services;
 using ReactiveTypes;
@@ -15,39 +16,38 @@ namespace Domain.Logic.GameSpawn
     public class GameSpawnLogic : StartableLogic, IGameSpawnLogic
     {
         private readonly IReactiveListReadOnly<string> _spawnOnStartFeatureIDs;
-        private readonly IReactiveListReadOnly<string> _playerFeatureIDs;
         private readonly IReactiveListReadOnly<string> _randomEnemiesFeatureIDs;
         private readonly IReactiveListReadOnly<string> _spawnOnShootFeatureIDs;
         private readonly IReactiveProperty<int> _randomEnemiesSpawnCount;
         private readonly ISpawnOffScreenPositionLogic _spawnOffScreenPositionLogic;
         
+        private readonly IFeature _playerFeature;
+
         private readonly ISpawnFeatureService _spawnFeatureService;
         private readonly Random _random;
 
-        private readonly IList<IFeature> _playerFeatures;
         private readonly IList<IFeature> _enemyFeatures;
 
         public GameSpawnLogic(
             IStartService startService,
             ISpawnFeatureService spawnFeatureService,
             IReactiveListReadOnly<string> spawnOnStartFeatureIDs,
-            IReactiveListReadOnly<string> playerFeatureIDs, 
             IReactiveListReadOnly<string> randomEnemiesFeatureIDs,
             IReactiveListReadOnly<string> spawnOnShootFeatureIDs,
             IReactiveProperty<int> randomEnemiesSpawnCount,
             ISpawnOffScreenPositionLogic spawnOffScreenPositionLogic,
+            IFeature playerFeature,
             Random random) : base(startService)
         {
             _spawnOnStartFeatureIDs = spawnOnStartFeatureIDs;
-            _playerFeatureIDs = playerFeatureIDs;
             _randomEnemiesFeatureIDs = randomEnemiesFeatureIDs;
             _spawnOnShootFeatureIDs = spawnOnShootFeatureIDs;
             _randomEnemiesSpawnCount = randomEnemiesSpawnCount;
             _spawnOffScreenPositionLogic = spawnOffScreenPositionLogic;
+            _playerFeature = playerFeature;
             _spawnFeatureService = spawnFeatureService;
             _random = random;
 
-            _playerFeatures = new List<IFeature>();
             _enemyFeatures = new List<IFeature>();
             Subscribe();
         }
@@ -57,12 +57,6 @@ namespace Domain.Logic.GameSpawn
             foreach (string featureID in _spawnOnStartFeatureIDs)
             {
                 await _spawnFeatureService.Create(featureID);
-            }
-            
-            foreach (string featureID in _playerFeatureIDs)
-            {
-                IFeature playerFeature = await _spawnFeatureService.Create(featureID);
-                _playerFeatures.Add(playerFeature);
             }
 
             for (int i = 0; i < _randomEnemiesSpawnCount.Value; i++)
@@ -91,9 +85,9 @@ namespace Domain.Logic.GameSpawn
                 destroyableFeatureLogic.Destroyed += OnEnemyDestroyed;
             }
             
-            if (enemyFeature.LogicCollection.TryGet(out IEnemySubscribeLogic enemySubscribeLogic))
+            if (enemyFeature.LogicCollection.TryGet(out IEnemyOnSpawnLogic enemyOnSpawnLogic))
             {
-                enemySubscribeLogic.Subscribe();
+                enemyOnSpawnLogic.Subscribe();
             }
             
             _enemyFeatures.Add(enemyFeature);
@@ -109,11 +103,25 @@ namespace Domain.Logic.GameSpawn
             SpawnRandomEnemy();
         }
 
-        public void SpawnOnShoot()
+        public async void SpawnOnShoot()
         {
             foreach (string featureID in _spawnOnShootFeatureIDs)
             {
-                _spawnFeatureService.Create(featureID);
+                IFeature feature = await _spawnFeatureService.Create(featureID);
+
+                IReactiveProperty<float> positionX = feature.Model.GetProperty<float>(ModelPropertyName.PositionX);
+                IReactiveProperty<float> positionY = feature.Model.GetProperty<float>(ModelPropertyName.PositionY);
+                IReactiveProperty<float> directionAngle = feature.Model.GetProperty<float>(ModelPropertyName.DirectionAngle);
+                
+                IReactiveProperty<float> playerPositionX = _playerFeature.Model.GetProperty<float>(ModelPropertyName.PositionX);
+                IReactiveProperty<float> playerPositionY = _playerFeature.Model.GetProperty<float>(ModelPropertyName.PositionY);
+                IReactiveProperty<float> playerDirectionAngle = _playerFeature.Model.GetProperty<float>(ModelPropertyName.DirectionAngle);
+
+                positionX.Value = playerPositionX.Value;
+                positionY.Value = playerPositionY.Value;
+                directionAngle.Value = playerDirectionAngle.Value;
+                
+                feature.LogicCollection.Get<IMoveLogic>().Subscribe(true);
             }
         }
     }

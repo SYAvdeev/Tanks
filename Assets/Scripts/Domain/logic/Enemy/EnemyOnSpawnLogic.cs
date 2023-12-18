@@ -5,14 +5,14 @@ using Domain.Logic.Transformable;
 
 namespace Domain.Logic.Enemy
 {
-    public class EnemySubscribeLogic : IEnemySubscribeLogic
+    public class EnemyOnSpawnLogic : IEnemyOnSpawnLogic
     {
         private readonly ILookAtLogic _lookAtLogic;
         private readonly IMoveLogic _moveLogic;
         private readonly IDelayedDamageLogic _delayedDamageLogic;
         private readonly IDestroyableFeatureLogic _destroyableFeatureLogic;
 
-        public EnemySubscribeLogic(
+        public EnemyOnSpawnLogic(
             ILookAtLogic lookAtLogic, 
             IMoveLogic moveLogic, 
             IDelayedDamageLogic delayedDamageLogic,

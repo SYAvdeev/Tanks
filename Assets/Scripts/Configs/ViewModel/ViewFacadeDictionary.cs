@@ -1,7 +1,7 @@
 using System;
 using Common;
 using Features;
-using Services.Factory.View;
+using Services.Factory.ViewModel;
 
 namespace Configs.ViewModel
 {

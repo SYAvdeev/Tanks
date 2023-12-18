@@ -15,10 +15,9 @@ using Features.Destroyable;
 using Features.Level;
 using Features.Movable;
 using Features.WeaponsInventory;
-using Services.Factory.GameObject;
 using Services.Factory.Logic;
 using Services.Factory.Model;
-using Services.Factory.View;
+using Services.Factory.ViewModel;
 using Services.PrototypeProvider;
 using Zenject;
 
@@ -29,8 +28,7 @@ namespace Services.Factory.Features
         private readonly IModelFactory _modelFactory;
         private readonly ILogicFactory _logicFactory;
         private readonly IViewModelFactory _viewModelFactory;
-        private readonly IPrototypeProvider _prototypeProvider;
-        private readonly IGameObjectsFactory _gameObjectsFactory;
+        private readonly IAssetsSpawnService _assetsSpawnService;
 
         private Feature _currentFeature;
 
@@ -39,14 +37,12 @@ namespace Services.Factory.Features
             IModelFactory modelFactory,
             ILogicFactory logicFactory,
             IViewModelFactory viewModelFactory,
-            IPrototypeProvider prototypeProvider,
-            IGameObjectsFactory gameObjectsFactory)
+            IAssetsSpawnService assetsSpawnService)
         {
             _modelFactory = modelFactory;
             _logicFactory = logicFactory;
             _viewModelFactory = viewModelFactory;
-            _prototypeProvider = prototypeProvider;
-            _gameObjectsFactory = gameObjectsFactory;
+            _assetsSpawnService = assetsSpawnService;
         }
 
         public async UniTask<IFeature> Build(FeatureConfig featureConfig)
@@ -77,17 +73,13 @@ namespace Services.Factory.Features
 
         private async UniTask BuildView(string rootAssetKey)
         {
-            FeatureViewFacadesRoot featureViewFacadesRootPrefab =
-                await _prototypeProvider.Get<FeatureViewFacadesRoot>(rootAssetKey);
+            FeatureViewRoot featureViewRoot = await
+                _assetsSpawnService.Spawn<FeatureViewRoot>(rootAssetKey);
 
-            FeatureViewFacadesRoot featureViewFacadesRoot = 
-                _gameObjectsFactory.Instantiate(featureViewFacadesRootPrefab.gameObject)
-                    .GetComponent<FeatureViewFacadesRoot>();
+            _currentFeature.ViewModels = new ViewModelsCollection(featureViewRoot.ViewFacadeDictionary.Count);
+            _currentFeature.ViewsLogic = new ViewLogicCollection(featureViewRoot.ViewFacadeDictionary.Count);
 
-            _currentFeature.ViewModels = new ViewModelsCollection(featureViewFacadesRoot.ViewFacadeDictionary.Count);
-            _currentFeature.ViewsLogic = new ViewLogicCollection(featureViewFacadesRoot.ViewFacadeDictionary.Count);
-
-            foreach (KeyValuePair<ViewType, BaseViewFacade> pair in featureViewFacadesRoot.ViewFacadeDictionary)
+            foreach (KeyValuePair<ViewType, BaseViewFacade> pair in featureViewRoot.ViewFacadeDictionary)
             {
                 BaseViewFacade viewFacade = pair.Value;
 

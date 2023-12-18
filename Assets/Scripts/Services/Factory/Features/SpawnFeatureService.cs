@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Configs.Feature;
 using Domain.Features;
 using Domain.Services;
+using Services.PrototypeProvider;
 using Zenject;
 
 namespace Services.Factory.Features
@@ -11,16 +12,19 @@ namespace Services.Factory.Features
         private readonly FeaturesConfig _featuresConfig;
         private readonly IPoolService<IFeature> _featuresPoolService;
         private readonly IFeatureBuilder _featureBuilder;
+        private readonly IAssetsSpawnService _assetsSpawnService;
 
         [Inject]
         public SpawnFeatureService(
             IPoolService<IFeature> featuresPoolService, 
             IFeatureBuilder featureBuilder, 
-            FeaturesConfig featuresConfig)
+            FeaturesConfig featuresConfig,
+            IAssetsSpawnService assetsSpawnService)
         {
             _featuresPoolService = featuresPoolService;
             _featureBuilder = featureBuilder;
             _featuresConfig = featuresConfig;
+            _assetsSpawnService = assetsSpawnService;
         }
 
         public async Task<IFeature> Create(string id)
@@ -37,6 +41,7 @@ namespace Services.Factory.Features
         public void Delete(IFeature feature)
         {
             _featuresPoolService.Add(feature.ID, feature);
+            //_assetsSpawnService.AddToPool();
         }
     }
 }

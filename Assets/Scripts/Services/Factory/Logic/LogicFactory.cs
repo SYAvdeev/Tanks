@@ -42,10 +42,12 @@ namespace Services.Factory.Logic
                 
                 case LogicFactoryType.ShootInputControl:
                     
-                    IFeature spawnFeature = _container.ResolveId<IFeature>(BindableFeatureType.Spawn);
                     return new ShootInputControlLogic(
+                        _container.Resolve<ITickService>(),
                         _container.Resolve<IInputService>(),
-                        spawnFeature.LogicCollection.Get<IGameSpawnLogic>());
+                        feature.Model.GetProperty<float>(ModelPropertyName.Delay), 
+                        feature.Model.GetProperty<float>(ModelPropertyName.CurrentDelay),
+                        feature.LogicCollection.Get<IGameSpawnLogic>());
                     
                 case LogicFactoryType.InventoryInputControl:
 
@@ -67,6 +69,13 @@ namespace Services.Factory.Logic
                     
                 case LogicFactoryType.DestroyFeatureOnDie:
 
+                    return new DestroyableFeatureOnDie(
+                        feature.LogicCollection.Get<IDamageableLogic>(),
+                        feature,
+                        _container.Resolve<ISpawnFeatureService>());
+                
+                case LogicFactoryType.Destroyable:
+                    
                     return new DestroyableFeatureLogic(feature, _container.Resolve<ISpawnFeatureService>());
                     
                 case LogicFactoryType.GameSpawn:
@@ -75,18 +84,18 @@ namespace Services.Factory.Logic
                         _container.Resolve<IStartService>(),
                         _container.Resolve<ISpawnFeatureService>(),
                         feature.Model.GetList<string>(ModelListName.SpawnOnStartFeatureIDs),
-                        feature.Model.GetList<string>(ModelListName.PlayerFeatureIDs),
                         feature.Model.GetList<string>(ModelListName.RandomEnemiesFeatureIDs),
                         feature.Model.GetList<string>(ModelListName.SpawnOnShootFeatureIDs),
                         feature.Model.GetProperty<int>(ModelPropertyName.RandomEnemiesSpawnCount),
                         feature.LogicCollection.Get<ISpawnOffScreenPositionLogic>(),
+                        _container.ResolveId<IFeature>(BindableFeatureType.Player),
                         _container.Resolve<Random>());
                 
                 case LogicFactoryType.Inventory:
 
                     return new InventoryLogic(
-                        feature.Model.GetProperty<int>(ModelPropertyName.CurrentItemID),
-                        feature.Model.GetList<int>(ModelListName.ItemIDs));
+                        feature.Model.GetProperty<string>(ModelPropertyName.CurrentItemID),
+                        feature.Model.GetList<string>(ModelListName.ItemIDs));
                 
                 case LogicFactoryType.SpawnOffScreenPosition:
 
@@ -168,11 +177,12 @@ namespace Services.Factory.Logic
 
                 case LogicFactoryType.EnemySubscribe:
 
-                    return new EnemySubscribeLogic(
+                    return new EnemyOnSpawnLogic(
                         feature.LogicCollection.Get<ILookAtLogic>(),
                         feature.LogicCollection.Get<IMoveLogic>(),
                         feature.LogicCollection.Get<IDelayedDamageLogic>(),
                         feature.LogicCollection.Get<IDestroyableFeatureLogic>());
+
                 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(logicType), logicType, null);

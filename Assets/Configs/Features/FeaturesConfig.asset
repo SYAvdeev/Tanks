@@ -19,12 +19,18 @@ MonoBehaviour:
     - Camera
     - Spawn
     - Enemy0
+    - Bullet
+    - Weapon0
+    - Weapon1
     valueData:
     - {fileID: 11400000, guid: 0a3b1f224a52e3f41984bd80e5ef3dda, type: 2}
     - {fileID: 11400000, guid: 1e1ebdb10b360e04688d717ceb99595c, type: 2}
     - {fileID: 11400000, guid: fd9b90cb6130bda45b75f74ee482ad6f, type: 2}
     - {fileID: 11400000, guid: 02e1f9e36bddaa9429301c35eb111c6e, type: 2}
     - {fileID: 11400000, guid: 1a41f5b540360ff4685c33463b4f5745, type: 2}
+    - {fileID: 11400000, guid: 02a5c487cac2611449d43c8e862270b7, type: 2}
+    - {fileID: 11400000, guid: de5a5af5d6ff4f646a1e8aa3497befb9, type: 2}
+    - {fileID: 11400000, guid: c4d6496d665c50e46a39cfac3e987c0b, type: 2}
   bindableFeatureConfigs:
   - _featureID: Level
     _bindableFeatureType: 3

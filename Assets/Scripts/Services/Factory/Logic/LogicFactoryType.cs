@@ -19,6 +19,7 @@ namespace Services.Factory.Logic
         MoveForward,
         Rotate,
         CameraInitializeSize,
-        EnemySubscribe
+        EnemySubscribe,
+        Destroyable
     }
 }

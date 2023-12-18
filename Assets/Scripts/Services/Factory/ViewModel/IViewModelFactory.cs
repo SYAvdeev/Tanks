@@ -2,7 +2,7 @@ using Domain.Logic;
 using Domain.Models;
 using Features;
 
-namespace Services.Factory.View
+namespace Services.Factory.ViewModel
 {
     public interface IViewModelFactory
     {

@@ -1,9 +1,9 @@
 using Configs.ViewModel;
 using UnityEngine;
 
-namespace Services.Factory.View
+namespace Services.Factory.ViewModel
 {
-    public class FeatureViewFacadesRoot : MonoBehaviour
+    public class FeatureViewRoot : MonoBehaviour
     {
         [SerializeField]
         private ViewFacadeDictionary _viewFacadeDictionary;

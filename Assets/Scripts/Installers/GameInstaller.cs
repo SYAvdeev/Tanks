@@ -6,10 +6,10 @@ using Domain.Services;
 using Domain.Services.Input;
 using Services;
 using Services.Factory.Features;
-using Services.Factory.GameObject;
+using Services.Factory.GameObjects;
 using Services.Factory.Logic;
 using Services.Factory.Model;
-using Services.Factory.View;
+using Services.Factory.ViewModel;
 using Services.PrototypeProvider;
 using UnityEngine;
 using Zenject;
@@ -29,6 +29,8 @@ namespace Installers
         private InputService _inputService;
         [SerializeField]
         private TickableService _tickableService;
+        [SerializeField]
+        private GameObjectsPoolService _gameObjectsPoolService;
 
         public override async void InstallBindings()
         {
@@ -65,6 +67,8 @@ namespace Installers
             Container.Bind<IViewModelFactory>().To<ViewModelFactory>().AsSingle();
             Container.Bind<IGameObjectsFactory>().To<GameObjectsFactory>().AsSingle();
             Container.Bind<IPrototypeProvider>().To<AddressablesPrototypeProvider>().AsSingle();
+            Container.Bind<IPoolService<GameObject>>().FromInstance(_gameObjectsPoolService).AsSingle();
+            Container.Bind<IAssetsSpawnService>().To<AssetsSpawnService>().AsSingle();
             Container.Bind<IFeatureBuilder>().To<FeatureBuilder>().AsSingle();
         }
 

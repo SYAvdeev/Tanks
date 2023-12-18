@@ -18,8 +18,14 @@ MonoBehaviour:
     - Camera
     - Level
     - Enemy0
+    - Bullet
+    - Weapon0
+    - Weapon1
     valueData:
     - {fileID: 11400000, guid: 5378dc818ac1c70438719595fb8b6968, type: 2}
     - {fileID: 11400000, guid: 1dea86abd2888d346895d0a29437b9b2, type: 2}
     - {fileID: 11400000, guid: 2d4d6b64988418f4cbecc773630806d4, type: 2}
     - {fileID: 11400000, guid: 196a73412fa71f0408f03a9aa41b1f95, type: 2}
+    - {fileID: 11400000, guid: 3701fde3135665e48bfdf578cd61b10a, type: 2}
+    - {fileID: 11400000, guid: 95bcd062f5a820e48aca7e23775b82aa, type: 2}
+    - {fileID: 11400000, guid: 232ff5714f6a0c643b4d33f70eb8159b, type: 2}

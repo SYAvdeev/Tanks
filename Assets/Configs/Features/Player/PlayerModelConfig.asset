@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerModelConfig
   m_EditorClassIdentifier: 
   _defaultPropertiesData:
-    keyData: 0400000005000000060000000700000008000000000000000200000001000000
+    keyData: 04000000050000000600000007000000080000000000000002000000010000000e000000
     valueData:
     - ValueTypeName: 2
       SerializedValue: 0
@@ -31,6 +31,12 @@ MonoBehaviour:
       SerializedValue: 0.2
     - ValueTypeName: 2
       SerializedValue: 100
+    - ValueTypeName: 3
+      SerializedValue: Weapon0
   _defaultListsData:
-    keyData: 
-    valueData: []
+    keyData: 00000000
+    valueData:
+    - ValueTypeName: 3
+      SerializedValues:
+      - Weapon0
+      - Weapon1

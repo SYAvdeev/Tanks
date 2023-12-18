@@ -1,6 +1,6 @@
 namespace Domain.Logic.Enemy
 {
-    public interface IEnemySubscribeLogic : ILogic
+    public interface IEnemyOnSpawnLogic : ILogic
     {
         void Subscribe();
         void Unsubscribe();

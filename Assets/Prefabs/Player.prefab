@@ -48,10 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewFacadeDictionary:
-    keyData: 0000000003000000
+    keyData: 000000000300000005000000
     valueData:
     - {fileID: 5389707649235835752}
     - {fileID: 4961488400622388114}
+    - {fileID: 718961509416744741}
 --- !u!114 &4961488400622388114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2437654376196529089}
+  - component: {fileID: 718961509416744741}
   m_Layer: 3
   m_Name: WeaponRoot
   m_TagString: Player
@@ -222,6 +224,19 @@ Transform:
   m_Father: {fileID: 2437654376136421933}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &718961509416744741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2437654376196529090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a316f290184a83be9e2cd81b7777a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponsParent: {fileID: 2437654376196529089}
 --- !u!1 &2889429288543646173
 GameObject:
   m_ObjectHideFlags: 0

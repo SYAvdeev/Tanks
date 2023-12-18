@@ -167,6 +167,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &533709968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 533709970}
+  - component: {fileID: 533709969}
+  m_Layer: 0
+  m_Name: GameObjectsPoolService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &533709969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533709968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a186e7c1e79b4ca1903dbd2ce974e755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parent: {fileID: 533709970}
+--- !u!4 &533709970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533709968}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8583749, y: 3.868853, z: -0.09961229}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &559681706
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +306,7 @@ RectTransform:
   m_Children:
   - {fileID: 1825018415}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -302,6 +347,7 @@ MonoBehaviour:
   _prototypesConfig: {fileID: 11400000, guid: bffce6fbc73640e499494dad3552b943, type: 2}
   _inputService: {fileID: 1418842044}
   _tickableService: {fileID: 84334214}
+  _gameObjectsPoolService: {fileID: 533709969}
 --- !u!114 &1018513574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,8 +443,8 @@ MonoBehaviour:
   _rotateRightKey: 275
   _rotateLeftKey: 276
   _shootKey: 120
-  _nextItemKey: 0
-  _previousItemKey: 0
+  _nextItemKey: 119
+  _previousItemKey: 113
   _pauseKey: 27
 --- !u!1 &1475919646
 GameObject:
@@ -466,7 +512,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1825018415 stripped
 RectTransform:

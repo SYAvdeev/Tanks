@@ -1,4 +1,4 @@
-namespace Services.Factory.View
+namespace Services.Factory.ViewModel
 {
     public enum ViewType
     {

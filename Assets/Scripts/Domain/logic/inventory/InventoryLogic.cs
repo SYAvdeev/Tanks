@@ -5,39 +5,39 @@ namespace Domain.Logic.Inventory
 {
     public class InventoryLogic : IInventoryLogic
     {
-        private readonly IReactiveProperty<int> _currentItemIDProperty;
-        private readonly IReactiveList<int> _itemIDsProperty;
+        private readonly IReactiveProperty<string> _currentItemIDProperty;
+        private readonly IReactiveList<string> _itemIDsProperty;
         
         private int _currentItemIndex;
 
         public InventoryLogic(
-            IReactiveProperty<int> currentItemIDProperty,
-            IReactiveList<int> itemIDsProperty)
+            IReactiveProperty<string> currentItemIDProperty,
+            IReactiveList<string> itemIDsProperty)
         {
             _currentItemIDProperty = currentItemIDProperty;
             _itemIDsProperty = itemIDsProperty;
             
-            int currentItemID = currentItemIDProperty.Value;
+            string currentItemID = currentItemIDProperty.Value;
             _currentItemIndex = itemIDsProperty.IndexOf(currentItemID);
             
             itemIDsProperty.OnClear += ItemIDsPropertyOnOnClear;
             itemIDsProperty.OnRemoveItem += ItemIDsPropertyOnOnRemoveItem;
         }
 
-        private void ItemIDsPropertyOnOnRemoveItem(GenericPairEventArgs<int, int> pair)
+        private void ItemIDsPropertyOnOnRemoveItem(GenericPairEventArgs<int, string> pair)
         {
             if (_currentItemIDProperty.Value == pair.Value)
             {
-                SetCurrentItem(0);
+                SetCurrentItem("");
             }
         }
 
-        private void ItemIDsPropertyOnOnClear(GenericEventArg<IEnumerable<int>> obj)
+        private void ItemIDsPropertyOnOnClear(GenericEventArg<IEnumerable<string>> obj)
         {
-            SetCurrentItem(0);
+            SetCurrentItem("");
         }
 
-        public void SetCurrentItem(int id)
+        public void SetCurrentItem(string id)
         {
             _currentItemIDProperty.Value = id;
             _currentItemIndex = CurrentItemIndex(id);
@@ -65,6 +65,6 @@ namespace Domain.Logic.Inventory
             SetCurrentItem(_itemIDsProperty[_currentItemIndex]);
         }
         
-        private int CurrentItemIndex(int id) => _itemIDsProperty.IndexOf(id);
+        private int CurrentItemIndex(string id) => _itemIDsProperty.IndexOf(id);
     }
 }

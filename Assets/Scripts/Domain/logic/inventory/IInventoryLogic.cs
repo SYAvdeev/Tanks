@@ -2,7 +2,7 @@ namespace Domain.Logic.Inventory
 {
     public interface IInventoryLogic : ILogic
     {
-        void SetCurrentItem(int id);
+        void SetCurrentItem(string id);
 
         void ChooseNextItem();
 
