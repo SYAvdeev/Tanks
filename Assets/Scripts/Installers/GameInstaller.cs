@@ -14,6 +14,7 @@ using Services.Factory.ViewModel;
 using Services.PrototypeProvider;
 using UnityEngine;
 using Zenject;
+using Random = System.Random;
 
 namespace Installers
 {
@@ -35,7 +36,7 @@ namespace Installers
 
         public override async void InstallBindings()
         {
-            Container.Bind<System.Random>().To<System.Random>().AsSingle();
+            Container.Bind<Random>().To<Random>().AsSingle();
             BindConfigs();
             BindFactories();
             BindServices();

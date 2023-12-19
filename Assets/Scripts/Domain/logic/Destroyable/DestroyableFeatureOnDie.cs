@@ -1,6 +1,5 @@
 using Domain.Features;
 using Domain.Logic.Damageable;
-using Domain.Services;
 
 namespace Domain.Logic.Destroyable
 {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Data.Config
+namespace Configs
 {
     public class EnemyConfig : ScriptableObject
     {

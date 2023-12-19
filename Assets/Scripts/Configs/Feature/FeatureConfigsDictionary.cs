@@ -1,6 +1,5 @@
 using System;
 using Common;
-using Services.Factory.Features;
 
 namespace Configs.Feature
 {

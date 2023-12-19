@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Repositories.Configs
+namespace Configs
 {
     public class WeaponConfig : ScriptableObject
     {

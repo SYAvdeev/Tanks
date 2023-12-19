@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Domain.Features;
 using Features;
 
 namespace Services.Factory.Features

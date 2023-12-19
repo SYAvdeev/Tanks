@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using Repositories.Configs;
 using UnityEngine;
 
-namespace Data.Config
+namespace Configs
 {
     public class ConfigScriptableObject : ScriptableObject
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Data.Models;
 using Domain.Models;
@@ -81,7 +82,7 @@ namespace Data.Service
 
         public void MapModelToData(IModelData modelData, IModel model)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
