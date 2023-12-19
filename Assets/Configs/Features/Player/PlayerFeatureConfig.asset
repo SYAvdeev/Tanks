@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Player
   _modelConfig: {fileID: 11400000, guid: 05514d9ea33a8da43bae0e10d343177c, type: 2}
-  _logicTypes: 0b0000000e0000000f000000030000000000000008000000
+  _logicTypes: 0b0000000e0000000f00000003000000000000000800000002000000
   _featureRootAssetKey: Player

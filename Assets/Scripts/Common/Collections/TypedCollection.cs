@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Common.Collections
 {
@@ -43,6 +45,12 @@ namespace Common.Collections
         public T Get<T>() where T : TBase
         {
             return TryGet(out T value) ? value : default;
+        }
+
+        public IEnumerable<T> GetAll<T>() where T : TBase
+        {
+            Type type = typeof(T);
+            return _dictionary.Where(pair => type.IsAssignableFrom(pair.Key)).Select(pair => pair.Value).Cast<T>();
         }
 
         public void Add<T>(T value) where T : TBase => _dictionary[value.GetType()] = value;

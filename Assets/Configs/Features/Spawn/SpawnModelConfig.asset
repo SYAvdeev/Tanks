@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpawnModelConfig
   m_EditorClassIdentifier: 
   _defaultPropertiesData:
-    keyData: 0d000000090000000a000000
+    keyData: 0d000000090000000a0000000f000000
     valueData:
     - ValueTypeName: 1
       SerializedValue: 1
@@ -21,16 +21,15 @@ MonoBehaviour:
       SerializedValue: 2
     - ValueTypeName: 2
       SerializedValue: 2
+    - ValueTypeName: 3
+      SerializedValue: Bullet
   _defaultListsData:
-    keyData: 02000000010000000400000003000000
+    keyData: 020000000100000003000000
     valueData:
     - ValueTypeName: 3
       SerializedValues: []
     - ValueTypeName: 3
       SerializedValues: []
-    - ValueTypeName: 3
-      SerializedValues:
-      - Bullet
     - ValueTypeName: 3
       SerializedValues:
       - Enemy0

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Configs.Feature;
 using Cysharp.Threading.Tasks;
 using Data.Models;
-using Domain.Features;
 using Domain.Logic;
 using Domain.Models;
 using Features;
@@ -14,11 +13,13 @@ using Features.DelayedDamager;
 using Features.Destroyable;
 using Features.Level;
 using Features.Movable;
+using Features.Spawn;
 using Features.WeaponsInventory;
 using Services.Factory.Logic;
 using Services.Factory.Model;
 using Services.Factory.ViewModel;
 using Services.PrototypeProvider;
+using UnityEngine;
 using Zenject;
 
 namespace Services.Factory.Features
@@ -47,11 +48,28 @@ namespace Services.Factory.Features
 
         public async UniTask<IFeature> Build(FeatureConfig featureConfig)
         {
+            return await BuildInternal(
+                featureConfig, 
+                () => _assetsSpawnService.Spawn<FeatureViewRoot>(featureConfig.FeatureRootAssetKey));
+        }
+
+        public async UniTask<IFeature> Build(FeatureConfig featureConfig, Transform viewParent)
+        {
+            return await BuildInternal(
+                featureConfig, 
+                () => _assetsSpawnService.Spawn<FeatureViewRoot>(featureConfig.FeatureRootAssetKey, viewParent));
+        }
+        
+        private async UniTask<IFeature> BuildInternal(FeatureConfig featureConfig, Func<UniTask<FeatureViewRoot>> spawnFunction)
+        {
             BuildModel(featureConfig.ID, featureConfig.ModelData);
             BuildLogicCollection(featureConfig.LogicTypes);
-            if (!string.IsNullOrEmpty(featureConfig.FeatureRootAssetKey))
+            
+            string featureRootAssetKey = featureConfig.FeatureRootAssetKey;
+            if (!string.IsNullOrEmpty(featureRootAssetKey))
             {
-                await BuildView(featureConfig.FeatureRootAssetKey);
+                FeatureViewRoot featureViewRoot = await spawnFunction();
+                BuildView(featureViewRoot);
             }
             return _currentFeature;
         }
@@ -71,11 +89,9 @@ namespace Services.Factory.Features
             }
         }
 
-        private async UniTask BuildView(string rootAssetKey)
+        private void BuildView(FeatureViewRoot featureViewRoot)
         {
-            FeatureViewRoot featureViewRoot = await
-                _assetsSpawnService.Spawn<FeatureViewRoot>(rootAssetKey);
-
+            _currentFeature.ViewRoot = featureViewRoot;
             _currentFeature.ViewModels = new ViewModelsCollection(featureViewRoot.ViewFacadeDictionary.Count);
             _currentFeature.ViewsLogic = new ViewLogicCollection(featureViewRoot.ViewFacadeDictionary.Count);
 
@@ -123,6 +139,11 @@ namespace Services.Factory.Features
                         
                         CreateView<LevelViewModel, LevelViewFacade, LevelViewLogic>(_currentFeature, viewFacade);
                         break;
+
+                    case ViewType.Spawn:
+                        CreateView<SpawnViewModel, SpawnViewFacade, SpawnViewLogic>(_currentFeature, viewFacade);
+                        break;
+                    
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

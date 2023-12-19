@@ -1,26 +1,22 @@
 using System;
 using Domain.Features;
-using Domain.Services;
 
 namespace Domain.Logic.Destroyable
 {
     public class DestroyableFeatureLogic : IDestroyableFeatureLogic
     {
-        private readonly IFeature _feature;
-        private readonly ISpawnFeatureService _spawnFeatureService;
+        private readonly IFeatureBase _featureBase;
 
-        public event Action<IFeature> Destroyed;
+        public event Action<IFeatureBase> Destroyed;
 
-        public DestroyableFeatureLogic(IFeature feature, ISpawnFeatureService spawnFeatureService)
+        public DestroyableFeatureLogic(IFeatureBase featureBase)
         {
-            _feature = feature;
-            _spawnFeatureService = spawnFeatureService;
+            _featureBase = featureBase;
         }
 
         public void Destroy()
         {
-            _spawnFeatureService.Delete(_feature);
-            Destroyed?.Invoke(_feature);
+            Destroyed?.Invoke(_featureBase);
         }
     }
 }

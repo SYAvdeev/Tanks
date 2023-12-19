@@ -9,6 +9,7 @@ namespace Services.Factory.ViewModel
         Destroyable,
         WeaponsInventory,
         Camera,
-        Level
+        Level,
+        Spawn
     }
 }

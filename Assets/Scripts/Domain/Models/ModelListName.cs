@@ -5,7 +5,7 @@ namespace Domain.Models
         ItemIDs,
         SpawnOnStartFeatureIDs,
         PlayerFeatureIDs,
-        RandomEnemiesFeatureIDs,
-        SpawnOnShootFeatureIDs
+        RandomEnemiesFeatureIDs
+        
     }
 }

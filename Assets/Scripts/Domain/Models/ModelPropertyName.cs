@@ -16,6 +16,7 @@ namespace Domain.Models
         SizeX,
         SizeY,
         RandomEnemiesSpawnCount,
-        CurrentItemID
+        CurrentItemID,
+        SpawnOnShootFeatureID
     }
 }

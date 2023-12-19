@@ -4,6 +4,7 @@ using Configs.Prototype;
 using Domain.Features;
 using Domain.Services;
 using Domain.Services.Input;
+using Features;
 using Services;
 using Services.Factory.Features;
 using Services.Factory.GameObjects;
@@ -55,8 +56,8 @@ namespace Installers
                 BindableFeatureConfig bindableFeatureConfig = _featuresConfig.BindableFeatureConfigs[i];
                 FeatureConfig featureConfig = _featuresConfig.AllFeatureConfigs[bindableFeatureConfig.FeatureID];
                 IFeatureBuilder featureBuilder = Container.Resolve<IFeatureBuilder>();
-                IFeature feature = await featureBuilder.Build(featureConfig);
-                Container.Bind<IFeature>().WithId(bindableFeatureConfig.BindableFeatureType).FromInstance(feature);
+                IFeatureBase featureBase = await featureBuilder.Build(featureConfig);
+                Container.Bind<IFeatureBase>().WithId(bindableFeatureConfig.BindableFeatureType).FromInstance(featureBase);
             }
         }
 

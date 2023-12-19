@@ -6,10 +6,10 @@ using Domain.Logic.Control;
 using Domain.Logic.Damageable;
 using Domain.Logic.Damager;
 using Domain.Logic.Destroyable;
-using Domain.Logic.Enemy;
 using Domain.Logic.GameSpawn;
 using Domain.Logic.Inventory;
 using Domain.Logic.Level;
+using Domain.Logic.Tickable;
 using Domain.Logic.Transformable;
 using Domain.Models;
 using Domain.Services;
@@ -29,15 +29,15 @@ namespace Services.Factory.Logic
             _container = container;
         }
 
-        public ILogic CreateLogic(LogicFactoryType logicType, IFeature feature)
+        public ILogic CreateLogic(LogicFactoryType logicType, IFeatureBase featureBase)
         {
             switch (logicType)
             {
                 case LogicFactoryType.MovableInputControl:
                     
                     return new MovableInputControlLogic(
-                        feature.LogicCollection.Get<IMoveLogic>(),
-                        feature.LogicCollection.Get<IRotateLogic>(), 
+                        featureBase.LogicCollection.Get<IMoveLogic>(),
+                        featureBase.LogicCollection.Get<IRotateLogic>(), 
                         _container.Resolve<IInputService>());
                 
                 case LogicFactoryType.ShootInputControl:
@@ -45,144 +45,148 @@ namespace Services.Factory.Logic
                     return new ShootInputControlLogic(
                         _container.Resolve<ITickService>(),
                         _container.Resolve<IInputService>(),
-                        feature.Model.GetProperty<float>(ModelPropertyName.Delay), 
-                        feature.Model.GetProperty<float>(ModelPropertyName.CurrentDelay),
-                        feature.LogicCollection.Get<IGameSpawnLogic>());
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.Delay), 
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.CurrentDelay),
+                        featureBase.LogicCollection.Get<IGameSpawnLogic>());
                     
                 case LogicFactoryType.InventoryInputControl:
 
                     return new InventoryInputControlLogic(
                         _container.Resolve<IInputService>(),
-                        feature.LogicCollection.Get<IInventoryLogic>());
+                        featureBase.LogicCollection.Get<IInventoryLogic>());
                     
                 case LogicFactoryType.Damager:
 
-                    return new DamagerLogic(feature.Model.GetProperty<float>(ModelPropertyName.Damage));
+                    return new DamagerLogic(featureBase.Model.GetProperty<float>(ModelPropertyName.Damage));
                 
                 case LogicFactoryType.DelayedDamage:
 
                     return new DelayedDamageLogic(
                         _container.Resolve<ITickService>(), 
-                        feature.Model.GetProperty<float>(ModelPropertyName.Delay), 
-                        feature.Model.GetProperty<float>(ModelPropertyName.CurrentDelay),
-                        feature.LogicCollection.Get<IDamagerLogic>());
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.Delay), 
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.CurrentDelay),
+                        featureBase.LogicCollection.Get<IDamagerLogic>());
                     
                 case LogicFactoryType.DestroyFeatureOnDie:
 
                     return new DestroyableFeatureOnDie(
-                        feature.LogicCollection.Get<IDamageableLogic>(),
-                        feature,
-                        _container.Resolve<ISpawnFeatureService>());
+                        featureBase.LogicCollection.Get<IDamageableLogic>(), featureBase);
                 
                 case LogicFactoryType.Destroyable:
                     
-                    return new DestroyableFeatureLogic(feature, _container.Resolve<ISpawnFeatureService>());
+                    return new DestroyableFeatureLogic(featureBase);
                     
                 case LogicFactoryType.GameSpawn:
                     
                     return new GameSpawnLogic(
                         _container.Resolve<IStartService>(),
-                        _container.Resolve<ISpawnFeatureService>(),
-                        feature.Model.GetList<string>(ModelListName.SpawnOnStartFeatureIDs),
-                        feature.Model.GetList<string>(ModelListName.RandomEnemiesFeatureIDs),
-                        feature.Model.GetList<string>(ModelListName.SpawnOnShootFeatureIDs),
-                        feature.Model.GetProperty<int>(ModelPropertyName.RandomEnemiesSpawnCount),
-                        feature.LogicCollection.Get<ISpawnOffScreenPositionLogic>(),
-                        _container.ResolveId<IFeature>(BindableFeatureType.Player),
+                        featureBase.Model.GetList<string>(ModelListName.RandomEnemiesFeatureIDs),
+                        featureBase.Model.GetProperty<string>(ModelPropertyName.SpawnOnShootFeatureID),
+                        featureBase.Model.GetProperty<int>(ModelPropertyName.RandomEnemiesSpawnCount),
+                        featureBase.LogicCollection.Get<ISpawnOffScreenPositionLogic>(),
+                        _container.ResolveId<IFeatureBase>(BindableFeatureType.Player),
                         _container.Resolve<Random>());
                 
                 case LogicFactoryType.Inventory:
 
                     return new InventoryLogic(
-                        feature.Model.GetProperty<string>(ModelPropertyName.CurrentItemID),
-                        feature.Model.GetList<string>(ModelListName.ItemIDs));
+                        featureBase.Model.GetProperty<string>(ModelPropertyName.CurrentItemID),
+                        featureBase.Model.GetList<string>(ModelListName.ItemIDs));
                 
                 case LogicFactoryType.SpawnOffScreenPosition:
 
-                    IFeature cameraFeature = _container.ResolveId<IFeature>(BindableFeatureType.Camera);
+                    IFeatureBase cameraFeatureBase = _container.ResolveId<IFeatureBase>(BindableFeatureType.Camera);
                     return new SpawnOffScreenPositionLogic(
-                        cameraFeature.Model.GetProperty<float>(ModelPropertyName.PositionX),
-                        cameraFeature.Model.GetProperty<float>(ModelPropertyName.PositionY),
-                        cameraFeature.Model.GetProperty<float>(ModelPropertyName.SizeX),
-                        cameraFeature.Model.GetProperty<float>(ModelPropertyName.SizeY),
+                        cameraFeatureBase.Model.GetProperty<float>(ModelPropertyName.PositionX),
+                        cameraFeatureBase.Model.GetProperty<float>(ModelPropertyName.PositionY),
+                        cameraFeatureBase.Model.GetProperty<float>(ModelPropertyName.SizeX),
+                        cameraFeatureBase.Model.GetProperty<float>(ModelPropertyName.SizeY),
                         _container.Resolve<Random>());
                 
                 case LogicFactoryType.CameraCharacterMoveRestriction:
                     
-                    IFeature levelFeature = _container.ResolveId<IFeature>(BindableFeatureType.Level);
+                    IFeatureBase levelFeatureBase = _container.ResolveId<IFeatureBase>(BindableFeatureType.Level);
                     return new CameraCharacterMoveRestrictionLogic(
-                        feature.Model.GetProperty<float>(ModelPropertyName.SizeX),
-                        feature.Model.GetProperty<float>(ModelPropertyName.SizeY),
-                        levelFeature.Model.GetProperty<float>(ModelPropertyName.SizeX),
-                        levelFeature.Model.GetProperty<float>(ModelPropertyName.SizeY));
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.SizeX),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.SizeY),
+                        levelFeatureBase.Model.GetProperty<float>(ModelPropertyName.SizeX),
+                        levelFeatureBase.Model.GetProperty<float>(ModelPropertyName.SizeY));
                     
                 case LogicFactoryType.CharacterMoveRestriction:
                     
-                    levelFeature = _container.ResolveId<IFeature>(BindableFeatureType.Level);
+                    levelFeatureBase = _container.ResolveId<IFeatureBase>(BindableFeatureType.Level);
                     return new CharacterMoveRestrictionLogic(
-                        levelFeature.Model.GetProperty<float>(ModelPropertyName.SizeX),
-                        levelFeature.Model.GetProperty<float>(ModelPropertyName.SizeY));
+                        levelFeatureBase.Model.GetProperty<float>(ModelPropertyName.SizeX),
+                        levelFeatureBase.Model.GetProperty<float>(ModelPropertyName.SizeY));
                     
                 case LogicFactoryType.LookAtPlayer:
                     
-                    IFeature playerFeature = _container.ResolveId<IFeature>(BindableFeatureType.Player);
+                    IFeatureBase playerFeatureBase = _container.ResolveId<IFeatureBase>(BindableFeatureType.Player);
                     return new LookAtLogic(
                         _container.Resolve<ITickService>(),
-                        feature.Model.GetProperty<float>(ModelPropertyName.PositionX),
-                        feature.Model.GetProperty<float>(ModelPropertyName.PositionY),
-                        feature.Model.GetProperty<float>(ModelPropertyName.DirectionAngle),
-                        playerFeature.Model.GetProperty<float>(ModelPropertyName.PositionX),
-                        playerFeature.Model.GetProperty<float>(ModelPropertyName.PositionY));
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.PositionX),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.PositionY),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.DirectionAngle),
+                        playerFeatureBase.Model.GetProperty<float>(ModelPropertyName.PositionX),
+                        playerFeatureBase.Model.GetProperty<float>(ModelPropertyName.PositionY));
                     
                 case LogicFactoryType.MoveFollowPlayer:
                     
-                    playerFeature = _container.ResolveId<IFeature>(BindableFeatureType.Player);
+                    playerFeatureBase = _container.ResolveId<IFeatureBase>(BindableFeatureType.Player);
                     return new MoveFollowLogic(
                         _container.Resolve<ITickService>(),
-                        feature.Model.GetProperty<float>(ModelPropertyName.PositionX),
-                        feature.Model.GetProperty<float>(ModelPropertyName.PositionY),
-                        playerFeature.Model.GetProperty<float>(ModelPropertyName.PositionX),
-                        playerFeature.Model.GetProperty<float>(ModelPropertyName.PositionY),
-                        feature.LogicCollection.Get<IMoveRestrictionLogic>());
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.PositionX),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.PositionY),
+                        playerFeatureBase.Model.GetProperty<float>(ModelPropertyName.PositionX),
+                        playerFeatureBase.Model.GetProperty<float>(ModelPropertyName.PositionY),
+                        featureBase.LogicCollection.Get<IMoveRestrictionLogic>());
                     
                 case LogicFactoryType.MoveForward:
 
                     return new MoveForwardLogic(
                         _container.Resolve<ITickService>(),
-                        feature.Model.GetProperty<float>(ModelPropertyName.PositionX),
-                        feature.Model.GetProperty<float>(ModelPropertyName.PositionY),
-                        feature.Model.GetProperty<float>(ModelPropertyName.DirectionAngle),
-                        feature.Model.GetProperty<float>(ModelPropertyName.Speed),
-                        feature.LogicCollection.Get<IMoveRestrictionLogic>());
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.PositionX),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.PositionY),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.DirectionAngle),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.Speed),
+                        featureBase.LogicCollection.Get<IMoveRestrictionLogic>());
                     
                 case LogicFactoryType.Rotate:
 
                     return new RotateLogic(
                         _container.Resolve<ITickService>(),
-                        feature.Model.GetProperty<float>(ModelPropertyName.RotationSpeed),
-                        feature.Model.GetProperty<float>(ModelPropertyName.DirectionAngle));
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.RotationSpeed),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.DirectionAngle));
                 
                 case LogicFactoryType.Damageable:
 
                     return new DamageableLogic(
-                        feature.Model.GetProperty<float>(ModelPropertyName.Health),
-                        feature.Model.GetProperty<float>(ModelPropertyName.Protection));
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.Health),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.Protection));
 
                 case LogicFactoryType.CameraInitializeSize:
 
                     return new CameraInitializeSizeLogic(
                         _container.Resolve<IStartService>(),
-                        feature.Model.GetProperty<float>(ModelPropertyName.SizeX),
-                        feature.Model.GetProperty<float>(ModelPropertyName.SizeY));
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.SizeX),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.SizeY));
 
-                case LogicFactoryType.EnemySubscribe:
+                case LogicFactoryType.DestroyableTickableUnsubscribe:
 
-                    return new EnemyOnSpawnLogic(
-                        feature.LogicCollection.Get<ILookAtLogic>(),
-                        feature.LogicCollection.Get<IMoveLogic>(),
-                        feature.LogicCollection.Get<IDelayedDamageLogic>(),
-                        feature.LogicCollection.Get<IDestroyableFeatureLogic>());
+                    return new DestroyableTickableUnsubscribeLogic(
+                        featureBase.LogicCollection.GetAll<ITickableLogic>(),
+                        featureBase.LogicCollection.Get<IDestroyableFeatureLogic>());
 
+                case LogicFactoryType.DestroyableFeatureOutOfLevelBounds:
+                    
+                    levelFeatureBase = _container.ResolveId<IFeatureBase>(BindableFeatureType.Level);
+                    return new DestroyableFeatureOutOfLevelBoundsLogic(
+                        levelFeatureBase.Model.GetProperty<float>(ModelPropertyName.SizeX),
+                        levelFeatureBase.Model.GetProperty<float>(ModelPropertyName.SizeY),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.PositionX),
+                        featureBase.Model.GetProperty<float>(ModelPropertyName.PositionY),
+                        featureBase,
+                        _container.Resolve<ITickService>());
                 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(logicType), logicType, null);

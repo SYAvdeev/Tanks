@@ -5,7 +5,7 @@ namespace Domain.Logic.Destroyable
 {
     public interface IDestroyableFeatureLogic : ILogic
     {
-        event Action<IFeature> Destroyed;
+        event Action<IFeatureBase> Destroyed;
         void Destroy();
     }
 }

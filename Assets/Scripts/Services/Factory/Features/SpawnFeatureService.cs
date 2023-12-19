@@ -1,8 +1,10 @@
 using System.Threading.Tasks;
 using Configs.Feature;
 using Domain.Features;
-using Domain.Services;
+using Domain.Logic.Destroyable;
+using Features;
 using Services.PrototypeProvider;
+using UnityEngine;
 using Zenject;
 
 namespace Services.Factory.Features
@@ -27,21 +29,39 @@ namespace Services.Factory.Features
             _assetsSpawnService = assetsSpawnService;
         }
 
-        public async Task<IFeature> Create(string id)
+        public async Task<IFeature> Create(string id, Transform viewParent)
         {
             if (!_featuresPoolService.TryGet(id, out IFeature feature))
             {
                 FeatureConfig featureConfig = _featuresConfig.AllFeatureConfigs[id];
-                feature = await _featureBuilder.Build(featureConfig);
+                feature = await _featureBuilder.Build(featureConfig, viewParent);
+            }
+            else
+            {
+                feature.ViewRoot.transform.parent = viewParent;
+            }
+
+            if (feature.LogicCollection.TryGet(out IDestroyableFeatureLogic destroyableFeatureLogic))
+            {
+                destroyableFeatureLogic.Destroyed += DestroyableFeatureLogicOnDestroyed;
             }
 
             return feature;
         }
 
+        private void DestroyableFeatureLogicOnDestroyed(IFeatureBase featureBase)
+        {
+            Delete((IFeature)featureBase);
+        }
+
         public void Delete(IFeature feature)
         {
+            if (feature.LogicCollection.TryGet(out IDestroyableFeatureLogic destroyableFeatureLogic))
+            {
+                destroyableFeatureLogic.Destroyed -= DestroyableFeatureLogicOnDestroyed;
+            }
+            
             _featuresPoolService.Add(feature.ID, feature);
-            //_assetsSpawnService.AddToPool();
         }
     }
 }

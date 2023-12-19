@@ -19,7 +19,8 @@ namespace Services.Factory.Logic
         MoveForward,
         Rotate,
         CameraInitializeSize,
-        EnemySubscribe,
-        Destroyable
+        DestroyableTickableUnsubscribe,
+        Destroyable,
+        DestroyableFeatureOutOfLevelBounds
     }
 }

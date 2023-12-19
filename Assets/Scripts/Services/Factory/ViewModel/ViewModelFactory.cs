@@ -25,9 +25,6 @@ namespace Services.Factory.ViewModel
                 where TViewFacade : BaseViewFacade
                 where TViewLogic : BaseViewLogic<TViewModel, TViewFacade>
         {
-            //viewModel = (TViewModel)Activator.CreateInstance(typeof(TViewModel), model, logicCollection);
-            //viewLogic = (TViewLogic)Activator.CreateInstance(typeof(TViewLogic), viewModel, viewFacade);
-
             viewModel = _diContainer.Instantiate<TViewModel>(new object[]{model, logicCollection});
             viewLogic = _diContainer.Instantiate<TViewLogic>(new object[]{viewModel, viewFacade});
         }

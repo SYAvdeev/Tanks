@@ -3,7 +3,7 @@ using Domain.Models;
 
 namespace Domain.Features
 {
-    public interface IFeature
+    public interface IFeatureBase
     {
         string ID { get; }
         IModel Model { get; }

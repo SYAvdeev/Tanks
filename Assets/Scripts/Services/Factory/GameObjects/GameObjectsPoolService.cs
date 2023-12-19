@@ -11,29 +11,29 @@ namespace Services.Factory.GameObjects
         private readonly IDictionary<string, Stack<GameObject>> _dictionary
             = new Dictionary<string, Stack<GameObject>>();
 
-        public bool TryGet(string key, out GameObject obj)
+        public bool TryGet(string key, out GameObject feature)
         {
             if (_dictionary.TryGetValue(key, out Stack<GameObject> gameObjects) && gameObjects.Count > 0)
             {
-                obj = gameObjects.Pop();
-                obj.SetActive(true);
+                feature = gameObjects.Pop();
+                feature.SetActive(true);
                 return true;
             }
 
-            obj = null;
+            feature = null;
             return false;
         }
 
-        public void Add(string key, GameObject obj)
+        public void Add(string key, GameObject feature)
         {
             if (!_dictionary.TryGetValue(key, out Stack<GameObject> gameObjects))
             {
                 gameObjects = _dictionary[key] = new Stack<GameObject>();
             }
             
-            gameObjects.Push(obj);
-            obj.transform.parent = _parent;
-            obj.SetActive(false);
+            gameObjects.Push(feature);
+            feature.transform.parent = _parent;
+            feature.SetActive(false);
         }
     }
 }

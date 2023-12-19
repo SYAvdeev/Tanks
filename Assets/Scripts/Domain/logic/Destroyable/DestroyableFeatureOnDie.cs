@@ -8,10 +8,7 @@ namespace Domain.Logic.Destroyable
     {
         private readonly IDamageableLogic _damageableLogic;
 
-        public DestroyableFeatureOnDie(
-            IDamageableLogic damageableLogic,
-            IFeature feature,
-            ISpawnFeatureService spawnFeatureService) : base(feature, spawnFeatureService)
+        public DestroyableFeatureOnDie(IDamageableLogic damageableLogic, IFeatureBase featureBase) : base(featureBase)
         {
             _damageableLogic = damageableLogic;
             _damageableLogic.Died += Destroy;

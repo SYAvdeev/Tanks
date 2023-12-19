@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Domain.Features;
+using Features;
 
 namespace Services.Factory.Features
 {
@@ -17,6 +18,7 @@ namespace Services.Factory.Features
             if (_dictionary.TryGetValue(key, out Stack<IFeature> features) && features.Count > 0)
             {
                 feature = features.Pop();
+                feature.ViewRoot.gameObject.SetActive(true);
                 return true;
             }
 
@@ -32,6 +34,7 @@ namespace Services.Factory.Features
             }
             
             features.Push(feature);
+            feature.ViewRoot.gameObject.SetActive(false);
         }
     }
 }
