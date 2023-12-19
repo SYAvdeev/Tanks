@@ -1,37 +1,40 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Domain.Services;
 using ReactiveTypes;
+using Services;
 using Services.Factory.ViewModel;
-using Services.PrototypeProvider;
 
 namespace Features.WeaponsInventory
 {
     public class WeaponsInventoryViewLogic : BaseViewLogic<WeaponsInventoryViewModel, WeaponsInventoryViewFacade>
     {
-        private readonly IAssetsSpawnService _assetsSpawnService;
-        private readonly IDictionary<string, FeatureViewRoot> _weaponViews;
+        private readonly ISpawnFeatureService _spawnFeatureService;
+        private readonly IUniqueFeaturesContainer _uniqueFeaturesContainer;
+        private readonly IDictionary<string, FeatureViewRoot> _weaponsView;
 
         public WeaponsInventoryViewLogic(
             WeaponsInventoryViewModel viewModel, 
             WeaponsInventoryViewFacade viewFacade,
-            IAssetsSpawnService assetsSpawnService) : 
+            ISpawnFeatureService spawnFeatureService,
+            IUniqueFeaturesContainer uniqueFeaturesContainer) : 
             base(viewModel, viewFacade)
         {
-            _assetsSpawnService = assetsSpawnService;
-            _weaponViews = new Dictionary<string, FeatureViewRoot>();
+            _spawnFeatureService = spawnFeatureService;
+            _uniqueFeaturesContainer = uniqueFeaturesContainer;
+            _weaponsView = new Dictionary<string, FeatureViewRoot>();
 
             _viewModel.CurrentItemID.OnValueChanged += SetCurrentItemActive;
             _viewModel.ItemIDs.OnAddItem += ItemIDsOnOnAddItem;
             _viewModel.ItemIDs.OnRemoveItem += ItemIDsOnOnRemoveItem;
-
-            SpawnItems();
+            _viewModel.CreateItemsEvent += ViewModelOnCreateItemsEvent;
         }
 
-        private async void SpawnItems()
+        private async void ViewModelOnCreateItemsEvent()
         {
             foreach (string itemID in _viewModel.ItemIDs)
             {
-                await SpawnItem(itemID);
+                await CreateItem(itemID);
             }
 
             SetCurrentItemActive(_viewModel.CurrentItemID.Value);
@@ -39,27 +42,29 @@ namespace Features.WeaponsInventory
 
         private void ItemIDsOnOnRemoveItem(GenericPairEventArgs<int, string> obj)
         {
-            string itemID = obj.Value;
-            _assetsSpawnService.AddToPool(_weaponViews[itemID], itemID);
-            _weaponViews.Remove(itemID);
+            FeatureViewRoot weaponView = _weaponsView[obj.Value];
+            weaponView.gameObject.SetActive(false);
         }
 
         private async void ItemIDsOnOnAddItem(GenericPairEventArgs<int, string> obj)
         {
             string itemID = obj.Value;
-            await SpawnItem(itemID);
+            if (!_weaponsView.ContainsKey(itemID))
+            {
+                await CreateItem(itemID);
+            }
         }
 
-        private async Task SpawnItem(string itemID)
+        private async Task CreateItem(string itemID)
         {
-            FeatureViewRoot itemFeature = await
-                _assetsSpawnService.Spawn<FeatureViewRoot>(itemID, _viewFacade.WeaponsParent);
-            _weaponViews.Add(itemID, itemFeature);
+            IFeature itemFeature = await _spawnFeatureService.Create(itemID, _viewFacade.WeaponsParent);
+            _uniqueFeaturesContainer.Add(itemFeature);
+            _weaponsView[itemID] = itemFeature.ViewRoot;
         }
 
         private void SetCurrentItemActive(string currentItemID)
         {
-            foreach (KeyValuePair<string, FeatureViewRoot> pair in _weaponViews)
+            foreach (KeyValuePair<string, FeatureViewRoot> pair in _weaponsView)
             {
                 pair.Value.gameObject.SetActive(pair.Key == currentItemID);
             }

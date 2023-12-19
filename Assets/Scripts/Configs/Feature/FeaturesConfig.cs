@@ -6,11 +6,26 @@ namespace Configs.Feature
     public class FeaturesConfig : ScriptableObject
     {
         [SerializeField]
-        private FeatureConfigsDictionary _allFeatureConfigs;
+        private FeatureConfigsDictionary _uniqueFeatureConfigs;
         [SerializeField]
-        private BindableFeatureConfig[] bindableFeatureConfigs;
+        private FeatureConfigsDictionary _spawnableFeatureConfigs;
+        [SerializeField]
+        private string[] _uniqueFeatureConfigsCreateOrder;
+        [SerializeField]
+        private string _playerFeatureID;
+        [SerializeField]
+        private string _levelFeatureID;
+        [SerializeField]
+        private string _spawnFeatureID;
+        [SerializeField]
+        private string _cameraFeatureID;
 
-        public FeatureConfigsDictionary AllFeatureConfigs => _allFeatureConfigs;
-        public BindableFeatureConfig[] BindableFeatureConfigs => bindableFeatureConfigs;
+        public FeatureConfigsDictionary UniqueFeatureConfigs => _uniqueFeatureConfigs;
+        public FeatureConfigsDictionary SpawnableFeatureConfigs => _spawnableFeatureConfigs;
+        public string[] UniqueFeatureConfigsCreateOrder => _uniqueFeatureConfigsCreateOrder;
+        public string PlayerFeatureID => _playerFeatureID;
+        public string LevelFeatureID => _levelFeatureID;
+        public string SpawnFeatureID => _spawnFeatureID;
+        public string CameraFeatureID => _cameraFeatureID;
     }
 }

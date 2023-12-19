@@ -5,6 +5,6 @@ namespace Services.Factory.Logic
 {
     public interface ILogicFactory
     {
-        ILogic CreateLogic(LogicFactoryType logicType, IFeatureBase featureBase);
+        ILogic CreateLogic(LogicFactoryType logicType, IFeatureBase feature);
     }
 }

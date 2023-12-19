@@ -1,6 +1,7 @@
 using System;
 using Domain.Features;
 using Domain.Logic.Destroyable;
+using Domain.Logic.Inventory;
 using Domain.Logic.Level;
 using Domain.Logic.Startable;
 using Domain.Logic.Transformable;
@@ -13,10 +14,12 @@ namespace Domain.Logic.GameSpawn
 {
     public class GameSpawnLogic : StartableLogic, IGameSpawnLogic
     {
+        private readonly IUniqueFeaturesContainer _uniqueFeaturesContainer;
         private readonly IReactiveListReadOnly<string> _randomEnemiesFeatureIDs;
         private readonly IReactiveProperty<string> _spawnOnShootFeatureID;
         private readonly IReactiveProperty<int> _randomEnemiesSpawnCount;
         private readonly ISpawnOffScreenPositionLogic _spawnOffScreenPositionLogic;
+        private readonly IInventoryLogic _inventoryLogic;
         
         private readonly IFeatureBase _playerFeatureBase;
         private readonly Random _random;
@@ -26,17 +29,21 @@ namespace Domain.Logic.GameSpawn
 
         public GameSpawnLogic(
             IStartService startService,
+            IUniqueFeaturesContainer uniqueFeaturesContainer,
             IReactiveListReadOnly<string> randomEnemiesFeatureIDs,
             IReactiveProperty<string> spawnOnShootFeatureID,
             IReactiveProperty<int> randomEnemiesSpawnCount,
             ISpawnOffScreenPositionLogic spawnOffScreenPositionLogic,
+            IInventoryLogic inventoryLogic,
             IFeatureBase playerFeatureBase,
             Random random) : base(startService)
         {
+            _uniqueFeaturesContainer = uniqueFeaturesContainer;
             _randomEnemiesFeatureIDs = randomEnemiesFeatureIDs;
             _spawnOnShootFeatureID = spawnOnShootFeatureID;
             _randomEnemiesSpawnCount = randomEnemiesSpawnCount;
             _spawnOffScreenPositionLogic = spawnOffScreenPositionLogic;
+            _inventoryLogic = inventoryLogic;
             _playerFeatureBase = playerFeatureBase;
             _random = random;
 
@@ -95,15 +102,25 @@ namespace Domain.Logic.GameSpawn
             IReactiveProperty<float> positionX = bulletFeature.Model.GetProperty<float>(ModelPropertyName.PositionX);
             IReactiveProperty<float> positionY = bulletFeature.Model.GetProperty<float>(ModelPropertyName.PositionY);
             IReactiveProperty<float> directionAngle = bulletFeature.Model.GetProperty<float>(ModelPropertyName.DirectionAngle);
+            IReactiveProperty<float> damage = bulletFeature.Model.GetProperty<float>(ModelPropertyName.Damage);
+            IReactiveProperty<float> speed = bulletFeature.Model.GetProperty<float>(ModelPropertyName.Speed);
                 
             IReactiveProperty<float> playerPositionX = _playerFeatureBase.Model.GetProperty<float>(ModelPropertyName.PositionX);
             IReactiveProperty<float> playerPositionY = _playerFeatureBase.Model.GetProperty<float>(ModelPropertyName.PositionY);
             IReactiveProperty<float> playerDirectionAngle = _playerFeatureBase.Model.GetProperty<float>(ModelPropertyName.DirectionAngle);
+            IReactiveProperty<string> currentItemID = _playerFeatureBase.Model.GetProperty<string>(ModelPropertyName.CurrentItemID);
+
+            IFeatureBase weaponFeature = _uniqueFeaturesContainer.GetFeature(currentItemID.Value);
+
+            IReactiveProperty<float> weaponDamage = weaponFeature.Model.GetProperty<float>(ModelPropertyName.Damage);
+            IReactiveProperty<float> weaponSpeed = weaponFeature.Model.GetProperty<float>(ModelPropertyName.Speed);
 
             positionX.Value = playerPositionX.Value;
             positionY.Value = playerPositionY.Value;
             directionAngle.Value = playerDirectionAngle.Value;
-                
+            damage.Value = weaponDamage.Value;
+            speed.Value = weaponSpeed.Value;
+
             bulletFeature.LogicCollection.Get<IMoveLogic>().Subscribe(true);
             bulletFeature.LogicCollection.Get<IDestroyableFeatureOutOfLevelBoundsLogic>().Subscribe(true);
         }

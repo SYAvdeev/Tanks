@@ -3,11 +3,12 @@ using Configs.Feature;
 using Domain.Features;
 using Domain.Logic.Destroyable;
 using Features;
+using Services.Factory.Features;
 using Services.PrototypeProvider;
 using UnityEngine;
 using Zenject;
 
-namespace Services.Factory.Features
+namespace Services
 {
     public class SpawnFeatureService : ISpawnFeatureService
     {
@@ -15,6 +16,7 @@ namespace Services.Factory.Features
         private readonly IPoolService<IFeature> _featuresPoolService;
         private readonly IFeatureBuilder _featureBuilder;
         private readonly IAssetsSpawnService _assetsSpawnService;
+        private readonly DiContainer _diContainer;
 
         [Inject]
         public SpawnFeatureService(
@@ -33,7 +35,7 @@ namespace Services.Factory.Features
         {
             if (!_featuresPoolService.TryGet(id, out IFeature feature))
             {
-                FeatureConfig featureConfig = _featuresConfig.AllFeatureConfigs[id];
+                FeatureConfig featureConfig = _featuresConfig.SpawnableFeatureConfigs[id];
                 feature = await _featureBuilder.Build(featureConfig, viewParent);
             }
             else

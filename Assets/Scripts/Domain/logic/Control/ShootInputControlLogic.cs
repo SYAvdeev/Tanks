@@ -1,5 +1,6 @@
 using Domain.Logic.Delayed;
 using Domain.Logic.GameSpawn;
+using Domain.Logic.Inventory;
 using Domain.Services;
 using Domain.Services.Input;
 using ReactiveTypes;
@@ -10,6 +11,7 @@ namespace Domain.Logic.Control
     {
         private readonly IInputService _inputService;
         private readonly IGameSpawnLogic _gameSpawnLogic;
+        private readonly IInventoryLogic _inventoryLogic;
 
         private bool _canShoot;
         
@@ -18,12 +20,14 @@ namespace Domain.Logic.Control
             IInputService inputService,
             IReactivePropertyReadonly<float> delay, 
             IReactiveProperty<float> currentDelay,
-            IGameSpawnLogic gameSpawnLogic) :
+            IGameSpawnLogic gameSpawnLogic,
+            IInventoryLogic inventoryLogic) :
             base(tickService, delay, currentDelay)
         {
             _inputService = inputService;
             _gameSpawnLogic = gameSpawnLogic;
-            
+            _inventoryLogic = inventoryLogic;
+
             inputService.OnInput += InputServiceOnOnInput;
 
             _canShoot = true;

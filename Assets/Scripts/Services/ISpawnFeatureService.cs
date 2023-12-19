@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Features;
 using UnityEngine;
 
-namespace Services.Factory.Features
+namespace Services
 {
     public interface ISpawnFeatureService
     {

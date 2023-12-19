@@ -51,13 +51,15 @@ namespace Installers
 
         private async Task BindFeatures()
         {
-            for (int i = 0; i < _featuresConfig.BindableFeatureConfigs.Length; i++)
+            IFeatureBuilder featureBuilder = Container.Resolve<IFeatureBuilder>();
+            IUniqueFeaturesContainer uniqueFeaturesContainer = Container.Resolve<IUniqueFeaturesContainer>();
+            
+            for (int i = 0; i < _featuresConfig.UniqueFeatureConfigsCreateOrder.Length; i++)
             {
-                BindableFeatureConfig bindableFeatureConfig = _featuresConfig.BindableFeatureConfigs[i];
-                FeatureConfig featureConfig = _featuresConfig.AllFeatureConfigs[bindableFeatureConfig.FeatureID];
-                IFeatureBuilder featureBuilder = Container.Resolve<IFeatureBuilder>();
+                string featureID = _featuresConfig.UniqueFeatureConfigsCreateOrder[i];
+                FeatureConfig featureConfig = _featuresConfig.UniqueFeatureConfigs[featureID];
                 IFeatureBase featureBase = await featureBuilder.Build(featureConfig);
-                Container.Bind<IFeatureBase>().WithId(bindableFeatureConfig.BindableFeatureType).FromInstance(featureBase);
+                uniqueFeaturesContainer.Add(featureBase);
             }
         }
 
@@ -75,6 +77,7 @@ namespace Installers
 
         private void BindServices()
         {
+            Container.Bind<IUniqueFeaturesContainer>().To<UniqueFeatureContainer>().AsSingle();
             Container.Bind<IInputService>().FromInstance(_inputService);
             Container.Bind<IStartService>().FromInstance(_tickableService);
             Container.Bind<ITickService>().FromInstance(_tickableService);

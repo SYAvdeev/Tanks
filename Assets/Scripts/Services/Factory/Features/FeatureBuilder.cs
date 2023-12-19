@@ -31,7 +31,7 @@ namespace Services.Factory.Features
         private readonly IViewModelFactory _viewModelFactory;
         private readonly IAssetsSpawnService _assetsSpawnService;
 
-        private Feature _currentFeature;
+        //private Feature _currentFeature;
 
         [Inject]
         public FeatureBuilder(
@@ -62,38 +62,38 @@ namespace Services.Factory.Features
         
         private async UniTask<IFeature> BuildInternal(FeatureConfig featureConfig, Func<UniTask<FeatureViewRoot>> spawnFunction)
         {
-            BuildModel(featureConfig.ID, featureConfig.ModelData);
-            BuildLogicCollection(featureConfig.LogicTypes);
+            Feature feature = BuildModel(featureConfig.ID, featureConfig.ModelData);
+            BuildLogicCollection(featureConfig.LogicTypes, feature);
             
             string featureRootAssetKey = featureConfig.FeatureRootAssetKey;
             if (!string.IsNullOrEmpty(featureRootAssetKey))
             {
                 FeatureViewRoot featureViewRoot = await spawnFunction();
-                BuildView(featureViewRoot);
+                BuildView(featureViewRoot, feature);
             }
-            return _currentFeature;
+            return feature;
         }
 
-        private void BuildModel(string id, IModelData modelData)
+        private Feature BuildModel(string id, IModelData modelData)
         {
             IModel model = _modelFactory.CreateModel(modelData);
-            _currentFeature = new Feature(id, model);
+            return new Feature(id, model);
         }
 
-        private void BuildLogicCollection(LogicFactoryType[] logicTypes)
+        private void BuildLogicCollection(LogicFactoryType[] logicTypes, Feature feature)
         {
             for (int i = 0; i < logicTypes.Length; i++)
             {
-                ILogic logic = _logicFactory.CreateLogic(logicTypes[i], _currentFeature);
-                _currentFeature.LogicCollection.Add(logic);
+                ILogic logic = _logicFactory.CreateLogic(logicTypes[i], feature);
+                feature.LogicCollection.Add(logic);
             }
         }
 
-        private void BuildView(FeatureViewRoot featureViewRoot)
+        private void BuildView(FeatureViewRoot featureViewRoot, Feature feature)
         {
-            _currentFeature.ViewRoot = featureViewRoot;
-            _currentFeature.ViewModels = new ViewModelsCollection(featureViewRoot.ViewFacadeDictionary.Count);
-            _currentFeature.ViewsLogic = new ViewLogicCollection(featureViewRoot.ViewFacadeDictionary.Count);
+            feature.ViewRoot = featureViewRoot;
+            feature.ViewModels = new ViewModelsCollection(featureViewRoot.ViewFacadeDictionary.Count);
+            feature.ViewsLogic = new ViewLogicCollection(featureViewRoot.ViewFacadeDictionary.Count);
 
             foreach (KeyValuePair<ViewType, BaseViewFacade> pair in featureViewRoot.ViewFacadeDictionary)
             {
@@ -102,46 +102,46 @@ namespace Services.Factory.Features
                 switch (pair.Key)
                 {
                     case ViewType.Camera:
-                        CreateView<CameraViewModel, CameraViewFacade, CameraViewLogic>(_currentFeature, viewFacade);
+                        CreateView<CameraViewModel, CameraViewFacade, CameraViewLogic>(feature, viewFacade);
                         break;
                     
                     case ViewType.Damageable:
                         
-                        CreateView<DamageableViewModel, DamageableViewFacade, DamageableViewLogic>(_currentFeature, viewFacade);
+                        CreateView<DamageableViewModel, DamageableViewFacade, DamageableViewLogic>(feature, viewFacade);
                         break;
                     
                     case ViewType.Damager:
                         
-                        CreateView<DamagerViewModel, DamagerViewFacade, DamagerViewLogic>(_currentFeature, viewFacade);
+                        CreateView<DamagerViewModel, DamagerViewFacade, DamagerViewLogic>(feature, viewFacade);
                         break;
                     
                     case ViewType.DelayedDamager:
                         
-                        CreateView<DelayedDamagerViewModel, DelayedDamagerViewFacade, DelayedDamagerViewLogic>(_currentFeature, viewFacade);
+                        CreateView<DelayedDamagerViewModel, DelayedDamagerViewFacade, DelayedDamagerViewLogic>(feature, viewFacade);
                         break;
                     
                     case ViewType.Movable:
                         
-                        CreateView<MovableViewModel, MovableViewFacade, MovableViewLogic>(_currentFeature, viewFacade);
+                        CreateView<MovableViewModel, MovableViewFacade, MovableViewLogic>(feature, viewFacade);
                         break;
                     
                     case ViewType.Destroyable:
                         
-                        CreateView<DestroyableViewModel, DestroyableViewFacade, DestroyableViewLogic>(_currentFeature, viewFacade);
+                        CreateView<DestroyableViewModel, DestroyableViewFacade, DestroyableViewLogic>(feature, viewFacade);
                         break;
                     
                     case ViewType.WeaponsInventory:
                         
-                        CreateView<WeaponsInventoryViewModel, WeaponsInventoryViewFacade, WeaponsInventoryViewLogic>(_currentFeature, viewFacade);
+                        CreateView<WeaponsInventoryViewModel, WeaponsInventoryViewFacade, WeaponsInventoryViewLogic>(feature, viewFacade);
                         break;
 
                     case ViewType.Level:
                         
-                        CreateView<LevelViewModel, LevelViewFacade, LevelViewLogic>(_currentFeature, viewFacade);
+                        CreateView<LevelViewModel, LevelViewFacade, LevelViewLogic>(feature, viewFacade);
                         break;
 
                     case ViewType.Spawn:
-                        CreateView<SpawnViewModel, SpawnViewFacade, SpawnViewLogic>(_currentFeature, viewFacade);
+                        CreateView<SpawnViewModel, SpawnViewFacade, SpawnViewLogic>(feature, viewFacade);
                         break;
                     
                     default:
