@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6283327779018389190}
   - component: {fileID: 1634966056710002465}
+  - component: {fileID: 1345132171151977800}
   m_Layer: 7
   m_Name: Health
   m_TagString: Untagged
@@ -84,6 +85,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1345132171151977800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649874941546115120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b6063da3154056b5d9f2eed84921d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthTransform: {fileID: 6283327779018389190}
+  _damageablePhysics: {fileID: 7483094081777917576}
 --- !u!1 &8502557392086106600
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,8 +108,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8502557392086106599}
-  - component: {fileID: 279726448653014629}
   - component: {fileID: 5261907361229693831}
+  - component: {fileID: 8654462719867774655}
+  - component: {fileID: 7148791197479176850}
+  - component: {fileID: 6823712445222313485}
+  - component: {fileID: 1883267230732228780}
+  - component: {fileID: 7483094081777917576}
   m_Layer: 7
   m_Name: Enemy0
   m_TagString: Enemy
@@ -119,20 +138,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &279726448653014629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8502557392086106600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d8aee929c34696922fa46380e60c76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotateTransform: {fileID: 8502557392710566605}
-  _health: {fileID: 6283327779018389190}
 --- !u!50 &5261907361229693831
 Rigidbody2D:
   serializedVersion: 4
@@ -154,6 +159,77 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &8654462719867774655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502557392086106600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67dd2395baa54f8f92869120cf201551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewFacadeDictionary:
+    keyData: 030000000000000002000000
+    valueData:
+    - {fileID: 7148791197479176850}
+    - {fileID: 1345132171151977800}
+    - {fileID: 6823712445222313485}
+--- !u!114 &7148791197479176850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502557392086106600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03eb85be43843d9949237cc6244a48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 8502557392086106599}
+  _rotationTransform: {fileID: 8502557392710566605}
+--- !u!114 &6823712445222313485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502557392086106600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f12bd2b53664c3d94419462e858771b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delayedDamagerPhysics: {fileID: 1883267230732228780}
+--- !u!114 &1883267230732228780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502557392086106600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495bc71d7a56407da60a0f9d7c14c149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageableTags:
+  - Player
+--- !u!114 &7483094081777917576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502557392086106600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92490bf442254a028645e4cbb86e157a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8502557392710566606
 GameObject:
   m_ObjectHideFlags: 0
