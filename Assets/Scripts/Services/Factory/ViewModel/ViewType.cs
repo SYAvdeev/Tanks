@@ -7,7 +7,7 @@ namespace Services.Factory.ViewModel
         DelayedDamager,
         Movable,
         Destroyable,
-        WeaponsInventory,
+        Inventory,
         Camera,
         Level,
         Spawn

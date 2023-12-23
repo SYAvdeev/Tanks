@@ -10,6 +10,7 @@ using Services.Factory.Features;
 using Services.Factory.GameObjects;
 using Services.Factory.Logic;
 using Services.Factory.Model;
+using Services.Factory.View;
 using Services.Factory.ViewModel;
 using Services.PrototypeProvider;
 using UnityEngine;
@@ -59,8 +60,8 @@ namespace Installers
             {
                 string featureID = _featuresConfig.UniqueFeatureConfigsCreateOrder[i];
                 FeatureConfig featureConfig = _featuresConfig.UniqueFeatureConfigs[featureID];
-                IFeatureBase featureBase = await featureBuilder.Build(featureConfig);
-                uniqueFeaturesContainer.Add(featureBase);
+                IFeature feature = await featureBuilder.Build(featureConfig);
+                uniqueFeaturesContainer.Add(feature);
             }
         }
 
@@ -69,6 +70,7 @@ namespace Installers
             Container.Bind<IModelFactory>().To<ModelFactory>().AsSingle();
             Container.Bind<ILogicFactory>().To<LogicFactory>().AsSingle();
             Container.Bind<IViewModelFactory>().To<ViewModelFactory>().AsSingle();
+            Container.Bind<IViewLogicFactory>().To<ViewLogicFactory>().AsSingle();
             Container.Bind<IGameObjectsFactory>().To<GameObjectsFactory>().AsSingle();
             Container.Bind<IPrototypeProvider>().To<AddressablesPrototypeProvider>().AsSingle();
             Container.Bind<IPoolService<GameObject>>().FromInstance(_gameObjectsPoolService).AsSingle();

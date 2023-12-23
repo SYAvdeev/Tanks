@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Enemy0
   _modelConfig: {fileID: 11400000, guid: af08f936f9d9f4f419be19d9b4230624, type: 2}
-  _logicTypes: 0300000004000000050000000c0000000e0000000600000011000000
+  _logicTypes: 0300000004000000050000000c0000000e000000060000001100000018000000
   _featureRootAssetKey: Enemy0

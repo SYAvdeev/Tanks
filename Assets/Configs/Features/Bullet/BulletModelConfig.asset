@@ -24,7 +24,7 @@ MonoBehaviour:
     - ValueTypeName: 2
       SerializedValue: 0
     - ValueTypeName: 2
-      SerializedValue: 50
+      SerializedValue: 100
   _defaultListsData:
     keyData: 
     valueData: []

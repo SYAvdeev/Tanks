@@ -1,26 +1,16 @@
-using System;
 using System.Collections.Generic;
-using Domain.Features;
-using Domain.Logic.Startable;
-using Domain.Services;
 using ReactiveTypes;
 
 namespace Domain.Logic.Inventory
 {
-    public class InventoryLogic : StartableLogic, IInventoryLogic
+    public class InventoryLogic : IInventoryLogic
     {
         private readonly IReactiveProperty<string> _currentItemIDProperty;
         private readonly IReactiveList<string> _itemIDsProperty;
         
         private int _currentItemIndex;
 
-        public event Action InitializeEvent;
-
-        public InventoryLogic(
-            IStartService startService, 
-            IReactiveProperty<string> currentItemIDProperty, 
-            IReactiveList<string> itemIDsProperty) :
-            base(startService)
+        public InventoryLogic(IReactiveProperty<string> currentItemIDProperty, IReactiveList<string> itemIDsProperty)
         {
             _currentItemIDProperty = currentItemIDProperty;
             _itemIDsProperty = itemIDsProperty;
@@ -30,18 +20,6 @@ namespace Domain.Logic.Inventory
             
             itemIDsProperty.OnClear += ItemIDsPropertyOnOnClear;
             itemIDsProperty.OnRemoveItem += ItemIDsPropertyOnOnRemoveItem;
-            
-            Subscribe();
-        }
-
-        public override void Start()
-        {
-            InitializeEvent?.Invoke();
-        }
-        
-        public void Initialize(IEnumerable<IFeatureBase> itemFeatures)
-        {
-            
         }
 
         private void ItemIDsPropertyOnOnRemoveItem(GenericPairEventArgs<int, string> pair)
@@ -86,6 +64,5 @@ namespace Domain.Logic.Inventory
         }
         
         private int CurrentItemIndex(string id) => _itemIDsProperty.IndexOf(id);
-        
     }
 }

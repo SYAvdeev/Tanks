@@ -6,17 +6,13 @@ using Data.Models;
 using Domain.Logic;
 using Domain.Models;
 using Features;
-using Features.Camera;
 using Features.Damageable;
-using Features.Damager;
-using Features.DelayedDamager;
-using Features.Destroyable;
-using Features.Level;
 using Features.Movable;
-using Features.Spawn;
-using Features.WeaponsInventory;
+using Features.Inventory;
+using Features.Logic;
 using Services.Factory.Logic;
 using Services.Factory.Model;
+using Services.Factory.View;
 using Services.Factory.ViewModel;
 using Services.PrototypeProvider;
 using UnityEngine;
@@ -29,20 +25,21 @@ namespace Services.Factory.Features
         private readonly IModelFactory _modelFactory;
         private readonly ILogicFactory _logicFactory;
         private readonly IViewModelFactory _viewModelFactory;
+        private readonly IViewLogicFactory _viewLogicFactory;
         private readonly IAssetsSpawnService _assetsSpawnService;
-
-        //private Feature _currentFeature;
 
         [Inject]
         public FeatureBuilder(
             IModelFactory modelFactory,
             ILogicFactory logicFactory,
             IViewModelFactory viewModelFactory,
+            IViewLogicFactory viewLogicFactory,
             IAssetsSpawnService assetsSpawnService)
         {
             _modelFactory = modelFactory;
             _logicFactory = logicFactory;
             _viewModelFactory = viewModelFactory;
+            _viewLogicFactory = viewLogicFactory;
             _assetsSpawnService = assetsSpawnService;
         }
 
@@ -71,6 +68,12 @@ namespace Services.Factory.Features
                 FeatureViewRoot featureViewRoot = await spawnFunction();
                 BuildView(featureViewRoot, feature);
             }
+
+            foreach (IInitializableAfterBuildLogic initializeLogic in feature.LogicCollection.GetAll<IInitializableAfterBuildLogic>())
+            {
+                initializeLogic.Initialize();
+            }
+            
             return feature;
         }
 
@@ -101,69 +104,48 @@ namespace Services.Factory.Features
 
                 switch (pair.Key)
                 {
-                    case ViewType.Camera:
-                        CreateView<CameraViewModel, CameraViewFacade, CameraViewLogic>(feature, viewFacade);
-                        break;
-                    
                     case ViewType.Damageable:
-                        
-                        CreateView<DamageableViewModel, DamageableViewFacade, DamageableViewLogic>(feature, viewFacade);
-                        break;
-                    
-                    case ViewType.Damager:
-                        
-                        CreateView<DamagerViewModel, DamagerViewFacade, DamagerViewLogic>(feature, viewFacade);
-                        break;
-                    
-                    case ViewType.DelayedDamager:
-                        
-                        CreateView<DelayedDamagerViewModel, DelayedDamagerViewFacade, DelayedDamagerViewLogic>(feature, viewFacade);
+
+                        DamageableViewModel damageableViewModel = CreateViewModel<DamageableViewModel>(feature);
+                        CreateView<DamageableViewModel, DamageableViewFacade, DamageableViewLogic>(feature, viewFacade, damageableViewModel);
                         break;
                     
                     case ViewType.Movable:
                         
-                        CreateView<MovableViewModel, MovableViewFacade, MovableViewLogic>(feature, viewFacade);
+                        MovableViewModel movableViewModel = CreateViewModel<MovableViewModel>(feature);
+                        CreateView<MovableViewModel, MovableViewFacade, MovableViewLogic>(feature, viewFacade, movableViewModel);
                         break;
                     
-                    case ViewType.Destroyable:
+                    case ViewType.Inventory:
                         
-                        CreateView<DestroyableViewModel, DestroyableViewFacade, DestroyableViewLogic>(feature, viewFacade);
+                        InventoryViewModel inventoryViewModel = CreateViewModel<InventoryViewModel>(feature);
+                        CreateView<InventoryViewModel, InventoryViewFacade, InventoryViewLogic>(feature, viewFacade, inventoryViewModel);
                         break;
-                    
-                    case ViewType.WeaponsInventory:
-                        
-                        CreateView<WeaponsInventoryViewModel, WeaponsInventoryViewFacade, WeaponsInventoryViewLogic>(feature, viewFacade);
-                        break;
-
-                    case ViewType.Level:
-                        
-                        CreateView<LevelViewModel, LevelViewFacade, LevelViewLogic>(feature, viewFacade);
-                        break;
-
-                    case ViewType.Spawn:
-                        CreateView<SpawnViewModel, SpawnViewFacade, SpawnViewLogic>(feature, viewFacade);
-                        break;
-                    
-                    default:
-                        throw new ArgumentOutOfRangeException();
                 }
             }
         }
 
-        private void CreateView<TViewModel, TViewFacade, TViewLogic>(Feature feature, BaseViewFacade viewFacade)
+        private TViewModel CreateViewModel<TViewModel>(IFeature feature) where TViewModel : BaseViewModel
+        {
+            TViewModel damageableViewModel = 
+                _viewModelFactory.CreateViewModel<TViewModel>(feature.Model, feature.LogicCollection);
+
+            feature.ViewModels.Add(damageableViewModel);
+
+            return damageableViewModel;
+        }
+
+        private void CreateView<TViewModel, TViewFacade, TViewLogic>(
+            IFeature feature, 
+            BaseViewFacade viewFacade, 
+            TViewModel viewModel)
             where TViewModel : BaseViewModel
             where TViewFacade : BaseViewFacade
             where TViewLogic : BaseViewLogic<TViewModel, TViewFacade>
         {
-            _viewModelFactory.CreateViewModel(
-                feature.Model,
-                feature.LogicCollection,
-                (TViewFacade)viewFacade,
-                out TViewModel damageableViewModel,
-                out TViewLogic damageableViewLogic);
-
-            feature.ViewModels.Add(damageableViewModel);
-            feature.ViewsLogic.Add(damageableViewLogic);
+            TViewLogic viewLogic =
+                _viewLogicFactory.CreateViewLogic<TViewModel, TViewLogic, TViewFacade>((TViewFacade)viewFacade, viewModel);
+            feature.ViewsLogic.Add(viewLogic);
         }
     }
 }

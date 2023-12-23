@@ -5,16 +5,16 @@ namespace Domain.Logic.Damager
 {
     public class DamagerLogic : IDamagerLogic
     {
-        public IReactivePropertyReadonly<float> DamageProperty { get; }
+        private readonly IReactivePropertyReadonly<float> _damageProperty;
 
         public DamagerLogic(IReactivePropertyReadonly<float> damageProperty)
         {
-            DamageProperty = damageProperty;
+            _damageProperty = damageProperty;
         }
 
         public void Damage(IDamageableLogic damageable)
         {
-            damageable.GetDamage(DamageProperty.Value);
+            damageable.GetDamage(_damageProperty.Value);
         }
     }
 }

@@ -6,12 +6,12 @@ namespace Domain.Logic.Delayed
 {
     public abstract class DelayedActionLogic : TickableLogic, IDelayedActionLogic
     {
-        protected IReactivePropertyReadonly<float> Delay { get; }
+        protected IReactiveProperty<float> Delay { get; }
         protected IReactiveProperty<float> CurrentDelay { get; }
         
         protected DelayedActionLogic(
             ITickService tickService,
-            IReactivePropertyReadonly<float> delay,
+            IReactiveProperty<float> delay,
             IReactiveProperty<float> currentDelay) : base(tickService)
         {
             Delay = delay;

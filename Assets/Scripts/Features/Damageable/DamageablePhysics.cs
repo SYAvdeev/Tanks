@@ -1,14 +1,15 @@
+using Domain.Logic.Damageable;
 using UnityEngine;
 
 namespace Features.Damageable
 {
     public class DamageablePhysics : MonoBehaviour
     {
-        public DamageableViewLogic DamageableViewLogic { get; private set; }
+        public IDamageableLogic DamageableLogic { get; private set; }
 
-        public void Initialize(DamageableViewLogic damageableViewLogic)
+        public void Initialize(IDamageableLogic damageableLogic)
         {
-            DamageableViewLogic = damageableViewLogic;
+            DamageableLogic = damageableLogic;
         }
     }
 }

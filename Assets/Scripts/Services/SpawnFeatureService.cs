@@ -4,7 +4,6 @@ using Domain.Features;
 using Domain.Logic.Destroyable;
 using Features;
 using Services.Factory.Features;
-using Services.PrototypeProvider;
 using UnityEngine;
 using Zenject;
 
@@ -15,32 +14,29 @@ namespace Services
         private readonly FeaturesConfig _featuresConfig;
         private readonly IPoolService<IFeature> _featuresPoolService;
         private readonly IFeatureBuilder _featureBuilder;
-        private readonly IAssetsSpawnService _assetsSpawnService;
         private readonly DiContainer _diContainer;
 
         [Inject]
         public SpawnFeatureService(
             IPoolService<IFeature> featuresPoolService, 
             IFeatureBuilder featureBuilder, 
-            FeaturesConfig featuresConfig,
-            IAssetsSpawnService assetsSpawnService)
+            FeaturesConfig featuresConfig)
         {
             _featuresPoolService = featuresPoolService;
             _featureBuilder = featureBuilder;
             _featuresConfig = featuresConfig;
-            _assetsSpawnService = assetsSpawnService;
         }
 
-        public async Task<IFeature> Create(string id, Transform viewParent)
+        public async Task<IFeature> Create(string id, Transform spawnParent)
         {
             if (!_featuresPoolService.TryGet(id, out IFeature feature))
             {
                 FeatureConfig featureConfig = _featuresConfig.SpawnableFeatureConfigs[id];
-                feature = await _featureBuilder.Build(featureConfig, viewParent);
+                feature = await _featureBuilder.Build(featureConfig, spawnParent);
             }
             else
             {
-                feature.ViewRoot.transform.parent = viewParent;
+                feature.ViewRoot.transform.parent = spawnParent;
             }
 
             if (feature.LogicCollection.TryGet(out IDestroyableFeatureLogic destroyableFeatureLogic))

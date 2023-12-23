@@ -15,18 +15,10 @@ namespace Services.Factory.ViewModel
             _diContainer = diContainer;
         }
 
-        public void CreateViewModel<TViewModel, TViewLogic, TViewFacade>(
-            IModel model, 
-            ILogicCollection logicCollection,
-            TViewFacade viewFacade,
-            out TViewModel viewModel,
-            out TViewLogic viewLogic)
+        public TViewModel CreateViewModel<TViewModel>(IModel model, ILogicCollection logicCollection)
                 where TViewModel : BaseViewModel
-                where TViewFacade : BaseViewFacade
-                where TViewLogic : BaseViewLogic<TViewModel, TViewFacade>
         {
-            viewModel = _diContainer.Instantiate<TViewModel>(new object[]{model, logicCollection});
-            viewLogic = _diContainer.Instantiate<TViewLogic>(new object[]{viewModel, viewFacade});
+            return _diContainer.Instantiate<TViewModel>(new object[]{model, logicCollection});
         }
     }
 }

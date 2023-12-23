@@ -7,7 +7,6 @@ using Domain.Logic.Control;
 using Domain.Logic.Damageable;
 using Domain.Logic.Damager;
 using Domain.Logic.Destroyable;
-using Domain.Logic.GameSpawn;
 using Domain.Logic.Inventory;
 using Domain.Logic.Level;
 using Domain.Logic.Tickable;
@@ -15,6 +14,14 @@ using Domain.Logic.Transformable;
 using Domain.Models;
 using Domain.Services;
 using Domain.Services.Input;
+using Features;
+using Features.Logic.Camera;
+using Features.Logic.Control;
+using Features.Logic.Damageable;
+using Features.Logic.Damager;
+using Features.Logic.Destroyable;
+using Features.Logic.GameSpawn;
+using Features.Logic.Inventory;
 using Zenject;
 
 namespace Services.Factory.Logic
@@ -36,7 +43,7 @@ namespace Services.Factory.Logic
             _uniqueFeaturesContainer = uniqueFeaturesContainer;
         }
 
-        public ILogic CreateLogic(LogicFactoryType logicType, IFeatureBase feature)
+        public ILogic CreateLogic(LogicFactoryType logicType, IFeature feature)
         {
             switch (logicType)
             {
@@ -53,10 +60,12 @@ namespace Services.Factory.Logic
                     return new ShootInputControlLogic(
                         _container.Resolve<ITickService>(),
                         _container.Resolve<IInputService>(),
+                        _container.Resolve<IUniqueFeaturesContainer>(),
                         feature.Model.GetProperty<float>(ModelPropertyName.Delay), 
                         feature.Model.GetProperty<float>(ModelPropertyName.CurrentDelay),
+                        playerFeature.Model.GetProperty<string>(ModelPropertyName.CurrentItemID),
                         feature.LogicCollection.Get<IGameSpawnLogic>(),
-                        playerFeature.LogicCollection.Get<IInventoryLogic>());
+                        playerFeature.LogicCollection.Get<IInventorySpawnLogic>());
                     
                 case LogicFactoryType.InventoryInputControl:
 
@@ -90,19 +99,19 @@ namespace Services.Factory.Logic
                     playerFeature = _uniqueFeaturesContainer.GetFeature(_featuresConfig.PlayerFeatureID);
                     return new GameSpawnLogic(
                         _container.Resolve<IStartService>(),
+                        _container.Resolve<ISpawnFeatureService>(),
                         _container.Resolve<IUniqueFeaturesContainer>(),
                         feature.Model.GetList<string>(ModelListName.RandomEnemiesFeatureIDs),
                         feature.Model.GetProperty<string>(ModelPropertyName.SpawnOnShootFeatureID),
                         feature.Model.GetProperty<int>(ModelPropertyName.RandomEnemiesSpawnCount),
                         feature.LogicCollection.Get<ISpawnOffScreenPositionLogic>(),
-                        feature.LogicCollection.Get<IInventoryLogic>(),
                         playerFeature,
-                        _container.Resolve<Random>());
+                        _container.Resolve<Random>(),
+                        feature);
                 
                 case LogicFactoryType.Inventory:
 
                     return new InventoryLogic(
-                        _container.Resolve<IStartService>(),
                         feature.Model.GetProperty<string>(ModelPropertyName.CurrentItemID),
                         feature.Model.GetList<string>(ModelListName.ItemIDs));
                 
@@ -180,9 +189,9 @@ namespace Services.Factory.Logic
                 case LogicFactoryType.CameraInitializeSize:
 
                     return new CameraInitializeSizeLogic(
-                        _container.Resolve<IStartService>(),
                         feature.Model.GetProperty<float>(ModelPropertyName.SizeX),
-                        feature.Model.GetProperty<float>(ModelPropertyName.SizeY));
+                        feature.Model.GetProperty<float>(ModelPropertyName.SizeY),
+                        feature);
 
                 case LogicFactoryType.DestroyableTickableUnsubscribe:
 
@@ -200,7 +209,34 @@ namespace Services.Factory.Logic
                         feature.Model.GetProperty<float>(ModelPropertyName.PositionY),
                         feature,
                         _container.Resolve<ITickService>());
+
+                case LogicFactoryType.DamageablePhysicsInitialize:
+
+                    return new DamageablePhysicsInitializeLogic(feature.LogicCollection.Get<IDamageableLogic>(), feature);
                 
+                case LogicFactoryType.DamageOnCollision:
+
+                    return new DamageOnCollisionLogic(feature, feature.LogicCollection.Get<IDamagerLogic>());
+                    
+                case LogicFactoryType.DestroyOnCollision:
+                    
+                    return new DestroyOnCollisionLogic(feature.LogicCollection.Get<IDestroyableFeatureLogic>(), feature);
+                    
+                case LogicFactoryType.InventorySpawn:
+
+                    return new InventorySpawnLogic(
+                        feature.Model.GetList<string>(ModelListName.ItemIDs),
+                        _container.Resolve<ISpawnFeatureService>(),
+                        _uniqueFeaturesContainer,
+                        feature);
+
+                case LogicFactoryType.DelayedDamageOnCollision:
+
+                    return new DelayedDamageOnCollisionLogic(
+                        feature.LogicCollection.Get<IDelayedDamageLogic>(),
+                        feature.LogicCollection.Get<IMoveLogic>(),
+                        feature);
+                    
                 default:
                     throw new ArgumentOutOfRangeException(nameof(logicType), logicType, null);
             }

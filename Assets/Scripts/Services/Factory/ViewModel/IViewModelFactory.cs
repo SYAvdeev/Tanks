@@ -6,14 +6,7 @@ namespace Services.Factory.ViewModel
 {
     public interface IViewModelFactory
     {
-        void CreateViewModel<TViewModel, TViewLogic, TViewFacade>(
-            IModel model,
-            ILogicCollection logicCollection,
-            TViewFacade viewFacade,
-            out TViewModel viewModel,
-            out TViewLogic viewLogic)
-            where TViewModel : BaseViewModel
-            where TViewFacade : BaseViewFacade
-            where TViewLogic : BaseViewLogic<TViewModel, TViewFacade>;
+        TViewModel CreateViewModel<TViewModel>(IModel model, ILogicCollection logicCollection)
+            where TViewModel : BaseViewModel;
     }
 }

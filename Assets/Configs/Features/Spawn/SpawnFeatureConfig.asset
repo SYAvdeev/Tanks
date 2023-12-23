@@ -15,4 +15,4 @@ MonoBehaviour:
   _id: Spawn
   _modelConfig: {fileID: 11400000, guid: dfc1842de0b17fc4ba4a6970c2759cae, type: 2}
   _logicTypes: 090000000700000001000000
-  _featureRootAssetKey: 
+  _featureRootAssetKey: Spawn

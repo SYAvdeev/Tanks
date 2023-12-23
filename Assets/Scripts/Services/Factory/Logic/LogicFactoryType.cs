@@ -21,6 +21,11 @@ namespace Services.Factory.Logic
         CameraInitializeSize,
         DestroyableTickableUnsubscribe,
         Destroyable,
-        DestroyableFeatureOutOfLevelBounds
+        DestroyableFeatureOutOfLevelBounds,
+        DamageablePhysicsInitialize,
+        DamageOnCollision,
+        DestroyOnCollision,
+        InventorySpawn,
+        DelayedDamageOnCollision
     }
 }

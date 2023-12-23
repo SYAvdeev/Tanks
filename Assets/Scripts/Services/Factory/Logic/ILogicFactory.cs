@@ -1,10 +1,10 @@
-using Domain.Features;
 using Domain.Logic;
+using Features;
 
 namespace Services.Factory.Logic
 {
     public interface ILogicFactory
     {
-        ILogic CreateLogic(LogicFactoryType logicType, IFeatureBase feature);
+        ILogic CreateLogic(LogicFactoryType logicType, IFeature feature);
     }
 }

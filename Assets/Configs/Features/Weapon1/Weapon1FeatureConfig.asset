@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Weapon1FeatureConfig
   m_EditorClassIdentifier: 
   _id: Weapon1
-  _modelConfig: {fileID: 11400000, guid: d5944115cbb4cc149be4dcd752f51495, type: 2}
+  _modelConfig: {fileID: 11400000, guid: a5e6619806b9c284d92a7390989ccc53, type: 2}
   _logicTypes: 
   _featureRootAssetKey: Weapon1

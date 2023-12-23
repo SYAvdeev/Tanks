@@ -18,18 +18,14 @@ MonoBehaviour:
     - ValueTypeName: 1
       SerializedValue: 1
     - ValueTypeName: 2
-      SerializedValue: 2
+      SerializedValue: 0.2
     - ValueTypeName: 2
       SerializedValue: 2
     - ValueTypeName: 3
       SerializedValue: Bullet
   _defaultListsData:
-    keyData: 020000000100000003000000
+    keyData: 01000000
     valueData:
-    - ValueTypeName: 3
-      SerializedValues: []
-    - ValueTypeName: 3
-      SerializedValues: []
     - ValueTypeName: 3
       SerializedValues:
       - Enemy0

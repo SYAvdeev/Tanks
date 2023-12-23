@@ -13,9 +13,10 @@ namespace Domain.Logic.Damager
 
         public DelayedDamageLogic(
             ITickService tickService,
-            IReactivePropertyReadonly<float> delay,
+            IReactiveProperty<float> delay,
             IReactiveProperty<float> currentDelay,
-            IDamagerLogic damagerLogic) : base(tickService, delay, currentDelay)
+            IDamagerLogic damagerLogic) :
+            base(tickService, delay, currentDelay)
         {
             _damagerLogic = damagerLogic;
         }

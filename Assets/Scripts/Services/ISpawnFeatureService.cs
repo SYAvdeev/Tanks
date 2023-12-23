@@ -6,7 +6,7 @@ namespace Services
 {
     public interface ISpawnFeatureService
     {
-        Task<IFeature> Create(string id, Transform viewParent);
+        Task<IFeature> Create(string id, Transform spawnParent);
         void Delete(IFeature feature);
     }
 }
