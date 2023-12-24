@@ -49,6 +49,22 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/Spawn.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: c431626448ba9ab40bb41892bf60e406
+    m_Address: Assets/Prefabs/Enemies/Enemy2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 47c21a1a0089d9f4cb6d8f0a1c79636b
+    m_Address: Assets/Prefabs/Enemies/Enemy3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8a9eb64b2dddf7a4bab649d4123571d2
+    m_Address: Assets/Prefabs/Enemies/Enemy4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0d84dc0ea8d2298499f96d0a1148a1ad
+    m_Address: Assets/Prefabs/Enemies/Enemy1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a7a59269e42dfea4dbe55d99eb83061c, type: 2}
   m_SchemaSet:

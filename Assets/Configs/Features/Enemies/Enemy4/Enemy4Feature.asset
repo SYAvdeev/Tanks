@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 101892d019c74e31b2b76906f7a92390, type: 3}
-  m_Name: Enemy0Feature
+  m_Name: Enemy4Feature
   m_EditorClassIdentifier: 
-  _id: Enemy0
-  _modelConfig: {fileID: 11400000, guid: af08f936f9d9f4f419be19d9b4230624, type: 2}
+  _id: Enemy4
+  _modelConfig: {fileID: 11400000, guid: e0fd2ef24b39fe14ebad8971d758e61e, type: 2}
   _logicTypes: 0300000004000000050000000c0000000e00000006000000110000001800000014000000
-  _featureRootAssetKey: Enemy0
+  _featureRootAssetKey: Enemy4

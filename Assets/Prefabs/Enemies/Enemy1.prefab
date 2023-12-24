@@ -9,8 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2387298002639701543}
-  - component: {fileID: 6286899451340673445}
   - component: {fileID: 7917447565867929137}
+  - component: {fileID: -4096076783190799037}
+  - component: {fileID: -224817519108728924}
+  - component: {fileID: -5361019460529524702}
+  - component: {fileID: 3938015312445622352}
+  - component: {fileID: -7488069231097601687}
   m_Layer: 7
   m_Name: Enemy1
   m_TagString: Enemy
@@ -35,20 +39,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6286899451340673445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2387298002639701544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d8aee929c34696922fa46380e60c76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotateTransform: {fileID: 2387298003290309901}
-  _health: {fileID: 2939286778151093737}
 --- !u!50 &7917447565867929137
 Rigidbody2D:
   serializedVersion: 4
@@ -70,6 +60,77 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &-4096076783190799037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2387298002639701544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67dd2395baa54f8f92869120cf201551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewFacadeDictionary:
+    keyData: 030000000000000002000000
+    valueData:
+    - {fileID: -224817519108728924}
+    - {fileID: 713435429120401397}
+    - {fileID: -5361019460529524702}
+--- !u!114 &-224817519108728924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2387298002639701544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03eb85be43843d9949237cc6244a48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 2387298002639701543}
+  _rotationTransform: {fileID: 2387298003290309901}
+--- !u!114 &-5361019460529524702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2387298002639701544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f12bd2b53664c3d94419462e858771b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delayedDamagerPhysics: {fileID: 3938015312445622352}
+--- !u!114 &3938015312445622352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2387298002639701544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495bc71d7a56407da60a0f9d7c14c149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageableTags:
+  - Player
+--- !u!114 &-7488069231097601687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2387298002639701544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92490bf442254a028645e4cbb86e157a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2387298003290309902
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2939286778151093737}
   - component: {fileID: 3848971520166704793}
+  - component: {fileID: 713435429120401397}
   m_Layer: 7
   m_Name: Health
   m_TagString: Untagged
@@ -297,3 +359,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &713435429120401397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409657833028276215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b6063da3154056b5d9f2eed84921d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthTransform: {fileID: 2939286778151093737}
+  _damageablePhysics: {fileID: -7488069231097601687}

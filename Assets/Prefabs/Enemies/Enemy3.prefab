@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2855793329813305756}
   - component: {fileID: 6396101377398713025}
+  - component: {fileID: 1201530533875311714}
   m_Layer: 7
   m_Name: Health
   m_TagString: Untagged
@@ -84,6 +85,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1201530533875311714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881197015784276232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b6063da3154056b5d9f2eed84921d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthTransform: {fileID: 2855793329813305756}
+  _damageablePhysics: {fileID: -8328830266920950940}
 --- !u!1 &3399164846360696866
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,8 +251,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3399164846683255527}
-  - component: {fileID: 6427390059075888485}
   - component: {fileID: 6773894098685347961}
+  - component: {fileID: -4385888400395032910}
+  - component: {fileID: 5627307715192783600}
+  - component: {fileID: -3998769867845042643}
+  - component: {fileID: 4898599173126352487}
+  - component: {fileID: -8328830266920950940}
   m_Layer: 7
   m_Name: Enemy3
   m_TagString: Enemy
@@ -262,20 +281,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6427390059075888485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3399164846683255528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d8aee929c34696922fa46380e60c76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotateTransform: {fileID: 3399164846569451981}
-  _health: {fileID: 2855793329813305756}
 --- !u!50 &6773894098685347961
 Rigidbody2D:
   serializedVersion: 4
@@ -297,3 +302,74 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &-4385888400395032910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3399164846683255528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67dd2395baa54f8f92869120cf201551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _viewFacadeDictionary:
+    keyData: 030000000000000002000000
+    valueData:
+    - {fileID: 5627307715192783600}
+    - {fileID: 1201530533875311714}
+    - {fileID: -3998769867845042643}
+--- !u!114 &5627307715192783600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3399164846683255528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03eb85be43843d9949237cc6244a48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 3399164846683255527}
+  _rotationTransform: {fileID: 3399164846569451981}
+--- !u!114 &-3998769867845042643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3399164846683255528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f12bd2b53664c3d94419462e858771b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delayedDamagerPhysics: {fileID: 4898599173126352487}
+--- !u!114 &4898599173126352487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3399164846683255528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495bc71d7a56407da60a0f9d7c14c149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageableTags:
+  - Player
+--- !u!114 &-8328830266920950940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3399164846683255528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92490bf442254a028645e4cbb86e157a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

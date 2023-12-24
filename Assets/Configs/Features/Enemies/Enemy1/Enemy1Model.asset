@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc8877b11e1d40d7be6b1a40b0f26888, type: 3}
-  m_Name: Enemy0Model
+  m_Name: Enemy1Model
   m_EditorClassIdentifier: 
   _defaultPropertiesData:
     keyData: 0000000001000000020000000300000004000000050000000600000007000000090000000a000000
@@ -20,19 +20,19 @@ MonoBehaviour:
     - ValueTypeName: 2
       SerializedValue: 50
     - ValueTypeName: 2
-      SerializedValue: 0.5
+      SerializedValue: 0.3
+    - ValueTypeName: 2
+      SerializedValue: 10
+    - ValueTypeName: 2
+      SerializedValue: 0
+    - ValueTypeName: 2
+      SerializedValue: 0
+    - ValueTypeName: 2
+      SerializedValue: 0
     - ValueTypeName: 2
       SerializedValue: 20
     - ValueTypeName: 2
-      SerializedValue: 0
-    - ValueTypeName: 2
-      SerializedValue: 0
-    - ValueTypeName: 2
-      SerializedValue: 0
-    - ValueTypeName: 2
-      SerializedValue: 20
-    - ValueTypeName: 2
-      SerializedValue: 1.2
+      SerializedValue: 1
     - ValueTypeName: 2
       SerializedValue: 0
   _defaultListsData:
