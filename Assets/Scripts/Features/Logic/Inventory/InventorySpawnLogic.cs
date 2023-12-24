@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Features.Inventory;
 using ReactiveTypes;
@@ -32,7 +33,7 @@ namespace Features.Logic.Inventory
             _inventoryFeature = inventoryFeature;
         }
         
-        public async void Initialize()
+        public async UniTask Initialize()
         {
             List<IFeature> spawnedItems = new List<IFeature>(_itemIDs.Count);
             _itemsParent = _inventoryFeature.ViewRoot.GetViewFacade<InventoryViewFacade>(ViewType.Inventory).ItemsParent;

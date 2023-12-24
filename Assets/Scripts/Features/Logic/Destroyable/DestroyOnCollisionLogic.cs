@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Domain.Logic.Destroyable;
 using Features.Destroyable;
 using Services.Factory.ViewModel;
@@ -17,12 +18,14 @@ namespace Features.Logic.Destroyable
             _destroyableFeature = destroyableFeature;
         }
         
-        public void Initialize()
+        public UniTask Initialize()
         {
             DestroyableOnCollisionPhysics destroyableOnCollisionPhysics = 
                 _destroyableFeature.ViewRoot.GetViewFacade<DestroyableViewFacade>(ViewType.Destroyable).DestroyableOnCollisionPhysics;
 
             destroyableOnCollisionPhysics.Collision += DestroyableOnCollisionPhysicsOnCollision;
+            
+            return UniTask.CompletedTask;
         }
 
         private void DestroyableOnCollisionPhysicsOnCollision()

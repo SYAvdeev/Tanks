@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Domain.Logic.Damager;
 using Features.Damageable;
 using Features.Damager;
@@ -16,12 +17,14 @@ namespace Features.Logic.Damager
             _damagerFeature = damagerFeature;
         }
 
-        public void Initialize()
+        public UniTask Initialize()
         {
             DamagerPhysics damagerPhysics = 
                 _damagerFeature.ViewRoot.GetViewFacade<DamagerViewFacade>(ViewType.Damager).DamagerPhysics;
 
             damagerPhysics.CollisionWithDamageable += DamagerPhysicsOnCollisionWithDamageable;
+
+            return UniTask.CompletedTask;
         }
         
         private void DamagerPhysicsOnCollisionWithDamageable(DamageablePhysics damageablePhysics)

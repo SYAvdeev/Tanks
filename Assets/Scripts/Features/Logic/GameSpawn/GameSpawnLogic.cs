@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Domain.Features;
 using Domain.Logic.Destroyable;
 using Domain.Logic.Level;
@@ -63,9 +64,10 @@ namespace Features.Logic.GameSpawn
             }
         }
         
-        public void Initialize()
+        public UniTask Initialize()
         {
             _spawnParent = _spawnFeature.ViewRoot.GetViewFacade<SpawnViewFacade>(ViewType.Spawn).SpawnParent;
+            return UniTask.CompletedTask;
         }
 
         public async void SpawnRandomEnemy()

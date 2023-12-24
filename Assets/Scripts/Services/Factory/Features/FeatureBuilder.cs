@@ -71,7 +71,7 @@ namespace Services.Factory.Features
 
             foreach (IInitializableAfterBuildLogic initializeLogic in feature.LogicCollection.GetAll<IInitializableAfterBuildLogic>())
             {
-                initializeLogic.Initialize();
+                await initializeLogic.Initialize();
             }
             
             return feature;

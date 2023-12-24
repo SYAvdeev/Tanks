@@ -32,9 +32,10 @@ namespace Services
         private async UniTask TicksRoutine(CancellationToken cancellationToken)
         {
             Start?.Invoke();
+            YieldAwaitable cachedYieldAwaitable = UniTask.Yield();
             while (!cancellationToken.IsCancellationRequested)
             {
-                await UniTask.Yield();
+                await cachedYieldAwaitable;
                 Tick?.Invoke(Time.deltaTime);
             }
         }

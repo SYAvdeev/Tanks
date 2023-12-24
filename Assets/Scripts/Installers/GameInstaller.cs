@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using Configs.Feature;
 using Configs.Prototype;
-using Domain.Features;
 using Domain.Services;
 using Domain.Services.Input;
 using Features;

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Features.Camera;
 using ReactiveTypes;
 using Services.Factory.ViewModel;
@@ -20,11 +21,13 @@ namespace Features.Logic.Camera
             _cameraFeature = cameraFeature;
         }
 
-        public void Initialize()
+        public UniTask Initialize()
         {
             UnityEngine.Camera camera = _cameraFeature.ViewRoot.GetViewFacade<CameraViewFacade>(ViewType.Camera).Camera;
             _sizeYProperty.Value = 2f * camera.orthographicSize;
             _sizeXProperty.Value = _sizeYProperty.Value * camera.aspect;
+            
+            return UniTask.CompletedTask;
         }
     }
 }

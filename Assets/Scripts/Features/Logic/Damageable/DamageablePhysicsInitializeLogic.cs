@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Domain.Logic.Damageable;
 using Features.Damageable;
 using Services.Factory.ViewModel;
@@ -15,11 +16,12 @@ namespace Features.Logic.Damageable
             _damageableFeature = damageableFeature;
         }
 
-        public void Initialize()
+        public UniTask Initialize()
         {
             DamageablePhysics damageablePhysics = 
                 _damageableFeature.ViewRoot.GetViewFacade<DamageableViewFacade>(ViewType.Damageable).DamageablePhysics;
             damageablePhysics.Initialize(_damageableLogic);
+            return UniTask.CompletedTask;
         }
     }
 }

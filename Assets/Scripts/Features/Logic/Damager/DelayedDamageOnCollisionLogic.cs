@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Domain.Logic.Damageable;
 using Domain.Logic.Damager;
 using Domain.Logic.Transformable;
@@ -23,13 +24,15 @@ namespace Features.Logic.Damager
             _delayedDamagerFeature = delayedDamagerFeature;
         }
 
-        public void Initialize()
+        public UniTask Initialize()
         {
             DelayedDamagerPhysics delayedDamagerPhysics = 
                 _delayedDamagerFeature.ViewRoot.GetViewFacade<DelayedDamagerViewFacade>(ViewType.DelayedDamager).DelayedDamagerPhysics;
             
             delayedDamagerPhysics.CollisionEnterWithDamageable += DelayedDamagerPhysicsOnCollisionEnterWithDamageable;
             delayedDamagerPhysics.CollisionExitWithDamageable += DelayedDamagerPhysicsOnCollisionExitWithDamageable;
+            
+            return UniTask.CompletedTask;
         }
 
         private void DelayedDamagerPhysicsOnCollisionEnterWithDamageable(DamageablePhysics damageablePhysics)
