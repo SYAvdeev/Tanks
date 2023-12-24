@@ -16,7 +16,7 @@ MonoBehaviour:
     keyData: 0d000000090000000a0000000f000000
     valueData:
     - ValueTypeName: 1
-      SerializedValue: 1
+      SerializedValue: 10
     - ValueTypeName: 2
       SerializedValue: 0.2
     - ValueTypeName: 2
@@ -29,3 +29,7 @@ MonoBehaviour:
     - ValueTypeName: 3
       SerializedValues:
       - Enemy0
+      - Enemy1
+      - Enemy2
+      - Enemy3
+      - Enemy4

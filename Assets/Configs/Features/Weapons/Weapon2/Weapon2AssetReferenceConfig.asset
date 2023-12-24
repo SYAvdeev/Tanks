@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dee190588f04117869cee913aa85abd, type: 3}
-  m_Name: Weapon1AssetReferenceConfig
+  m_Name: Weapon2AssetReferenceConfig
   m_EditorClassIdentifier: 
   assetReference:
-    m_AssetGUID: 351f8916fe6a7584985b58de15b718db
+    m_AssetGUID: a98b1e2eaa6672d4689a087b9d490127
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

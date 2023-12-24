@@ -22,6 +22,13 @@ MonoBehaviour:
     - Weapon0
     - Weapon1
     - Spawn
+    - Enemy1
+    - Enemy2
+    - Enemy3
+    - Enemy4
+    - Weapon2
+    - Weapon3
+    - Weapon4
     valueData:
     - {fileID: 11400000, guid: 5378dc818ac1c70438719595fb8b6968, type: 2}
     - {fileID: 11400000, guid: 1dea86abd2888d346895d0a29437b9b2, type: 2}
@@ -31,3 +38,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 95bcd062f5a820e48aca7e23775b82aa, type: 2}
     - {fileID: 11400000, guid: 232ff5714f6a0c643b4d33f70eb8159b, type: 2}
     - {fileID: 11400000, guid: 70e5d333c393b94479c25ce238e4d602, type: 2}
+    - {fileID: 11400000, guid: 3e4b04f674b572847b2377eeee41c3d4, type: 2}
+    - {fileID: 11400000, guid: 673b97d6199a02e40988d8d23292f9cf, type: 2}
+    - {fileID: 11400000, guid: f2fa603ee6ee7e447ac1c21a48f5eb58, type: 2}
+    - {fileID: 11400000, guid: bf46b17572ccaba40b4a61fe5e80e795, type: 2}
+    - {fileID: 11400000, guid: 0093c277c72cda841a4f4425b01005de, type: 2}
+    - {fileID: 11400000, guid: 5e63a95b4318b9444b32a981381b7539, type: 2}
+    - {fileID: 11400000, guid: be71907b9833b97418695b6a8d46b2da, type: 2}

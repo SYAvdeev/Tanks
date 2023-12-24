@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 475fd31ad7d54dda8bee83c08b27bb85, type: 3}
-  m_Name: Weapon0_
+  m_Script: {fileID: 11500000, guid: 6dee190588f04117869cee913aa85abd, type: 3}
+  m_Name: Weapon4AssetReferenceConfig
   m_EditorClassIdentifier: 
-  _name: Weapon0
-  _damage: 100
-  _bulletSpeed: 2
-  _reloadDelay: 2
-  _prefab: {fileID: 4436255016494850450, guid: 8d27dd3235de2484bb8c82d362a05fd7, type: 3}
+  assetReference:
+    m_AssetGUID: d727dffae3a61a441948728271f178fe
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

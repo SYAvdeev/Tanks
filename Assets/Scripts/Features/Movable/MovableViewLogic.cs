@@ -11,6 +11,10 @@ namespace Features.Movable
             movableViewModel.PositionX.OnValueChanged += PositionXOnOnValueChanged;
             movableViewModel.PositionY.OnValueChanged += PositionYOnOnValueChanged;
             movableViewModel.AngleDegrees.OnValueChanged += DirectionAngleOnOnValueChanged;
+
+            PositionXOnOnValueChanged(movableViewModel.PositionX.Value);
+            PositionYOnOnValueChanged(movableViewModel.PositionY.Value);
+            DirectionAngleOnOnValueChanged(movableViewModel.AngleDegrees.Value);
         }
         
         private void PositionXOnOnValueChanged(float x)

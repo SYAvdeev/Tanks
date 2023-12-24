@@ -29,11 +29,25 @@ MonoBehaviour:
     - Enemy0
     - Weapon0
     - Weapon1
+    - Enemy1
+    - Enemy2
+    - Enemy3
+    - Enemy4
+    - Weapon2
+    - Weapon3
+    - Weapon4
     valueData:
     - {fileID: 11400000, guid: 02a5c487cac2611449d43c8e862270b7, type: 2}
     - {fileID: 11400000, guid: 1a41f5b540360ff4685c33463b4f5745, type: 2}
     - {fileID: 11400000, guid: de5a5af5d6ff4f646a1e8aa3497befb9, type: 2}
     - {fileID: 11400000, guid: c4d6496d665c50e46a39cfac3e987c0b, type: 2}
+    - {fileID: 11400000, guid: 9102d69ba18054e4bb2c461620f48828, type: 2}
+    - {fileID: 11400000, guid: dd0cd98dec64b724583cfe1f92b3dac7, type: 2}
+    - {fileID: 11400000, guid: 16b7fdcaa3929d14e8dbcdac304c83e5, type: 2}
+    - {fileID: 11400000, guid: 7b23680b1f0ff8045949587f501c7bc2, type: 2}
+    - {fileID: 11400000, guid: a34b5ac2cf3a3c241ad5959d7ff4a9eb, type: 2}
+    - {fileID: 11400000, guid: 7433a309494c0cc488827dbcf88d421a, type: 2}
+    - {fileID: 11400000, guid: 9f1002e053044e746bbf7901d2c6befa, type: 2}
   _uniqueFeatureConfigsCreateOrder:
   - Level
   - Player

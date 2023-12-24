@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc8877b11e1d40d7be6b1a40b0f26888, type: 3}
-  m_Name: Weapon1ModelConfig
+  m_Name: Weapon4ModelConfig
   m_EditorClassIdentifier: 
   _defaultPropertiesData:
     keyData: 030000000700000009000000
     valueData:
     - ValueTypeName: 2
-      SerializedValue: 500
+      SerializedValue: 10
     - ValueTypeName: 2
-      SerializedValue: 150
+      SerializedValue: 100
     - ValueTypeName: 2
-      SerializedValue: 0.2
+      SerializedValue: 0.5
   _defaultListsData:
     keyData: 
     valueData: []
