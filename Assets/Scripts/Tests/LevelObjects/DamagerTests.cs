@@ -15,9 +15,9 @@ namespace Tanks.Tests
             var damagerConfig = new Mock<IDamagerConfig>();
             float damage = 5f;
             damagerConfig.Setup(dc => dc.Damage).Returns(damage);
-            var damagerModel = new DamagerModel(damagerConfig.Object);
-
-            var damagerService = new DamagerService(damagerModel);
+            var damagerModel = new Mock<IDamagerModel>();
+            damagerModel.Setup(dm => dm.Config).Returns(damagerConfig.Object);
+            var damagerService = new DamagerService(damagerModel.Object);
             
             //Act
             damagerService.MakeDamage(damageableService.Object);

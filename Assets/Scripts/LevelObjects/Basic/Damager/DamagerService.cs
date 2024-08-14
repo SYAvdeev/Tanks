@@ -2,9 +2,9 @@
 {
     public class DamagerService : IDamagerService
     {
-        private readonly DamagerModel _damagerModel;
+        private readonly IDamagerModel _damagerModel;
 
-        public DamagerService(DamagerModel damagerModel)
+        public DamagerService(IDamagerModel damagerModel)
         {
             _damagerModel = damagerModel;
         }

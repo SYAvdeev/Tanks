@@ -1,6 +1,6 @@
 ﻿namespace Tanks.LevelObjects.Basic
 {
-    public class DamagerModel
+    public class DamagerModel : IDamagerModel
     {
         public IDamagerConfig Config { get; }
 
