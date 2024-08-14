@@ -1,8 +1,9 @@
 {
-    "name": "Tanks.LevelObjects",
-    "rootNamespace": "Tanks.LevelObjects",
+    "name": "Tanks.LevelObjects.Level",
+    "rootNamespace": "Tanks.LevelObjects.Level",
     "references": [
-        "Tanks.Utility"
+        "Tanks.Utility",
+        "Tanks.LevelObjects.Basic"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

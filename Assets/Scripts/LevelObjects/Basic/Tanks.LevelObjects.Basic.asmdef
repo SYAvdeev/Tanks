@@ -1,0 +1,16 @@
+{
+    "name": "Tanks.LevelObjects.Basic",
+    "rootNamespace": "Tanks.LevelObjects.Basic",
+    "references": [
+        "Tanks.Utility"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

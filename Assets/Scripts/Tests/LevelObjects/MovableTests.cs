@@ -102,10 +102,10 @@ namespace Tanks.Tests
                 out IMovableService movableService,
                 out MovableModel movableModel);
             //Act
-            void RotateWithVelocity() => movableService.RotateWithVelocity(2f, false, 2f);
+            void RotateWithVelocity() => movableService.RotateWithVelocity(365f, false, 2f);
             //Assert
             Assert.DoesNotThrow(RotateWithVelocity);
-            Assert.True(Mathf.Approximately(movableModel.DirectionAngle, -4f));
+            Assert.True(Mathf.Approximately(movableModel.DirectionAngle, -10f));
         }
         
         private static void ArrangeMovableService(

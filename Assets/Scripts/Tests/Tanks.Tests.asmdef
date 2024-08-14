@@ -4,8 +4,8 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "Tanks.LevelObjects",
-        "Tanks.Utility"
+        "Tanks.Utility",
+        "Tanks.LevelObjects.Basic"
     ],
     "includePlatforms": [
         "Editor"

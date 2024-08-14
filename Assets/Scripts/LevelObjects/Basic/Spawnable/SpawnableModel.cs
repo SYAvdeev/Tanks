@@ -1,6 +1,6 @@
 ﻿namespace Tanks.LevelObjects.Basic
 {
-    public class SpawnableModel
+    public class SpawnableModel : ISpawnableModel
     {
         public ISpawnableConfig Config { get; }
 

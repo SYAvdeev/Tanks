@@ -26,7 +26,6 @@ namespace Tanks.LevelObjects.Basic
 
             if (Mathf.Approximately(_damageableModel.GetCurrentHealth(), 0f))
             {
-                _damageableModel.SetCurrentHealth(0f);
                 OutOfHealth?.Invoke();
             }
         }
