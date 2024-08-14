@@ -21,8 +21,8 @@ namespace Tanks.LevelObjects.Basic
                 throw new ArgumentException("Damage cannot be less than zero.");
             }
 
-            _damageableModel.SetCurrentHealth(
-                _damageableModel.GetCurrentHealth() - damage * (1f - _damageableModel.Config.Protection));
+            float currentHealth = _damageableModel.GetCurrentHealth() - damage * (1f - _damageableModel.Config.Protection);
+            _damageableModel.SetCurrentHealth(currentHealth);
 
             if (Mathf.Approximately(_damageableModel.GetCurrentHealth(), 0f))
             {
