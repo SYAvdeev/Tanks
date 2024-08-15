@@ -1,0 +1,17 @@
+{
+    "name": "Tanks.Scenes",
+    "rootNamespace": "Tanks.Scenes",
+    "references": [
+        "UniTask",
+        "Tanks.Utility"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

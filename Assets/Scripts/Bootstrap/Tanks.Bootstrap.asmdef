@@ -1,0 +1,22 @@
+{
+    "name": "Tanks.Bootstrap",
+    "rootNamespace": "Tanks.Bootstrap",
+    "references": [
+        "VContainer",
+        "UniTask",
+        "Tanks.Utility",
+        "Tanks.Root",
+        "Tanks.UI",
+        "TycoonMatch.Scenes",
+        "Tanks.Scenes"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

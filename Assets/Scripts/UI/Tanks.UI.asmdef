@@ -1,0 +1,19 @@
+{
+    "name": "Tanks.UI",
+    "rootNamespace": "Tanks.UI",
+    "references": [
+        "Tanks.Utility",
+        "UniTask",
+        "Unity.TextMeshPro",
+        "VContainer"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
