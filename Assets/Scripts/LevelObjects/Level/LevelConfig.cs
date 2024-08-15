@@ -15,7 +15,7 @@ namespace Tanks.LevelObjects.Level
         [SerializeField] private Vector2 _maxPosition;
         [SerializeField] private LevelView _levelViewPrefab;
 
-        public SpawnableConfig SpawnableConfig => _spawnableConfig;
+        public ISpawnableConfig SpawnableConfig => _spawnableConfig;
         public Vector2 MinPosition => _minPosition;
         public Vector2 MaxPosition => _maxPosition;
         public LevelView LevelViewPrefab => _levelViewPrefab;

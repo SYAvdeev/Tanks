@@ -1,11 +1,12 @@
 {
-    "name": "Tanks.Tests",
-    "rootNamespace": "Tanks.Tests",
+    "name": "Tanks.UnitTests",
+    "rootNamespace": "Tanks.UnitTests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Tanks.Utility",
-        "Tanks.LevelObjects.Basic"
+        "Tanks.LevelObjects.Basic",
+        "Tanks.LevelObjects.Level"
     ],
     "includePlatforms": [
         "Editor"

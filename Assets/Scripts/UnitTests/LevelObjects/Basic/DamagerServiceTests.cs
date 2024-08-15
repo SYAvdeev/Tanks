@@ -2,9 +2,9 @@
 using NUnit.Framework;
 using Tanks.LevelObjects.Basic;
 
-namespace Tanks.Tests
+namespace Tanks.UnitTests
 {
-    public class DamagerTests
+    public class DamagerServiceTests
     {
         [Test]
         public void DamagerService_MakeDamage_ShouldCallDamageableServiceConsumeDamageOnce()

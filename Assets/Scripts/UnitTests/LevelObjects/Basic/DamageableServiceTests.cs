@@ -3,7 +3,7 @@ using Moq;
 using NUnit.Framework;
 using Tanks.LevelObjects.Basic;
 
-namespace Tanks.Tests
+namespace Tanks.UnitTests
 {
     public class DamageableServiceTests
     {

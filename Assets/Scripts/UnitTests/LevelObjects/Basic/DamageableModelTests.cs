@@ -3,7 +3,7 @@ using NUnit.Framework;
 using Tanks.LevelObjects.Basic;
 using UnityEngine;
 
-namespace Tanks.Tests
+namespace Tanks.UnitTests
 {
     public class DamageableModelTests
     {

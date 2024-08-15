@@ -4,6 +4,11 @@
     {
         private readonly ILevelSpawnModel _levelSpawnModel;
 
+        public LevelSpawnService(ILevelSpawnModel levelSpawnModel)
+        {
+            _levelSpawnModel = levelSpawnModel;
+        }
+
         public void Initialize()
         {
             var currentLevelConfig = _levelSpawnModel.IsCurrentLevelIDEmpty
