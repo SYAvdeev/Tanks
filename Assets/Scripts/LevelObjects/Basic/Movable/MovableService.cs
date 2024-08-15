@@ -5,9 +5,9 @@ namespace Tanks.LevelObjects.Basic
 {
     public class MovableService : IMovableService
     {
-        private readonly MovableModel _movableModel;
+        private readonly IMovableModel _movableModel;
 
-        public MovableService(MovableModel movableModel)
+        public MovableService(IMovableModel movableModel)
         {
             _movableModel = movableModel;
         }
@@ -21,7 +21,9 @@ namespace Tanks.LevelObjects.Basic
 
             float sin = Mathf.Sin(Mathf.Deg2Rad * _movableModel.DirectionAngle);
             float cos = Mathf.Cos(Mathf.Deg2Rad * _movableModel.DirectionAngle);
-            _movableModel.Position += deltaTime * _movableModel.Config.Velocity * (new Vector2(sin, cos));
+            
+            Vector2 position = _movableModel.Position + deltaTime * _movableModel.Config.Velocity * (new Vector2(sin, cos));
+            _movableModel.SetPosition(position);
         }
 
         public void RotateTowards(Vector2 targetPosition)
@@ -29,7 +31,8 @@ namespace Tanks.LevelObjects.Basic
             float x = targetPosition.x - _movableModel.Position.x;
             float y = targetPosition.y - _movableModel.Position.y;
 
-            _movableModel.DirectionAngle = Mathf.Rad2Deg * (float)Math.Atan2(x, y);
+            float angle = Mathf.Rad2Deg * (float)Math.Atan2(x, y);
+            _movableModel.SetDirectionAngle(angle);
         }
 
         public void RotateWithVelocity(float rotationVelocity, bool isClockwise, float deltaTime)
@@ -43,8 +46,9 @@ namespace Tanks.LevelObjects.Basic
             {
                 throw new ArgumentException("Rotation velocity cannot be less than zero.");
             }
-            
-            _movableModel.DirectionAngle += (isClockwise ? 1f : -1f) * rotationVelocity * deltaTime;
+
+            float angle = _movableModel.DirectionAngle + (isClockwise ? 1f : -1f) * rotationVelocity * deltaTime;
+            _movableModel.SetDirectionAngle(angle);
         }
     }
 }

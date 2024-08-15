@@ -3,10 +3,9 @@ using UnityEngine;
 
 namespace Tanks.LevelObjects.Basic
 {
-    public class MovableModel
+    public class MovableModel : IMovableModel
     {
         private readonly MovableData _movableData;
-        public IMovableConfig Config { get; }
 
         public MovableModel(IMovableConfig config, MovableData movableData)
         {
@@ -14,39 +13,42 @@ namespace Tanks.LevelObjects.Basic
             _movableData = movableData;
         }
 
+        public IMovableConfig Config { get; }
+
         public event Action<float> DirectionAngleUpdated;
         public event Action<Vector2> PositionUpdated;
         
-        public float DirectionAngle
-        {
-            get => _movableData.DirectionAngle;
-            internal set
-            {
-                value %= 360f;
-                
-                if (Mathf.Approximately(_movableData.DirectionAngle, value))
-                {
-                    return;
-                }
+        public float DirectionAngle => _movableData.DirectionAngle;
 
-                _movableData.DirectionAngle = value;
-                DirectionAngleUpdated?.Invoke(value);
+        public Vector2 Position => _movableData.Position;
+
+        void IMovableModel.SetDirectionAngle(float angle)
+        {
+            angle %= 360f;
+
+            if (angle < 0f)
+            {
+                angle += 360f;
             }
+                
+            if (Mathf.Approximately(_movableData.DirectionAngle, angle))
+            {
+                return;
+            }
+
+            _movableData.DirectionAngle = angle;
+            DirectionAngleUpdated?.Invoke(angle);
         }
 
-        public Vector2 Position
+        void IMovableModel.SetPosition(Vector2 position)
         {
-            get => _movableData.Position;
-            internal set
+            if (_movableData.Position == position)
             {
-                if (_movableData.Position == value)
-                {
-                    return;
-                }
-
-                _movableData.Position = value;
-                PositionUpdated?.Invoke(value);
+                return;
             }
+
+            _movableData.Position = position;
+            PositionUpdated?.Invoke(position);
         }
     }
 }
