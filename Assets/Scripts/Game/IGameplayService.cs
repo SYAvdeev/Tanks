@@ -1,7 +1,7 @@
 ﻿using System;
 using VContainer.Unity;
 
-namespace Tanks.Gameplay
+namespace Tanks.Game
 {
     public interface IGameplayService : IDisposable, IAsyncStartable
     {

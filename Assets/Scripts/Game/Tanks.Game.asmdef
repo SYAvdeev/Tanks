@@ -2,10 +2,12 @@
     "name": "Tanks.Game",
     "rootNamespace": "Tanks.Game",
     "references": [
-        "Tanks.LevelObjects.Basic",
-        "Tanks.LevelObjects.Level",
-        "Tanks.Gameplay",
-        "VContainer"
+        "Tanks.Game.LevelObjects.Basic",
+        "Tanks.Game.LevelObjects.Level",
+        "Tanks.UI",
+        "Tanks.Utility",
+        "VContainer",
+        "UniTask"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

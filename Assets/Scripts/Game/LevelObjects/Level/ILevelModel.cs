@@ -1,6 +1,6 @@
-﻿using Tanks.LevelObjects.Basic;
+﻿using Tanks.Game.LevelObjects.Basic;
 
-namespace Tanks.LevelObjects.Level
+namespace Tanks.Game.LevelObjects.Level
 {
     public interface ILevelModel
     {

@@ -1,6 +1,6 @@
 {
-    "name": "Tanks.LevelObjects.Basic",
-    "rootNamespace": "Tanks.LevelObjects.Basic",
+    "name": "Tanks.Game.Camera",
+    "rootNamespace": "Tanks.Game.Camera",
     "references": [
         "Tanks.Utility"
     ],

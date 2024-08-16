@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tanks.LevelObjects.Basic
+namespace Tanks.Game.LevelObjects.Basic
 {
     [Serializable]
     public class DamageableData

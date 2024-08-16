@@ -1,8 +1,8 @@
-﻿using Tanks.LevelObjects.Basic;
+﻿using Tanks.Game.LevelObjects.Basic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Tanks.LevelObjects.Level
+namespace Tanks.Game.LevelObjects.Level
 {
     public interface ILevelConfig
     {

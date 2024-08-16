@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Tanks.LevelObjects.Level.Spawn
+namespace Tanks.Game.LevelObjects.Level
 {
     public interface ILevelSpawnModel
     {

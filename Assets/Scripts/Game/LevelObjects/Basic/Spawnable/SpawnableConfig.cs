@@ -1,11 +1,11 @@
 ﻿using Tanks.Utility;
 using UnityEngine;
 
-namespace Tanks.LevelObjects.Basic
+namespace Tanks.Game.LevelObjects.Basic
 {
     [CreateAssetMenu(
         fileName = nameof(SpawnableConfig), 
-        menuName = "Custom/LevelObjects/Basic/" + nameof(SpawnableConfig),
+        menuName = "Custom/Game/LevelObjects/Basic/" + nameof(SpawnableConfig),
         order = 3)]
     public class SpawnableConfig : ConfigBase, ISpawnableConfig
     {

@@ -2,7 +2,7 @@
 using Tanks.Utility;
 using UnityEngine;
 
-namespace Tanks.LevelObjects.Level.Spawn
+namespace Tanks.Game.LevelObjects.Level
 {
     [CreateAssetMenu(
         fileName = nameof(LevelSpawnConfig), 

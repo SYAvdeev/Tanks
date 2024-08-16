@@ -1,4 +1,4 @@
-﻿namespace Tanks.LevelObjects.Level.Spawn
+﻿namespace Tanks.Game.LevelObjects.Level
 {
     public interface ILevelSpawnService
     {

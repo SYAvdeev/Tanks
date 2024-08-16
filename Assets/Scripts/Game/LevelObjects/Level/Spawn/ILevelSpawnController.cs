@@ -1,7 +1,7 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 
-namespace Tanks.LevelObjects.Level.Spawn
+namespace Tanks.Game.LevelObjects.Level
 {
     public interface ILevelSpawnController : IDisposable
     {

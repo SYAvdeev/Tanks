@@ -1,11 +1,11 @@
 ﻿using Tanks.Utility;
 using UnityEngine;
 
-namespace Tanks.LevelObjects.Basic
+namespace Tanks.Game.LevelObjects.Basic
 {
     [CreateAssetMenu(
         fileName = nameof(DamagerConfig), 
-        menuName = "Custom/LevelObjects/Basic/" + nameof(DamagerConfig),
+        menuName = "Custom/Game/LevelObjects/Basic/" + nameof(DamagerConfig),
         order = 1)]
     public class DamagerConfig : ConfigBase, IDamagerConfig
     {

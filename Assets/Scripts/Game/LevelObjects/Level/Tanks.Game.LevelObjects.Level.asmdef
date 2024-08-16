@@ -1,9 +1,9 @@
 {
-    "name": "Tanks.LevelObjects.Level",
-    "rootNamespace": "Tanks.LevelObjects.Level",
+    "name": "Tanks.Game.LevelObjects.Level",
+    "rootNamespace": "Tanks.Game.LevelObjects.Level",
     "references": [
         "Tanks.Utility",
-        "Tanks.LevelObjects.Basic",
+        "Tanks.Game.LevelObjects.Basic",
         "UniTask",
         "UniTask.Addressables",
         "Unity.Addressables",

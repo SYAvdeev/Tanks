@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using Moq;
 using NUnit.Framework;
-using Tanks.LevelObjects.Basic;
-using Tanks.LevelObjects.Level;
-using Tanks.LevelObjects.Level.Spawn;
+using Tanks.Game.LevelObjects.Basic;
+using Tanks.Game.LevelObjects.Level;
 
 namespace Tanks.UnitTests
 {

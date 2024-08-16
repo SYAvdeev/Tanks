@@ -1,0 +1,16 @@
+{
+    "name": "Tanks.Game.Player",
+    "rootNamespace": "Tanks.Game.Player",
+    "references": [
+        "Tanks.Game.LevelObjects.Basic"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

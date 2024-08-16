@@ -1,11 +1,11 @@
 ﻿using Tanks.Utility;
 using UnityEngine;
 
-namespace Tanks.LevelObjects.Basic
+namespace Tanks.Game.LevelObjects.Basic
 {
     [CreateAssetMenu(
         fileName = nameof(MovableConfig), 
-        menuName = "Custom/LevelObjects/Basic/" + nameof(MovableConfig),
+        menuName = "Custom/Game/LevelObjects/Basic/" + nameof(MovableConfig),
         order = 2)]
     public class MovableConfig : ConfigBase, IMovableConfig
     {

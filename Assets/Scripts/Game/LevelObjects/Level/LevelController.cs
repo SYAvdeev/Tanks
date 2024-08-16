@@ -1,4 +1,4 @@
-﻿namespace Tanks.LevelObjects.Level
+﻿namespace Tanks.Game.LevelObjects.Level
 {
     public class LevelController
     {

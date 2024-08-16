@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
-using Tanks.LevelObjects.Level.Spawn;
+using Tanks.Game.LevelObjects.Level;
 using Tanks.UI;
 using Tanks.Utility;
 
-namespace Tanks.Gameplay
+namespace Tanks.Game
 {
     public class GameplayService : IGameplayService
     {

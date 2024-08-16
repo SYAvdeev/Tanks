@@ -1,7 +1,7 @@
 ﻿using System;
 using Moq;
 using NUnit.Framework;
-using Tanks.LevelObjects.Basic;
+using Tanks.Game.LevelObjects.Basic;
 using UnityEngine;
 
 namespace Tanks.UnitTests

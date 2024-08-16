@@ -5,8 +5,8 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Tanks.Utility",
-        "Tanks.LevelObjects.Basic",
-        "Tanks.LevelObjects.Level",
+        "Tanks.Game.LevelObjects.Basic",
+        "Tanks.Game.LevelObjects.Level",
         "Tanks.Scenes"
     ],
     "includePlatforms": [

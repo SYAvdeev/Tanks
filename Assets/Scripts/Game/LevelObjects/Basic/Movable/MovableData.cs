@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Tanks.LevelObjects.Basic
+namespace Tanks.Game.LevelObjects.Basic
 {
     [Serializable]
     public class MovableData
