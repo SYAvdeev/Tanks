@@ -6,7 +6,8 @@
         "Tanks.LevelObjects.Level",
         "VContainer",
         "Tanks.Utility",
-        "UniTask"
+        "UniTask",
+        "Tanks.UI"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

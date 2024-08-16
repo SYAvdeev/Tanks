@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="279dc010-6d01-475b-9d9e-0a711a15c67b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/IGameplayController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/IGameplayController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/IGameplayService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/IGameplayService.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Tanks.Gameplay.asmdef" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Tanks.Gameplay.asmdef.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tanks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tanks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Level/ILevelConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Level/ILevelConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Level/LevelConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Level/LevelConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Level/Spawn/LevelSpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Level/Spawn/LevelSpawnController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Level/Tanks.LevelObjects.Level.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Level/Tanks.LevelObjects.Level.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/LilitaOne-Regular Outline 40 SDF Atlas.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/LilitaOne-Regular Outline 40 SDF Atlas.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bootstrap/BootstrapSceneStarter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bootstrap/BootstrapSceneStarter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Gameplay/GameplayService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Gameplay/GameplayService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Gameplay/Tanks.Gameplay.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Gameplay/Tanks.Gameplay.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/SpriteAtlas.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/SpriteAtlas.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/Component/Slider/Slider17_Fill.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI/Component/Slider/Slider17_Fill.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/Component/Slider/Slider17_Frame.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI/Component/Slider/Slider17_Frame.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/LoadingScreen/Demo_Background/Background_01.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI/LoadingScreen/Demo_Background/Background_01.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/LoadingScreen/Demo_Image/Image_TitleLogo.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI/LoadingScreen/Demo_Image/Image_TitleLogo.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +35,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e585f5e2b21741c8a3a65b4f9abfa5e8572e20/bd/bce31c2e/Math.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4e4cdcd598ef5296d4372b98351dfd2444f785cac8beb3295f95bed21d1d25/Mock.Generic.Legacy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a81ee8c4b239a5f464b996b6cb5ab701e2bca7511eb164cb746c7590c3b6b1/Mock`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelObjects/Level/ILevelModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/GameLifetimeScope.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Gameplay/GameplayService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Gameplay/IGameplayService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Level/ILevelModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@f057abff0f/Runtime/UniTaskScheduler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.22.2/Runtime/AssetReference.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Canvas/CanvasGroupInheritedAlpha.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -108,10 +106,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="22120">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="22120" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -133,6 +131,7 @@
       <workItem from="1723620407632" duration="14950000" />
       <workItem from="1723685131836" duration="29244000" />
       <workItem from="1723725202343" duration="685000" />
+      <workItem from="1723774489976" duration="10274000" />
     </task>
     <servers />
   </component>
@@ -166,7 +165,7 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/LevelObjects/Basic/Movable/MovableService.cs</url>
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/MovableService.cs</url>
           <line>50</line>
           <properties documentPath="D:\Unity Projects\Tanks\Assets\Scripts\LevelObjects\Basic\Movable\MovableService.cs" containingFunctionPresentation="Method 'RotateWithVelocity'">
             <startOffsets>
@@ -179,7 +178,7 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/LevelObjects/Basic/Movable/MovableService.cs</url>
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/MovableService.cs</url>
           <line>25</line>
           <properties documentPath="D:\Unity Projects\Tanks\Assets\Scripts\LevelObjects\Basic\Movable\MovableService.cs" containingFunctionPresentation="Method 'MoveAlongDirection'">
             <startOffsets>
@@ -190,6 +189,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Bootstrap/BootstrapLifetimeScope.cs</url>
+          <line>19</line>
+          <properties documentPath="D:\Unity Projects\Tanks\Assets\Scripts\Bootstrap\BootstrapLifetimeScope.cs" containingFunctionPresentation="Method 'ConfigureUI'">
+            <startOffsets>
+              <option value="505" />
+            </startOffsets>
+            <endOffsets>
+              <option value="547" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/UIService.cs</url>
+          <line>29</line>
+          <properties documentPath="D:\Unity Projects\Tanks\Assets\Scripts\UI\UIService.cs" containingFunctionPresentation="Method 'ShowScreen'">
+            <startOffsets>
+              <option value="965" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1045" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

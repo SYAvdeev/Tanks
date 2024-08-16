@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using Tanks.LevelObjects.Level.Spawn;
+using Tanks.UI;
 using Tanks.Utility;
 
 namespace Tanks.Gameplay
@@ -9,29 +10,36 @@ namespace Tanks.Gameplay
     {
         private readonly ILevelSpawnService _levelSpawnService;
         private readonly ILevelSpawnController _levelSpawnController;
-        private readonly UniTaskRestartable _tickTask;
-
-        public GameplayService(ILevelSpawnService levelSpawnService, ILevelSpawnController levelSpawnController)
+        private readonly IUIService _uiService;
+        private readonly UniTaskRestartable _updateTask;
+        public GameplayService(
+            ILevelSpawnService levelSpawnService,
+            ILevelSpawnController levelSpawnController, 
+            IUIService uiService)
         {
             _levelSpawnService = levelSpawnService;
             _levelSpawnController = levelSpawnController;
+            _uiService = uiService;
             
-            _tickTask = new UniTaskRestartable(Routine);
+            _updateTask = new UniTaskRestartable(UpdateRoutine);
         }
 
         public async UniTask StartAsync(CancellationToken cancellation)
         {
+            _levelSpawnController.Initialize();
             _levelSpawnService.Initialize();
 
             await UniTask.WhenAll(_levelSpawnController.UpdateCurrentLevelControllerTask);
+            
+            await _uiService.HideScreen<LoadingScreen>(true);
         }
 
         public void Dispose()
         {
-            _tickTask.Cancel();
+            _updateTask.Cancel();
         }
 
-        private async UniTask Routine(CancellationToken cancellationToken)
+        private async UniTask UpdateRoutine(CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)
             {

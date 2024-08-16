@@ -351,8 +351,8 @@ MonoBehaviour:
   parentReference:
     TypeName: Tanks.Bootstrap.BootstrapLifetimeScope
   autoRun: 1
-  autoInjectGameObjects:
-  - {fileID: 1607253513}
+  autoInjectGameObjects: []
+  _levelSpawnView: {fileID: 1607253514}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

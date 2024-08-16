@@ -6,6 +6,6 @@ namespace Tanks.UI
     public interface IUIModel
     {
         internal Pool<string, IUIScreen> ScreenPool { get; }
-        internal Dictionary<string, IUIScreen> CurrentOpenedScreens { get; set; }
+        internal IDictionary<string, IUIScreen> CurrentOpenedScreens { get; set; }
     }
 }

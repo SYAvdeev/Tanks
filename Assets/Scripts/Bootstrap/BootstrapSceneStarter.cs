@@ -24,8 +24,6 @@ namespace Tanks.Bootstrap
             loadingScreen.SetProgress(0.5f);
 
             await _scenesService.LoadGameScene(false);
-
-            await _uiService.HideScreen<LoadingScreen>(true);
         }
     }
 }
