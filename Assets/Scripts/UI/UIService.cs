@@ -27,9 +27,9 @@ namespace Tanks.UI
             Action<TScreen> beforeShowCallback = null) where TScreen : UIScreen
         {
             string screenName = typeof(TScreen).FullName;
-            if (_uiModel.CurrentOpenedScreens.ContainsKey(screenName))
+            if (_uiModel.CurrentOpenedScreens.TryGetValue(screenName, out var openedScreen))
             {
-                return (TScreen)_uiModel.CurrentOpenedScreens[screenName];
+                return (TScreen)openedScreen;
             }
 
             if (!_uiModel.ScreenPool.TryGet(screenName, out IUIScreen screen))

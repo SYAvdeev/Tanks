@@ -1,0 +1,19 @@
+{
+    "name": "Tanks.Game",
+    "rootNamespace": "Tanks.Game",
+    "references": [
+        "Tanks.LevelObjects.Basic",
+        "Tanks.LevelObjects.Level",
+        "Tanks.Gameplay",
+        "VContainer"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
