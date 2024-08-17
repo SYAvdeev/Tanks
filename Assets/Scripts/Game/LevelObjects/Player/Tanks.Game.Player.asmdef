@@ -2,7 +2,15 @@
     "name": "Tanks.Game.Player",
     "rootNamespace": "Tanks.Game.Player",
     "references": [
-        "Tanks.Game.LevelObjects.Basic"
+        "Tanks.Game.LevelObjects.Basic",
+        "Tanks.Utility",
+        "Tanks.Game.LevelObjects.Level",
+        "UniTask",
+        "UniTask.Addressables",
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "Tanks.Bullet",
+        "Tanks.Input"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -2,6 +2,7 @@
 {
     public interface ILevelSpawnService
     {
+        ILevelSpawnModel LevelSpawnModel { get; }
         void Initialize();
     }
 }

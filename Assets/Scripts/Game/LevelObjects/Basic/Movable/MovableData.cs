@@ -8,5 +8,7 @@ namespace Tanks.Game.LevelObjects.Basic
     {
         public float DirectionAngle;
         public Vector2 Position;
+        public Vector2 RestrictionMinPosition;
+        public Vector2 RestrictionMaxPosition;
     }
 }

@@ -48,7 +48,7 @@ namespace Tanks.Game.LevelObjects.Level
 
             if (!_levelControllersPool.TryGetValue(levelModel.Spawnable.Config.ID, out var levelController))
             {
-                var levelViewObject = await levelModel.LevelConfig.LevelViewPrefab.
+                var levelViewObject = await levelModel.LevelConfig.SpawnableConfig.AssetReference.
                     InstantiateAsync(_levelSpawnView.LevelViewParent);
                 
                 var levelView = levelViewObject.GetComponent<LevelView>();

@@ -50,5 +50,20 @@ namespace Tanks.Game.LevelObjects.Basic
             _movableData.Position = position;
             PositionUpdated?.Invoke(position);
         }
+
+        void IMovableModel.SetRestrictions(Vector2 minPosition, Vector2 maxPosition)
+        {
+            if (_movableData.RestrictionMinPosition == minPosition ||
+                _movableData.RestrictionMaxPosition == maxPosition)
+            {
+                return;
+            }
+
+            _movableData.RestrictionMinPosition = minPosition;
+            _movableData.RestrictionMaxPosition = maxPosition;
+        }
+
+        public (Vector2 minPosition, Vector2 maxPosition) Restrictions =>
+            (_movableData.RestrictionMinPosition, _movableData.RestrictionMaxPosition);
     }
 }

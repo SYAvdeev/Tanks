@@ -1,5 +1,6 @@
 ﻿using Tanks.Utility;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Tanks.Game.LevelObjects.Basic
 {
@@ -10,7 +11,9 @@ namespace Tanks.Game.LevelObjects.Basic
     public class SpawnableConfig : ConfigBase, ISpawnableConfig
     {
         [SerializeField] private string _id;
+        [SerializeField] private AssetReference _assetReference;
 
         public string ID => _id;
+        public AssetReference AssetReference => _assetReference;
     }
 }

@@ -1,0 +1,23 @@
+{
+    "name": "Tanks.Bullet",
+    "rootNamespace": "Tanks.Bullet",
+    "references": [
+        "Tanks.Game.LevelObjects.Basic",
+        "Tanks.Utility",
+        "UniTask",
+        "UniTask.Addressables",
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "Tanks.Game.LevelObjects.Level",
+        "Tanks.Enemy"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

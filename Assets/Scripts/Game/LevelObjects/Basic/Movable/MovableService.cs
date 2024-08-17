@@ -50,5 +50,24 @@ namespace Tanks.Game.LevelObjects.Basic
             float angle = _movableModel.DirectionAngle + (isClockwise ? 1f : -1f) * rotationVelocity * deltaTime;
             _movableModel.SetDirectionAngle(angle);
         }
+
+        public void SetRestrictions(Vector2 minPosition, Vector2 maxPosition)
+        {
+            if (minPosition.x > maxPosition.x || minPosition.y > maxPosition.y)
+            {
+                throw new ArgumentException("Min position is larger than max position");
+            }
+            
+            _movableModel.SetRestrictions(minPosition, maxPosition);
+        }
+
+        public bool IsInRestrictionBorders()
+        {
+            var restrictions = _movableModel.Restrictions;
+            var position = _movableModel.Position;
+
+            return position.x >= restrictions.minPosition.x && position.x <= restrictions.maxPosition.x &&
+                   position.y >= restrictions.minPosition.y && position.y <= restrictions.maxPosition.y;
+        }
     }
 }

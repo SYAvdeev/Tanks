@@ -12,5 +12,7 @@ namespace Tanks.Game.LevelObjects.Basic
         internal void SetDirectionAngle(float angle);
         Vector2 Position { get; }
         internal void SetPosition(Vector2 position);
+        internal void SetRestrictions(Vector2 minPosition, Vector2 maxPosition);
+        (Vector2 minPosition, Vector2 maxPosition) Restrictions { get; }
     }
 }

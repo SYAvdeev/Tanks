@@ -2,30 +2,30 @@
 {
     public class LevelSpawnService : ILevelSpawnService
     {
-        private readonly ILevelSpawnModel _levelSpawnModel;
+        public ILevelSpawnModel LevelSpawnModel { get; }
 
         public LevelSpawnService(ILevelSpawnModel levelSpawnModel)
         {
-            _levelSpawnModel = levelSpawnModel;
+            LevelSpawnModel = levelSpawnModel;
         }
 
         public void Initialize()
         {
-            var currentLevelConfig = _levelSpawnModel.IsCurrentLevelIDEmpty
-                ? _levelSpawnModel.Config.FirstLevelConfig
-                : _levelSpawnModel.CurrentLevelConfig;
+            var currentLevelConfig = LevelSpawnModel.IsCurrentLevelIDEmpty
+                ? LevelSpawnModel.Config.FirstLevelConfig
+                : LevelSpawnModel.CurrentLevelConfig;
 
             SpawnLevel(currentLevelConfig);
         }
 
         private void SpawnLevel(ILevelConfig levelConfig)
         {
-            if (!_levelSpawnModel.LevelsPool.TryGetValue(levelConfig.SpawnableConfig.ID, out var levelModel))
+            if (!LevelSpawnModel.LevelsPool.TryGetValue(levelConfig.SpawnableConfig.ID, out var levelModel))
             {
                 levelModel = new LevelModel(levelConfig);
             }
             
-            _levelSpawnModel.SetCurrentLevel(levelModel);
+            LevelSpawnModel.SetCurrentLevel(levelModel);
         }
     }
 }

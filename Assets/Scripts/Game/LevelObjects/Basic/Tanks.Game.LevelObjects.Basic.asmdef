@@ -2,7 +2,9 @@
     "name": "Tanks.Game.LevelObjects.Basic",
     "rootNamespace": "Tanks.Game.LevelObjects.Basic",
     "references": [
-        "Tanks.Utility"
+        "Tanks.Utility",
+        "Unity.Addressables",
+        "Unity.ResourceManager"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

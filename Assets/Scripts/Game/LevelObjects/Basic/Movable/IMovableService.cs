@@ -4,8 +4,10 @@ namespace Tanks.Game.LevelObjects.Basic
 {
     public interface IMovableService
     {
-        public void MoveAlongDirection(float deltaTime);
-        public void RotateTowards(Vector2 targetPosition);
-        public void RotateWithVelocity(float rotationVelocity, bool isClockwise, float deltaTime);
+        void MoveAlongDirection(float deltaTime);
+        void RotateTowards(Vector2 targetPosition);
+        void RotateWithVelocity(float rotationVelocity, bool isClockwise, float deltaTime);
+        void SetRestrictions(Vector2 minPosition, Vector2 maxPosition);
+        bool IsInRestrictionBorders();
     }
 }

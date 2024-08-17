@@ -10,7 +10,9 @@ namespace Tanks.Game.LevelObjects.Basic
     public class MovableConfig : ConfigBase, IMovableConfig
     {
         [SerializeField] private float _velocity;
+        [SerializeField] private bool _isRestricted;
 
         public float Velocity => _velocity;
+        public bool IsRestricted => _isRestricted;
     }
 }
