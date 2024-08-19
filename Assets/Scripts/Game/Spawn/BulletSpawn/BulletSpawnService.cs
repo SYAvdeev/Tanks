@@ -1,7 +1,8 @@
-﻿using Tanks.Game.LevelObjects.Level;
+﻿using Tanks.Game.LevelObjects.Bullet;
+using Tanks.Game.Spawn.LevelSpawn;
 using UnityEngine;
 
-namespace Tanks.Bullet
+namespace Tanks.Game.Spawn.BulletSpawn
 {
     public class BulletSpawnService : IBulletSpawnService
     {

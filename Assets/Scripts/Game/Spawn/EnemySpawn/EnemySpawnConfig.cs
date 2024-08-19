@@ -1,7 +1,7 @@
 ﻿using Tanks.Utility;
 using UnityEngine;
 
-namespace Tanks.Enemy
+namespace Tanks.Game.Spawn.EnemySpawn
 {
     [CreateAssetMenu(
         fileName = nameof(EnemySpawnConfig),

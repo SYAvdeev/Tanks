@@ -3,6 +3,7 @@ using Moq;
 using NUnit.Framework;
 using Tanks.Game.LevelObjects.Basic;
 using Tanks.Game.LevelObjects.Level;
+using Tanks.Game.Spawn.LevelSpawn;
 
 namespace Tanks.UnitTests
 {

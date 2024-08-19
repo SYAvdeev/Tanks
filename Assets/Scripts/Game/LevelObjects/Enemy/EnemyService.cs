@@ -1,18 +1,17 @@
 ﻿using System;
 using Tanks.Game.LevelObjects.Basic;
 
-namespace Tanks.Enemy
+namespace Tanks.Game.LevelObjects.Enemy
 {
     public class EnemyService : IEnemyService
     {
         private readonly IMovableService _movableService;
-        private readonly IDamageableService _damageableService;
         private readonly IDamagerService _damagerService;
-        
         private readonly IMovableModel _playerMovableModel;
         private readonly IDamageableService _playerDamageableService;
 
         public IEnemyModel Model { get; }
+        public IDamageableService DamageableService { get; }
 
         public EnemyService(
             IEnemyModel model,
@@ -23,7 +22,7 @@ namespace Tanks.Enemy
             _playerMovableModel = playerMovableModel;
             _playerDamageableService = playerDamageableService;
             _movableService = new MovableService(model.MovableModel);
-            _damageableService = new DamageableService(model.DamageableModel);
+            DamageableService = new DamageableService(model.DamageableModel);
             _damagerService = new DamagerService(model.DamagerModel);
         }
         

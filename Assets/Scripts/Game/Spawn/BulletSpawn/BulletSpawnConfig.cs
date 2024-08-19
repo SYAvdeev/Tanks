@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Tanks.Game.LevelObjects.Bullet;
 using Tanks.Utility;
 using UnityEngine;
 
-namespace Tanks.Bullet
+namespace Tanks.Game.Spawn.BulletSpawn
 {
     [CreateAssetMenu(
         fileName = nameof(BulletSpawnConfig),

@@ -1,6 +1,6 @@
 ﻿using Tanks.Game.LevelObjects.Basic;
 
-namespace Tanks.Game.Camera
+namespace Tanks.Game.LevelObjects.Camera
 {
     public class CameraModel : ICameraModel
     {

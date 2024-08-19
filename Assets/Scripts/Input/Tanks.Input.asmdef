@@ -2,8 +2,8 @@
     "name": "Tanks.Input",
     "rootNamespace": "Tanks.Input",
     "references": [
-        "GUID:d570903d850676c4980bbae248d058a6",
-        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
+        "Tanks.Utility",
+        "VContainer"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

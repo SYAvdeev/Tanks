@@ -1,7 +1,7 @@
 ﻿using Tanks.Game.LevelObjects.Basic;
 using UnityEngine;
 
-namespace Tanks.Bullet
+namespace Tanks.Game.LevelObjects.Bullet
 {
     public class BulletController : IBulletController
     {

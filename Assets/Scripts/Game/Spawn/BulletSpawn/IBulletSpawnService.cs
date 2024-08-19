@@ -1,7 +1,8 @@
 ﻿using System;
+using Tanks.Game.LevelObjects.Bullet;
 using UnityEngine;
 
-namespace Tanks.Bullet
+namespace Tanks.Game.Spawn.BulletSpawn
 {
     public interface IBulletSpawnService : IDisposable
     {

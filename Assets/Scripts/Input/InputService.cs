@@ -1,5 +1,4 @@
 ﻿using System;
-using Input;
 
 namespace Tanks.Input
 {

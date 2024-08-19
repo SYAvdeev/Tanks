@@ -2,7 +2,7 @@
 using Tanks.Utility;
 using UnityEngine;
 
-namespace Tanks.Game.Camera
+namespace Tanks.Game.LevelObjects.Camera
 {
     [CreateAssetMenu(
         fileName = nameof(CameraConfig), 

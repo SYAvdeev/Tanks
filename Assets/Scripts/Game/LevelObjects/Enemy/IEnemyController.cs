@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tanks.Enemy
+namespace Tanks.Game.LevelObjects.Enemy
 {
     public interface IEnemyController : IDisposable
     {

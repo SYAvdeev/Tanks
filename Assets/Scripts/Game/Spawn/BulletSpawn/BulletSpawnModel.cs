@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tanks.Game.LevelObjects.Bullet;
 using Tanks.Utility;
 
-namespace Tanks.Bullet
+namespace Tanks.Game.Spawn.BulletSpawn
 {
     public class BulletSpawnModel : IBulletSpawnModel
     {

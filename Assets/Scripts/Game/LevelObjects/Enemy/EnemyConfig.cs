@@ -2,7 +2,7 @@
 using Tanks.Utility;
 using UnityEngine;
 
-namespace Tanks.Enemy
+namespace Tanks.Game.LevelObjects.Enemy
 {
     [CreateAssetMenu(
         fileName = nameof(EnemyConfig),

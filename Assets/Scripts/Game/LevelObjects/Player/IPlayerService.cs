@@ -1,7 +1,7 @@
 ﻿using System;
 using Tanks.Game.LevelObjects.Basic;
 
-namespace Tanks.Game.Player
+namespace Tanks.Game.LevelObjects.Player
 {
     public interface IPlayerService : IDisposable
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tanks.Game.LevelObjects.Level
+namespace Tanks.Game.Spawn.LevelSpawn
 {
     [Serializable]
     public class LevelSpawnData

@@ -1,13 +1,13 @@
 {
-    "name": "Tanks.Enemy",
-    "rootNamespace": "Tanks.Enemy",
+    "name": "Tanks.Game.Spawn.EnemySpawn",
+    "rootNamespace": "Tanks.Game.Spawn.EnemySpawn",
     "references": [
-        "Tanks.Utility",
-        "Tanks.Game.LevelObjects.Basic",
         "UniTask",
-        "UniTask.Addressables",
+        "Tanks.Utility",
         "Unity.Addressables",
-        "Unity.ResourceManager"
+        "UniTask.Addressables",
+        "Unity.ResourceManager",
+        "Tanks.Game.LevelObjects.Basic"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,4 +1,6 @@
-﻿namespace Tanks.Game.LevelObjects.Level
+﻿using Tanks.Game.LevelObjects.Level;
+
+namespace Tanks.Game.Spawn.LevelSpawn
 {
     public class LevelSpawnService : ILevelSpawnService
     {

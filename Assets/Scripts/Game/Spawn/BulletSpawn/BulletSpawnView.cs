@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Tanks.Bullet
+namespace Tanks.Game.Spawn.BulletSpawn
 {
     public class BulletSpawnView : MonoBehaviour
     {

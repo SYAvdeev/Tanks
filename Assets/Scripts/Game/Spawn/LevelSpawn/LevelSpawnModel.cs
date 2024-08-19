@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tanks.Game.LevelObjects.Level;
 
-namespace Tanks.Game.LevelObjects.Level
+namespace Tanks.Game.Spawn.LevelSpawn
 {
     public class LevelSpawnModel : ILevelSpawnModel
     {

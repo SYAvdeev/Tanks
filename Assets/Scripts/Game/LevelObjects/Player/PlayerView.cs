@@ -1,7 +1,7 @@
 ﻿using Tanks.Game.LevelObjects.Basic;
 using UnityEngine;
 
-namespace Tanks.Game.Player
+namespace Tanks.Game.LevelObjects.Player
 {
     public class PlayerView : MonoBehaviour
     {

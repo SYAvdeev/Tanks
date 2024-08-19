@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Tanks.Game.LevelObjects.Level
+namespace Tanks.Game.Spawn.LevelSpawn
 {
     public class LevelSpawnView : MonoBehaviour
     {

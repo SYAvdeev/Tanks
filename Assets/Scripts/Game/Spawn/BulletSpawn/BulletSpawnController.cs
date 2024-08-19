@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using Tanks.Game.LevelObjects.Bullet;
 using Tanks.Utility;
 using UnityEngine;
 
-namespace Tanks.Bullet
+namespace Tanks.Game.Spawn.BulletSpawn
 {
     public class BulletSpawnController : IBulletSpawnController
     {

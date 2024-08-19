@@ -1,6 +1,6 @@
 ﻿using Tanks.Game.LevelObjects.Basic;
 
-namespace Tanks.Enemy
+namespace Tanks.Game.LevelObjects.Enemy
 {
     public interface IEnemyConfig
     {

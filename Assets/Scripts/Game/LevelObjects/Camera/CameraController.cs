@@ -1,7 +1,8 @@
 ﻿using Tanks.Game.LevelObjects.Level;
+using Tanks.Game.Spawn.LevelSpawn;
 using UnityEngine;
 
-namespace Tanks.Game.Camera
+namespace Tanks.Game.LevelObjects.Camera
 {
     public class CameraController : ICameraController
     {

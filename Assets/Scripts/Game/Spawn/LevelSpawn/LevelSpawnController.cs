@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Tanks.Game.LevelObjects.Level;
 
-namespace Tanks.Game.LevelObjects.Level
+namespace Tanks.Game.Spawn.LevelSpawn
 {
     public class LevelSpawnController : ILevelSpawnController
     {

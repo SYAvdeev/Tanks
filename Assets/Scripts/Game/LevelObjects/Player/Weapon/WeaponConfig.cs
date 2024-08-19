@@ -1,9 +1,9 @@
-﻿using Tanks.Bullet;
-using Tanks.Game.LevelObjects.Basic;
+﻿using Tanks.Game.LevelObjects.Basic;
+using Tanks.Game.LevelObjects.Bullet;
 using Tanks.Utility;
 using UnityEngine;
 
-namespace Tanks.Game.Player
+namespace Tanks.Game.LevelObjects.Player
 {
     [CreateAssetMenu(
         fileName = nameof(WeaponConfig),

@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using Tanks.Bullet;
 using Tanks.Game.LevelObjects.Basic;
+using Tanks.Game.Spawn.BulletSpawn;
 using Tanks.Input;
 using UnityEngine;
 
-namespace Tanks.Game.Player
+namespace Tanks.Game.LevelObjects.Player
 {
     public class PlayerService : IPlayerService
     {

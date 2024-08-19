@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tanks.Game.Camera
+namespace Tanks.Game.LevelObjects.Camera
 {
     public interface ICameraController : IDisposable
     {

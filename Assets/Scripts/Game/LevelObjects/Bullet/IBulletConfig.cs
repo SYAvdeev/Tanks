@@ -1,6 +1,6 @@
 ﻿using Tanks.Game.LevelObjects.Basic;
 
-namespace Tanks.Bullet
+namespace Tanks.Game.LevelObjects.Bullet
 {
     public interface IBulletConfig
     {

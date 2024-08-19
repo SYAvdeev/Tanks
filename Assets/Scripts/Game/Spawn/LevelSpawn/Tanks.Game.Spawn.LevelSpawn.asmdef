@@ -1,14 +1,14 @@
 {
-    "name": "Tanks.Bullet",
-    "rootNamespace": "Tanks.Bullet",
+    "name": "Tanks.Game.Spawn.LevelSpawn",
+    "rootNamespace": "Tanks.Game.Spawn.LevelSpawn",
     "references": [
-        "Tanks.Game.LevelObjects.Basic",
-        "Tanks.Utility",
+        "Tanks.Game.LevelObjects.Level",
         "UniTask",
-        "UniTask.Addressables",
+        "Tanks.Utility",
         "Unity.Addressables",
+        "UniTask.Addressables",
         "Unity.ResourceManager",
-        "Tanks.Game.LevelObjects.Level"
+        "Tanks.Game.LevelObjects.Basic"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Linq;
 using Tanks.Game.LevelObjects.Basic;
 
-namespace Tanks.Game.Player
+namespace Tanks.Game.LevelObjects.Player
 {
     public class PlayerModel : IPlayerModel
     {

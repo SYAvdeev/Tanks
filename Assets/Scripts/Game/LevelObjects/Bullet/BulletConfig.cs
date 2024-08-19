@@ -3,7 +3,7 @@ using Tanks.Utility;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Tanks.Bullet
+namespace Tanks.Game.LevelObjects.Bullet
 {
     [CreateAssetMenu(
         fileName = nameof(BulletConfig),

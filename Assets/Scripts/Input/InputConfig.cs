@@ -1,5 +1,4 @@
-﻿using Input;
-using Tanks.Utility;
+﻿using Tanks.Utility;
 using UnityEngine;
 
 namespace Tanks.Input

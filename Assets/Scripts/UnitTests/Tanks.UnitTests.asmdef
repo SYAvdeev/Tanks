@@ -8,7 +8,7 @@
         "Tanks.Game.LevelObjects.Basic",
         "Tanks.Game.LevelObjects.Level",
         "Tanks.Scenes",
-        "Tanks.LevelSpawn"
+        "Tanks.Game.Spawn.LevelSpawn"
     ],
     "includePlatforms": [
         "Editor"

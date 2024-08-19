@@ -1,13 +1,18 @@
 {
-    "name": "Tanks.EnemySpawn",
-    "rootNamespace": "Tanks.EnemySpawn",
+    "name": "Tanks.Game.LevelObjects.Player",
+    "rootNamespace": "Tanks.Game.LevelObjects.Player",
     "references": [
-        "UniTask",
+        "Tanks.Game.LevelObjects.Basic",
         "Tanks.Utility",
-        "Unity.Addressables",
+        "Tanks.Game.LevelObjects.Level",
+        "UniTask",
         "UniTask.Addressables",
+        "Unity.Addressables",
         "Unity.ResourceManager",
-        "Tanks.Game.LevelObjects.Basic"
+        "Tanks.Input",
+        "VContainer",
+        "Tanks.Game.LevelObjects.Bullet",
+        "Tanks.Game.Spawn.BulletSpawn"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

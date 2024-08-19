@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Tanks.Game.LevelObjects.Level;
 using Tanks.Utility;
 using UnityEngine;
 
-namespace Tanks.Game.LevelObjects.Level
+namespace Tanks.Game.Spawn.LevelSpawn
 {
     [CreateAssetMenu(
         fileName = nameof(LevelSpawnConfig), 

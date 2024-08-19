@@ -8,7 +8,8 @@
         "Tanks.Utility",
         "VContainer",
         "UniTask",
-        "Tanks.LevelSpawn"
+        "Tanks.Game.Spawn.EnemySpawn",
+        "Tanks.Game.Spawn.LevelSpawn"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

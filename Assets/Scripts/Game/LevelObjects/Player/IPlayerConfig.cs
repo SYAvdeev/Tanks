@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Tanks.Game.LevelObjects.Basic;
 
-namespace Tanks.Game.Player
+namespace Tanks.Game.LevelObjects.Player
 {
     public interface IPlayerConfig
     {
