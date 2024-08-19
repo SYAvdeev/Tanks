@@ -10,11 +10,13 @@ namespace Tanks.Enemy
         order = 2)]
     public class EnemyConfig : ConfigBase, IEnemyConfig
     {
+        [SerializeField] private float _attackCooldown;
         [SerializeField] private SpawnableConfig _spawnableConfig;
         [SerializeField] private DamageableConfig _damageableConfig;
         [SerializeField] private DamagerConfig _damagerConfig;
         [SerializeField] private MovableConfig _movableConfig;
 
+        public float AttackCooldown => _attackCooldown;
         public ISpawnableConfig SpawnableConfig => _spawnableConfig;
         public IDamageableConfig DamageableConfig => _damageableConfig;
         public IDamagerConfig DamagerConfig => _damagerConfig;

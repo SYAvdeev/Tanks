@@ -6,7 +6,7 @@ namespace Tanks.Game.LevelObjects.Level
 {
     [CreateAssetMenu(
         fileName = nameof(LevelSpawnConfig), 
-        menuName = "Custom/LevelObjects/Spawn/" + nameof(LevelSpawnConfig),
+        menuName = "Custom/Game/LevelObjects/Spawn/" + nameof(LevelSpawnConfig),
         order = 0)]
     public class LevelSpawnConfig : ConfigBase, ILevelSpawnConfig
     {

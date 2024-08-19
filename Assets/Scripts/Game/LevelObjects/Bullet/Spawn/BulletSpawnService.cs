@@ -32,7 +32,22 @@ namespace Tanks.Bullet
         private void BulletServiceOnDestroyed(IBulletService bulletService)
         {
             _bulletSpawnModel.RemoveSpawnedBulletToPool(bulletService);
-            _bulletSpawnModel.BulletsPool.Add(bulletService.BulletModel.Spawnable.Config.ID, bulletService);
+        }
+
+        public void Dispose()
+        {
+            foreach (var currentSpawnedBullet in _bulletSpawnModel.CurrentSpawnedBullets)
+            {
+                currentSpawnedBullet.Destroyed -= BulletServiceOnDestroyed;
+            }
+
+            foreach (var (_, value) in _bulletSpawnModel.BulletsPool.Enumerable)
+            {
+                foreach (var bulletService in value)
+                {
+                    bulletService.Destroyed -= BulletServiceOnDestroyed;
+                }
+            }
         }
     }
 }

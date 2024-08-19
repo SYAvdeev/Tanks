@@ -1,4 +1,4 @@
-﻿using Tanks.Enemy;
+﻿using Tanks.Game.LevelObjects.Basic;
 using UnityEngine;
 
 namespace Tanks.Bullet
@@ -6,19 +6,20 @@ namespace Tanks.Bullet
     public class BulletController : IBulletController
     {
         private readonly BulletView _bulletView;
-        private readonly IBulletService _bulletService;
 
         public BulletController(BulletView bulletView, IBulletService bulletService)
         {
             _bulletView = bulletView;
-            _bulletService = bulletService;
+            BulletService = bulletService;
         }
+
+        public IBulletService BulletService { get; }
 
         public void Initialize()
         {
-            _bulletView.CollidedWithEnemy += BulletViewOnCollidedWithEnemy;
-            _bulletService.BulletModel.Movable.PositionUpdated += MovableOnPositionUpdated;
-            _bulletService.BulletModel.Movable.DirectionAngleUpdated += MovableOnDirectionAngleUpdated;
+            _bulletView.CollidedWithDamageable += BulletViewOnCollidedWithDamageable;
+            BulletService.BulletModel.Movable.PositionUpdated += MovableOnPositionUpdated;
+            BulletService.BulletModel.Movable.DirectionAngleUpdated += MovableOnDirectionAngleUpdated;
         }
 
         private void MovableOnDirectionAngleUpdated(float directionAngle)
@@ -31,16 +32,16 @@ namespace Tanks.Bullet
             _bulletView.transform.localPosition = position;
         }
 
-        private void BulletViewOnCollidedWithEnemy(EnemyView enemyView)
+        private void BulletViewOnCollidedWithDamageable(DamageableView damageableView)
         {
-            enemyView.CollidedWithDamager(_bulletService.BulletModel.Damager.Config.Damage);
+            damageableView.CollideWithDamager(BulletService.BulletModel.Damager.Config.Damage);
         }
 
         public void Dispose()
         {
-            _bulletView.CollidedWithEnemy -= BulletViewOnCollidedWithEnemy;
-            _bulletService.BulletModel.Movable.PositionUpdated -= MovableOnPositionUpdated;
-            _bulletService.BulletModel.Movable.DirectionAngleUpdated -= MovableOnDirectionAngleUpdated;
+            _bulletView.CollidedWithDamageable -= BulletViewOnCollidedWithDamageable;
+            BulletService.BulletModel.Movable.PositionUpdated -= MovableOnPositionUpdated;
+            BulletService.BulletModel.Movable.DirectionAngleUpdated -= MovableOnDirectionAngleUpdated;
         }
     }
 }

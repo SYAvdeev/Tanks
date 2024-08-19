@@ -8,14 +8,14 @@ namespace Tanks.Game.Player
     {
         public IPlayerConfig PlayerConfig { get; }
         public IMovableModel Movable { get; }
-        public IDamageableModel DamageableModel { get; }
+        public IDamageableModel Damageable { get; }
         public IWeaponConfig CurrentWeaponConfig { get; private set; }
 
         public PlayerModel(IPlayerConfig playerConfig, IMovableModel movable, IDamageableModel damageableModel)
         {
             PlayerConfig = playerConfig;
             Movable = movable;
-            DamageableModel = damageableModel;
+            Damageable = damageableModel;
         }
 
         public event Action<IWeaponConfig> CurrentWeaponChanged;

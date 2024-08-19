@@ -8,8 +8,7 @@
         "UniTask.Addressables",
         "Unity.Addressables",
         "Unity.ResourceManager",
-        "Tanks.Game.LevelObjects.Level",
-        "Tanks.Enemy"
+        "Tanks.Game.LevelObjects.Level"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

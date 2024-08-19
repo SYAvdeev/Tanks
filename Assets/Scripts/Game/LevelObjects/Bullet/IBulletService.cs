@@ -9,5 +9,6 @@ namespace Tanks.Bullet
         IMovableService MovableService { get; }
         IDamagerService DamagerService { get; }
         event Action<IBulletService> Destroyed;
+        void Update(float deltaTime);
     }
 }

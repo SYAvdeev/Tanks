@@ -1,5 +1,5 @@
 ﻿using System;
-using Tanks.Enemy;
+using Tanks.Game.LevelObjects.Basic;
 using UnityEngine;
 
 namespace Tanks.Bullet
@@ -8,14 +8,14 @@ namespace Tanks.Bullet
     {
         private const string EnemyTag = "Enemy";
 
-        internal event Action<EnemyView> CollidedWithEnemy;
+        internal event Action<DamageableView> CollidedWithDamageable;
         
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag(EnemyTag))
             {
-                var enemyView = other.gameObject.GetComponent<EnemyView>();
-                CollidedWithEnemy?.Invoke(enemyView);
+                var enemyView = other.gameObject.GetComponent<DamageableView>();
+                CollidedWithDamageable?.Invoke(enemyView);
             }
         }
     }

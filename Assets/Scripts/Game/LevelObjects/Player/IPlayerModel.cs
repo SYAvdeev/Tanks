@@ -7,7 +7,7 @@ namespace Tanks.Game.Player
     {
         IPlayerConfig PlayerConfig { get; }
         IMovableModel Movable { get; }
-        IDamageableModel DamageableModel { get; }
+        IDamageableModel Damageable { get; }
         public IWeaponConfig CurrentWeaponConfig { get; }
         internal void SetCurrentWeaponConfig(IWeaponConfig weaponConfig);
         event Action<IWeaponConfig> CurrentWeaponChanged;

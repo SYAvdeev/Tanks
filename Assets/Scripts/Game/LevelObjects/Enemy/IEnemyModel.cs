@@ -4,10 +4,15 @@ namespace Tanks.Enemy
 {
     public interface IEnemyModel
     {
-        EnemyConfig Config { get; }
-        SpawnableModel SpawnableModel { get; }
-        DamageableModel DamageableModel { get; }
-        DamagerModel DamagerModel { get; }
-        MovableModel MovableModel { get; }
+        IEnemyConfig Config { get; }
+        ISpawnableModel SpawnableModel { get; }
+        IDamageableModel DamageableModel { get; }
+        IDamagerModel DamagerModel { get; }
+        IMovableModel MovableModel { get; }
+        EnemyState CurrentState { get; }
+        internal void SetState(EnemyState enemyState);
+        float CurrentAttackCooldown { get; }
+        internal void SetCurrentAttackCooldown(float cooldown);
+        internal void SetInitialAttackCooldown();
     }
 }

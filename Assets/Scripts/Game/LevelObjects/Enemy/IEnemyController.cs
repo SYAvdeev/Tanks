@@ -1,7 +1,9 @@
-﻿namespace Tanks.Enemy
+﻿using System;
+
+namespace Tanks.Enemy
 {
-    public interface IEnemyController
+    public interface IEnemyController : IDisposable
     {
-        
+        void Initialize();
     }
 }

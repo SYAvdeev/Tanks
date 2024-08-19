@@ -9,6 +9,7 @@ namespace Tanks.Bullet
         Pool<string, IBulletService> BulletsPool { get; }
         IEnumerable<IBulletService> CurrentSpawnedBullets { get; }
         event Action<IBulletService> BulletSpawned;
+        event Action<IBulletService> BulletAddedToPool;
         internal void AddSpawnedBullet(IBulletService bulletService);
         internal void RemoveSpawnedBulletToPool(IBulletService bulletService);
     }

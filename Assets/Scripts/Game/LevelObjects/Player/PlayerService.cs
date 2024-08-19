@@ -8,11 +8,24 @@ namespace Tanks.Game.Player
 {
     public class PlayerService : IPlayerService
     {
-        private IPlayerModel _playerModel;
-        private IMovableService _movableService;
-        private IDamageableService _damageableService;
-        private IInputService _inputService;
-        private IBulletSpawnService _bulletSpawnService;
+        private readonly IInputService _inputService;
+        private readonly IMovableService _movableService;
+        private readonly IDamageableService _damageableService;
+        private readonly IBulletSpawnService _bulletSpawnService;
+
+        public PlayerService(
+            IPlayerModel model,
+            IInputService inputService,
+            IBulletSpawnService bulletSpawnService)
+        {
+            Model = model;
+            _movableService = new MovableService(model.Movable);
+            _damageableService = new DamageableService(model.Damageable);
+            _inputService = inputService;
+            _bulletSpawnService = bulletSpawnService;
+        }
+
+        public IPlayerModel Model { get; }
 
         public void Initialize()
         {
@@ -23,13 +36,13 @@ namespace Tanks.Game.Player
 
         private void InputServiceOnShootKeyDown()
         {
-            if (Mathf.Approximately(_playerModel.CurrentReloadDelay, 0f))
+            if (Mathf.Approximately(Model.CurrentReloadDelay, 0f))
             {
-                var currentWeaponConfig = _playerModel.CurrentWeaponConfig;
+                var currentWeaponConfig = Model.CurrentWeaponConfig;
                 var bulletConfig = currentWeaponConfig.BulletConfig;
-                IMovableModel playerModelMovable = _playerModel.Movable;
+                IMovableModel playerModelMovable = Model.Movable;
                 _bulletSpawnService.SpawnBullet(bulletConfig, playerModelMovable.Position, playerModelMovable.DirectionAngle);
-                _playerModel.CurrentReloadDelay = currentWeaponConfig.ReloadDelay;
+                Model.CurrentReloadDelay = currentWeaponConfig.ReloadDelay;
             }
         }
 
@@ -50,7 +63,7 @@ namespace Tanks.Game.Player
                 _movableService.MoveAlongDirection(deltaTime);
             }
             
-            float rotationVelocity = _playerModel.PlayerConfig.RotationVelocity;
+            float rotationVelocity = Model.PlayerConfig.RotationVelocity;
             if (_inputService.IsRotateClockwiseKeyPressed)
             {
                 _movableService.RotateWithVelocity(rotationVelocity, true, deltaTime);
@@ -60,31 +73,31 @@ namespace Tanks.Game.Player
                 _movableService.RotateWithVelocity(rotationVelocity, false, deltaTime);
             }
 
-            if (_playerModel.CurrentReloadDelay > 0f)
+            if (Model.CurrentReloadDelay > 0f)
             {
-                _playerModel.CurrentReloadDelay = Mathf.Clamp(
-                    _playerModel.CurrentReloadDelay - deltaTime,
+                Model.CurrentReloadDelay = Mathf.Clamp(
+                    Model.CurrentReloadDelay - deltaTime,
                     0f,
-                    _playerModel.CurrentReloadDelay);
+                    Model.CurrentReloadDelay);
             }
         }
 
         public void NextWeapon()
         {
-            var currentWeaponConfig = _playerModel.CurrentWeaponConfig;
-            var weaponConfigs = _playerModel.PlayerConfig.WeaponConfigs;
+            var currentWeaponConfig = Model.CurrentWeaponConfig;
+            var weaponConfigs = Model.PlayerConfig.WeaponConfigs;
             var nextWeaponConfig = weaponConfigs.SkipWhile(x => x != (WeaponConfig)currentWeaponConfig)
                 .Skip(1).DefaultIfEmpty(weaponConfigs[0]).FirstOrDefault();
-            _playerModel.SetCurrentWeaponConfig(nextWeaponConfig);
+            Model.SetCurrentWeaponConfig(nextWeaponConfig);
         }
 
         public void PreviousWeapon()
         {
-            var currentWeaponConfig = _playerModel.CurrentWeaponConfig;
-            var weaponConfigs = _playerModel.PlayerConfig.WeaponConfigs;
+            var currentWeaponConfig = Model.CurrentWeaponConfig;
+            var weaponConfigs = Model.PlayerConfig.WeaponConfigs;
             var previousWeaponConfig = weaponConfigs.TakeWhile(x => x != (WeaponConfig)currentWeaponConfig)
                 .DefaultIfEmpty(weaponConfigs[^1]).LastOrDefault();
-            _playerModel.SetCurrentWeaponConfig(previousWeaponConfig);
+            Model.SetCurrentWeaponConfig(previousWeaponConfig);
         }
 
         public void Dispose()

@@ -4,24 +4,37 @@ namespace Tanks.Enemy
 {
     public class EnemyModel : IEnemyModel
     {
-        public EnemyConfig Config { get; }
-        public SpawnableModel SpawnableModel { get; }
-        public DamageableModel DamageableModel { get; }
-        public DamagerModel DamagerModel { get; }
-        public MovableModel MovableModel { get; }
+        public IEnemyConfig Config { get; }
+        public ISpawnableModel SpawnableModel { get; }
+        public IDamageableModel DamageableModel { get; }
+        public IDamagerModel DamagerModel { get; }
+        public IMovableModel MovableModel { get; }
+        public EnemyState CurrentState { get; private set; } = EnemyState.Move;
 
-        public EnemyModel(
-            EnemyConfig config, 
-            SpawnableModel spawnableModel, 
-            DamageableModel damageableModel,
-            DamagerModel damagerModel, 
-            MovableModel movableModel)
+        public float CurrentAttackCooldown { get; private set; }
+
+        public EnemyModel(EnemyConfig config)
         {
             Config = config;
-            SpawnableModel = spawnableModel;
-            DamageableModel = damageableModel;
-            DamagerModel = damagerModel;
-            MovableModel = movableModel;
+            SpawnableModel = new SpawnableModel(config.SpawnableConfig);
+            DamageableModel = new DamageableModel(new DamageableData(), config.DamageableConfig);
+            DamagerModel = new DamagerModel(config.DamagerConfig);
+            MovableModel = new MovableModel(config.MovableConfig, new MovableData());
+        }
+
+        void IEnemyModel.SetState(EnemyState enemyState)
+        {
+            CurrentState = enemyState;
+        }
+
+        void IEnemyModel.SetCurrentAttackCooldown(float cooldown)
+        {
+            CurrentAttackCooldown = cooldown;
+        }
+
+        void IEnemyModel.SetInitialAttackCooldown()
+        {
+            CurrentAttackCooldown = Config.AttackCooldown;
         }
     }
 }
