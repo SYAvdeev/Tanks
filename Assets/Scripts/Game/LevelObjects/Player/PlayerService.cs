@@ -10,8 +10,8 @@ namespace Tanks.Game.Player
     {
         private readonly IInputService _inputService;
         private readonly IMovableService _movableService;
-        private readonly IDamageableService _damageableService;
         private readonly IBulletSpawnService _bulletSpawnService;
+        public IDamageableService DamageableService { get; }
 
         public PlayerService(
             IPlayerModel model,
@@ -20,7 +20,7 @@ namespace Tanks.Game.Player
         {
             Model = model;
             _movableService = new MovableService(model.Movable);
-            _damageableService = new DamageableService(model.Damageable);
+            DamageableService = new DamageableService(model.Damageable);
             _inputService = inputService;
             _bulletSpawnService = bulletSpawnService;
         }

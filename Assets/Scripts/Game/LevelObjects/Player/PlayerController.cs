@@ -23,7 +23,13 @@ namespace Tanks.Game.Player
             _playerService.Model.Movable.DirectionAngleUpdated += MovableOnDirectionAngleUpdated;
             _playerService.Model.Damageable.HealthChanged += DamageableOnHealthChanged;
             _playerService.Model.CurrentWeaponChanged += PlayerModelOnCurrentWeaponChanged;
+            _playerView.DamageableView.CollidedWithDamager += DamageableViewOnCollidedWithDamager;
             await InstantiateWeaponViews();
+        }
+
+        private void DamageableViewOnCollidedWithDamager(float damage)
+        {
+            _playerService.DamageableService.ConsumeDamage(damage);
         }
 
         private void PlayerModelOnCurrentWeaponChanged(IWeaponConfig weaponConfig)

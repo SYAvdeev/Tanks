@@ -10,7 +10,9 @@
         "Unity.Addressables",
         "Unity.ResourceManager",
         "Tanks.Bullet",
-        "Tanks.Input"
+        "Tanks.Input",
+        "Tanks.BulletSpawn",
+        "VContainer"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

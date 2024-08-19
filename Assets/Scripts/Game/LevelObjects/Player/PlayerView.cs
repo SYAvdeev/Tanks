@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Tanks.Game.LevelObjects.Basic;
+using UnityEngine;
 
 namespace Tanks.Game.Player
 {
@@ -6,8 +7,10 @@ namespace Tanks.Game.Player
     {
         [SerializeField] private Transform _weaponViewParent;
         [SerializeField] private SpriteRenderer _healthSpriteRenderer;
+        [SerializeField] private DamageableView _damageableView;
 
         public Transform WeaponViewParent => _weaponViewParent;
         public SpriteRenderer HealthSpriteRenderer => _healthSpriteRenderer;
+        public DamageableView DamageableView => _damageableView;
     }
 }

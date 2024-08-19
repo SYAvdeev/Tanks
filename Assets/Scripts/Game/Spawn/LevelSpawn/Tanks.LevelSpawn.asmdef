@@ -1,14 +1,14 @@
 {
-    "name": "Tanks.Game",
-    "rootNamespace": "Tanks.Game",
+    "name": "Tanks.LevelSpawn",
+    "rootNamespace": "Tanks.LevelSpawn",
     "references": [
-        "Tanks.Game.LevelObjects.Basic",
         "Tanks.Game.LevelObjects.Level",
-        "Tanks.UI",
-        "Tanks.Utility",
-        "VContainer",
         "UniTask",
-        "Tanks.LevelSpawn"
+        "Tanks.Utility",
+        "Unity.Addressables",
+        "UniTask.Addressables",
+        "Unity.ResourceManager",
+        "Tanks.Game.LevelObjects.Basic"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

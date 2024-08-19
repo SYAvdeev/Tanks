@@ -1,11 +1,16 @@
 {
-    "name": "Tanks.Game.Camera",
-    "rootNamespace": "Tanks.Game.Camera",
+    "name": "Tanks.BulletSpawn",
+    "rootNamespace": "Tanks.BulletSpawn",
     "references": [
+        "Tanks.Bullet",
+        "UniTask",
         "Tanks.Utility",
+        "Unity.Addressables",
+        "UniTask.Addressables",
+        "Unity.ResourceManager",
         "Tanks.Game.LevelObjects.Basic",
-        "Tanks.Game.LevelObjects.Level",
-        "Tanks.LevelSpawn"
+        "Tanks.LevelSpawn",
+        "Tanks.Game.LevelObjects.Level"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
