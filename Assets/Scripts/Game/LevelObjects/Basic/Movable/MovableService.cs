@@ -12,6 +12,16 @@ namespace Tanks.Game.LevelObjects.Basic
             _movableModel = movableModel;
         }
 
+        public void SetPosition(Vector2 position)
+        {
+            _movableModel.SetPosition(position);
+        }
+
+        public void SetDirectionAngle(float directionAngle)
+        {
+            _movableModel.SetDirectionAngle(directionAngle);
+        }
+
         public void MoveAlongDirection(float deltaTime)
         {
             if (deltaTime < 0f)
@@ -23,7 +33,7 @@ namespace Tanks.Game.LevelObjects.Basic
             float cos = Mathf.Cos(Mathf.Deg2Rad * _movableModel.DirectionAngle);
             
             Vector2 position = _movableModel.Position + deltaTime * _movableModel.Config.Velocity * (new Vector2(sin, cos));
-            _movableModel.SetPosition(position);
+            SetPosition(position);
         }
 
         public void RotateTowards(Vector2 targetPosition)
@@ -32,7 +42,7 @@ namespace Tanks.Game.LevelObjects.Basic
             float y = targetPosition.y - _movableModel.Position.y;
 
             float angle = Mathf.Rad2Deg * (float)Math.Atan2(x, y);
-            _movableModel.SetDirectionAngle(angle);
+            SetDirectionAngle(angle);
         }
 
         public void RotateWithVelocity(float rotationVelocity, bool isClockwise, float deltaTime)
@@ -48,7 +58,7 @@ namespace Tanks.Game.LevelObjects.Basic
             }
 
             float angle = _movableModel.DirectionAngle + (isClockwise ? 1f : -1f) * rotationVelocity * deltaTime;
-            _movableModel.SetDirectionAngle(angle);
+            SetDirectionAngle(angle);
         }
 
         public void SetRestrictions(Vector2 minPosition, Vector2 maxPosition)

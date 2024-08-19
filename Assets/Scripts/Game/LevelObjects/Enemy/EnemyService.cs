@@ -5,12 +5,12 @@ namespace Tanks.Game.LevelObjects.Enemy
 {
     public class EnemyService : IEnemyService
     {
-        private readonly IMovableService _movableService;
         private readonly IDamagerService _damagerService;
         private readonly IMovableModel _playerMovableModel;
         private readonly IDamageableService _playerDamageableService;
 
         public IEnemyModel Model { get; }
+        public IMovableService MovableService { get; }
         public IDamageableService DamageableService { get; }
 
         public EnemyService(
@@ -21,9 +21,9 @@ namespace Tanks.Game.LevelObjects.Enemy
             Model = model;
             _playerMovableModel = playerMovableModel;
             _playerDamageableService = playerDamageableService;
-            _movableService = new MovableService(model.MovableModel);
-            DamageableService = new DamageableService(model.DamageableModel);
-            _damagerService = new DamagerService(model.DamagerModel);
+            MovableService = new MovableService(model.Movable);
+            DamageableService = new DamageableService(model.Damageable);
+            _damagerService = new DamagerService(model.Damager);
         }
         
         public void Update(float deltaTime)
@@ -31,7 +31,7 @@ namespace Tanks.Game.LevelObjects.Enemy
             switch (Model.CurrentState)
             {
                 case EnemyState.Move:
-                    _movableService.MoveAlongDirection(deltaTime);
+                    MovableService.MoveAlongDirection(deltaTime);
                     break;
                 case EnemyState.Attack:
                     if (Model.CurrentAttackCooldown > 0f)
@@ -47,7 +47,7 @@ namespace Tanks.Game.LevelObjects.Enemy
                     throw new ArgumentOutOfRangeException();
             }
             
-            _movableService.RotateTowards(_playerMovableModel.Position);
+            MovableService.RotateTowards(_playerMovableModel.Position);
         }
     }
 }

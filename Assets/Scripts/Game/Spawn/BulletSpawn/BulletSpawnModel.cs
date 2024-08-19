@@ -8,8 +8,14 @@ namespace Tanks.Game.Spawn.BulletSpawn
     public class BulletSpawnModel : IBulletSpawnModel
     {
         private readonly IList<IBulletService> _currentSpawnedBullets = new List<IBulletService>();
-        
+
+        public IBulletSpawnConfig Config { get; }
         public Pool<string, IBulletService> BulletsPool { get; } = new();
+
+        public BulletSpawnModel(IBulletSpawnConfig config)
+        {
+            Config = config;
+        }
 
         public IEnumerable<IBulletService> CurrentSpawnedBullets => _currentSpawnedBullets;
 

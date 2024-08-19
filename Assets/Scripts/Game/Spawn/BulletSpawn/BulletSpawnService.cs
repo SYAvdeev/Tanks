@@ -6,18 +6,18 @@ namespace Tanks.Game.Spawn.BulletSpawn
 {
     public class BulletSpawnService : IBulletSpawnService
     {
-        private readonly IBulletSpawnModel _bulletSpawnModel;
         private readonly ILevelSpawnService _levelSpawnService;
+        public IBulletSpawnModel Model { get; }
 
-        public BulletSpawnService(IBulletSpawnModel bulletSpawnModel, ILevelSpawnService levelSpawnService)
+        public BulletSpawnService(IBulletSpawnModel model, ILevelSpawnService levelSpawnService)
         {
-            _bulletSpawnModel = bulletSpawnModel;
+            Model = model;
             _levelSpawnService = levelSpawnService;
         }
 
         public void SpawnBullet(IBulletConfig bulletConfig, Vector2 position, float rotation)
         {
-            if (!_bulletSpawnModel.BulletsPool.TryGet(bulletConfig.SpawnableConfig.ID, out var bulletService))
+            if (!Model.BulletsPool.TryGet(bulletConfig.SpawnableConfig.ID, out var bulletService))
             {
                 var bulletModel = new BulletModel(bulletConfig);
                 bulletService = new BulletService(bulletModel);
@@ -27,22 +27,22 @@ namespace Tanks.Game.Spawn.BulletSpawn
                     currentLevelConfig.MaxPosition);
                 bulletService.Destroyed += BulletServiceOnDestroyed;
             }
-            _bulletSpawnModel.AddSpawnedBullet(bulletService);
+            Model.AddSpawnedBullet(bulletService);
         }
 
         private void BulletServiceOnDestroyed(IBulletService bulletService)
         {
-            _bulletSpawnModel.RemoveSpawnedBulletToPool(bulletService);
+            Model.RemoveSpawnedBulletToPool(bulletService);
         }
 
         public void Dispose()
         {
-            foreach (var currentSpawnedBullet in _bulletSpawnModel.CurrentSpawnedBullets)
+            foreach (var currentSpawnedBullet in Model.CurrentSpawnedBullets)
             {
                 currentSpawnedBullet.Destroyed -= BulletServiceOnDestroyed;
             }
 
-            foreach (var (_, value) in _bulletSpawnModel.BulletsPool.Enumerable)
+            foreach (var (_, value) in Model.BulletsPool.Enumerable)
             {
                 foreach (var bulletService in value)
                 {

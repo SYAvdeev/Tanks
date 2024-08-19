@@ -5,10 +5,10 @@ namespace Tanks.Game.LevelObjects.Enemy
     public class EnemyModel : IEnemyModel
     {
         public IEnemyConfig Config { get; }
-        public ISpawnableModel SpawnableModel { get; }
-        public IDamageableModel DamageableModel { get; }
-        public IDamagerModel DamagerModel { get; }
-        public IMovableModel MovableModel { get; }
+        public ISpawnableModel Spawnable { get; }
+        public IDamageableModel Damageable { get; }
+        public IDamagerModel Damager { get; }
+        public IMovableModel Movable { get; }
         public EnemyState CurrentState { get; private set; } = EnemyState.Move;
 
         public float CurrentAttackCooldown { get; private set; }
@@ -16,10 +16,10 @@ namespace Tanks.Game.LevelObjects.Enemy
         public EnemyModel(EnemyConfig config)
         {
             Config = config;
-            SpawnableModel = new SpawnableModel(config.SpawnableConfig);
-            DamageableModel = new DamageableModel(new DamageableData(), config.DamageableConfig);
-            DamagerModel = new DamagerModel(config.DamagerConfig);
-            MovableModel = new MovableModel(config.MovableConfig, new MovableData());
+            Spawnable = new SpawnableModel(config.SpawnableConfig);
+            Damageable = new DamageableModel(new DamageableData(), config.DamageableConfig);
+            Damager = new DamagerModel(config.DamagerConfig);
+            Movable = new MovableModel(config.MovableConfig, new MovableData());
         }
 
         void IEnemyModel.SetState(EnemyState enemyState)

@@ -6,6 +6,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
 {
     public interface IBulletSpawnService : IDisposable
     {
+        IBulletSpawnModel Model { get; }
         void SpawnBullet(IBulletConfig bulletConfig, Vector2 position, float rotation);
     }
 }

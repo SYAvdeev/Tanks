@@ -5,76 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="279dc010-6d01-475b-9d9e-0a711a15c67b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tanks.BulletSpawn.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tanks.EnemySpawn.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tanks.Game.LevelObjects.Bullet.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tanks.Game.LevelObjects.Camera.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tanks.Game.LevelObjects.Enemy.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tanks.Game.LevelObjects.Player.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tanks.Spawn.BulletSpawn.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tanks.Spawn.EnemySpawn.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tanks.Spawn.LevelSpawn.csproj.DotSettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/SpawnBorderType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/SpawnBorderType.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tanks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tanks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bootstrap/Tanks.Bootstrap.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bootstrap/Tanks.Bootstrap.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameLifetimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameLifetimeScope.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameplayService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameplayService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/BulletConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/BulletConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/BulletController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/BulletController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/BulletModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/BulletModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/BulletService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/BulletService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/BulletView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/BulletView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/IBulletConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/IBulletConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/IBulletController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/IBulletController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/IBulletModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/IBulletModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/IBulletService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/IBulletService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/Tanks.Bullet.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/Tanks.Game.LevelObjects.Bullet.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/Tanks.Bullet.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Bullet/Tanks.Game.LevelObjects.Bullet.asmdef.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/IMovableService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/IMovableService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/MovableService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/MovableService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/Tanks.Game.Camera.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/Tanks.Game.LevelObjects.Camera.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/Tanks.Game.Camera.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/Tanks.Game.LevelObjects.Camera.asmdef.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/Tanks.Enemy.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/Tanks.Game.LevelObjects.Enemy.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/Tanks.Enemy.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/Tanks.Game.LevelObjects.Enemy.asmdef.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/Tanks.Game.Player.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/Tanks.Game.Spawn.BulletSpawn.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/Tanks.Game.Player.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/Tanks.Game.LevelObjects.Player.asmdef.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/Weapon/IWeaponConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/Weapon/IWeaponConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/Weapon/WeaponConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/Weapon/WeaponConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/Tanks.BulletSpawn.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/Tanks.Game.LevelObjects.Player.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/Tanks.BulletSpawn.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/Tanks.Game.Spawn.BulletSpawn.asmdef.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnModel.cs" afterDir="false" />
@@ -84,28 +32,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/Tanks.LevelSpawn.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/Tanks.Game.Spawn.EnemySpawn.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/Tanks.LevelSpawn.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/Tanks.Game.Spawn.EnemySpawn.asmdef.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/ILevelSpawnConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/ILevelSpawnConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/ILevelSpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/ILevelSpawnController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/ILevelSpawnModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/ILevelSpawnModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/ILevelSpawnService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/ILevelSpawnService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/Tanks.LevelSpawn.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/Tanks.Game.Spawn.LevelSpawn.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/Tanks.LevelSpawn.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/Tanks.Game.Spawn.LevelSpawn.asmdef.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tanks.Game.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tanks.Game.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/IInputConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/IInputConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/InputConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/InputConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/InputService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/InputService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/Tanks.Input.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/Tanks.Input.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitTests/LevelObjects/Level/LevelSpawnModelTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitTests/LevelObjects/Level/LevelSpawnModelTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitTests/LevelObjects/Level/LevelSpawnServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitTests/LevelObjects/Level/LevelSpawnServiceTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitTests/Tanks.UnitTests.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitTests/Tanks.UnitTests.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/Tanks.Game.Spawn.EnemySpawn.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/Tanks.Game.Spawn.EnemySpawn.asmdef" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

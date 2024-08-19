@@ -7,6 +7,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
 {
     public interface IBulletSpawnModel
     {
+        IBulletSpawnConfig Config { get; }
         Pool<string, IBulletService> BulletsPool { get; }
         IEnumerable<IBulletService> CurrentSpawnedBullets { get; }
         event Action<IBulletService> BulletSpawned;
