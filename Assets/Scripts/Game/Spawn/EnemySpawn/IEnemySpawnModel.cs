@@ -11,7 +11,7 @@ namespace Tanks.Game.Spawn.EnemySpawn
         Pool<string, IEnemyService> EnemiesPool { get; }
         IEnumerable<IEnemyService> CurrentSpawnedEnemies { get; }
         event Action<IEnemyService> EnemySpawned;
-        event Action<IEnemyService> EnemyAddedToPool;
+        event Action<IEnemyService> EnemyRemovedToPool;
         internal void AddSpawnedEnemy(IEnemyService enemyService);
         internal void RemoveSpawnedEnemyToPool(IEnemyService enemyService);
         internal float CurrentSpawnDelay { get; set; }

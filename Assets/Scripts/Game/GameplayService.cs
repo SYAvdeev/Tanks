@@ -58,6 +58,7 @@ namespace Tanks.Game
             await _bulletSpawnController.PrewarmBulletControllersPool();
 
             await UniTask.WhenAll(_levelSpawnController.UpdateCurrentLevelControllerTask);
+            _updateTask.StartRoutine();
             
             await _uiService.HideScreen<LoadingScreen>(true);
         }

@@ -20,7 +20,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
         public IEnumerable<IBulletService> CurrentSpawnedBullets => _currentSpawnedBullets;
 
         public event Action<IBulletService> BulletSpawned;
-        public event Action<IBulletService> BulletAddedToPool;
+        public event Action<IBulletService> BulletRemovedToPool;
         
         void IBulletSpawnModel.AddSpawnedBullet(IBulletService bulletService)
         {
@@ -32,7 +32,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
         {
             _currentSpawnedBullets.Remove(bulletService);
             BulletsPool.Add(bulletService.BulletModel.Spawnable.Config.ID, bulletService);
-            BulletAddedToPool?.Invoke(bulletService);
+            BulletRemovedToPool?.Invoke(bulletService);
         }
     }
 }

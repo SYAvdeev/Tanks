@@ -18,6 +18,7 @@ namespace Tanks.Game.LevelObjects.Bullet
         }
 
         public IBulletService BulletService { get; }
+        public void SetActive(bool isActive) => _bulletView.gameObject.SetActive(isActive);
 
         private void MovableOnDirectionAngleUpdated(float directionAngle)
         {

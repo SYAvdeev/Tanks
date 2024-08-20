@@ -19,7 +19,7 @@ namespace Tanks.Game.Spawn.EnemySpawn
 
         public IEnumerable<IEnemyService> CurrentSpawnedEnemies => _currentSpawnedEnemies;
         public event Action<IEnemyService> EnemySpawned;
-        public event Action<IEnemyService> EnemyAddedToPool;
+        public event Action<IEnemyService> EnemyRemovedToPool;
 
 
         void IEnemySpawnModel.AddSpawnedEnemy(IEnemyService enemyService)
@@ -32,7 +32,7 @@ namespace Tanks.Game.Spawn.EnemySpawn
         {
             _currentSpawnedEnemies.Remove(enemyService);
             EnemiesPool.Add(enemyService.Model.Config.SpawnableConfig.ID, enemyService);
-            EnemyAddedToPool?.Invoke(enemyService);
+            EnemyRemovedToPool?.Invoke(enemyService);
         }
 
         float IEnemySpawnModel.CurrentSpawnDelay { get; set; }

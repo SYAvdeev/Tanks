@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_5_Config
   m_EditorClassIdentifier: 
   _attackCooldown: 3
-  _spawnableConfig: {fileID: 11400000, guid: 3367c99bcd0c57d42b2c7b92521a21fc, type: 2}
-  _damageableConfig: {fileID: 11400000, guid: 283a9ba023dd0594d9d0875d2c6e4973, type: 2}
-  _damagerConfig: {fileID: 11400000, guid: 54447c5e334ebf7438c436d41d041593, type: 2}
-  _movableConfig: {fileID: 11400000, guid: d1c60780f2688cb468b9148c9d418797, type: 2}
+  _spawnableConfig: {fileID: 11400000, guid: fc727be48a0c610448213331c95df5ad, type: 2}
+  _damageableConfig: {fileID: 11400000, guid: c06251a78147166439a6d4ebf8c287de, type: 2}
+  _damagerConfig: {fileID: 11400000, guid: b45060dceb3390a4da1fda6ebff6fad6, type: 2}
+  _movableConfig: {fileID: 11400000, guid: b5ad642a6b94e2f429a251a2f8307f16, type: 2}

@@ -26,12 +26,14 @@ namespace Tanks.Game.Spawn.EnemySpawn
         public void Initialize()
         {
             _enemySpawnService.Model.EnemySpawned += EnemySpawnModelOnEnemySpawned;
-            _enemySpawnService.Model.EnemyAddedToPool += EnemySpawnModelOnEnemyAddedToPool;
+            _enemySpawnService.Model.EnemyRemovedToPool += EnemySpawnModelOnEnemyRemovedToPool;
         }
 
-        private void EnemySpawnModelOnEnemyAddedToPool(IEnemyService enemyService)
+        private void EnemySpawnModelOnEnemyRemovedToPool(IEnemyService enemyService)
         {
-            var enemyController = _currentSpawnedEnemyControllers.First(bc => bc.EnemyService == enemyService);
+            var enemyController = _currentSpawnedEnemyControllers.First(
+                bc => bc.EnemyService == enemyService);
+            enemyController.SetActive(false);
             _currentSpawnedEnemyControllers.Remove(enemyController);
             _enemyControllersPool.Add(enemyService.Model.Spawnable.Config.ID, enemyController);
         }
@@ -52,6 +54,7 @@ namespace Tanks.Game.Spawn.EnemySpawn
                 enemyController = new EnemyController(enemyService, enemyView);
             }
 
+            enemyController.SetActive(true);
             _currentSpawnedEnemyControllers.Add(enemyController);
             return enemyController;
         }
@@ -72,7 +75,7 @@ namespace Tanks.Game.Spawn.EnemySpawn
             }
             
             _enemySpawnService.Model.EnemySpawned -= EnemySpawnModelOnEnemySpawned;
-            _enemySpawnService.Model.EnemyAddedToPool -= EnemySpawnModelOnEnemyAddedToPool;
+            _enemySpawnService.Model.EnemyRemovedToPool -= EnemySpawnModelOnEnemyRemovedToPool;
         }
     }
 }

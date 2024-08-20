@@ -27,14 +27,15 @@ namespace Tanks.Game.Spawn.BulletSpawn
         public void Initialize()
         {
             _bulletSpawnService.Model.BulletSpawned += BulletSpawnModelOnBulletSpawned;
-            _bulletSpawnService.Model.BulletAddedToPool += BulletSpawnModelOnBulletAddedToPool;
+            _bulletSpawnService.Model.BulletRemovedToPool += BulletSpawnModelOnBulletRemovedToPool;
         }
 
-        private void BulletSpawnModelOnBulletAddedToPool(IBulletService bulletService)
+        private void BulletSpawnModelOnBulletRemovedToPool(IBulletService bulletService)
         {
             var bulletController = _currentSpawnedBulletControllers.First(bc => bc.BulletService == bulletService);
             _currentSpawnedBulletControllers.Remove(bulletController);
             _bulletControllersPool.Add(bulletService.BulletModel.Spawnable.Config.ID, bulletController);
+            bulletController.SetActive(false);
         }
 
         public async UniTask PrewarmBulletControllersPool()
@@ -51,7 +52,13 @@ namespace Tanks.Game.Spawn.BulletSpawn
                 }
             }
 
-            foreach (var bulletService in bulletSpawnModel.CurrentSpawnedBullets)
+            var spawnedBullets = new List<IBulletService>(bulletSpawnModel.CurrentSpawnedBullets.Count());
+            foreach (var currentSpawnedBullet in bulletSpawnModel.CurrentSpawnedBullets)
+            {
+                spawnedBullets.Add(currentSpawnedBullet);
+            }
+            
+            foreach (var bulletService in spawnedBullets)
             {
                 bulletSpawnModel.RemoveSpawnedBulletToPool(bulletService);
             }
@@ -73,6 +80,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
                 bulletController = new BulletController(bulletView, bulletService);
             }
 
+            bulletController.SetActive(true);
             _currentSpawnedBulletControllers.Add(bulletController);
             return bulletController;
         }
@@ -93,7 +101,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
             }
             
             _bulletSpawnService.Model.BulletSpawned -= BulletSpawnModelOnBulletSpawned;
-            _bulletSpawnService.Model.BulletAddedToPool -= BulletSpawnModelOnBulletAddedToPool;
+            _bulletSpawnService.Model.BulletRemovedToPool -= BulletSpawnModelOnBulletRemovedToPool;
         }
     }
 }

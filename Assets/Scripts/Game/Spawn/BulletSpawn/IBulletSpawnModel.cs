@@ -11,7 +11,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
         Pool<string, IBulletService> BulletsPool { get; }
         IEnumerable<IBulletService> CurrentSpawnedBullets { get; }
         event Action<IBulletService> BulletSpawned;
-        event Action<IBulletService> BulletAddedToPool;
+        event Action<IBulletService> BulletRemovedToPool;
         internal void AddSpawnedBullet(IBulletService bulletService);
         internal void RemoveSpawnedBulletToPool(IBulletService bulletService);
     }

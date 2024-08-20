@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2437654375913566471}
   - component: {fileID: 4047854402889228060}
   - component: {fileID: 1439874247754378307}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 2437654376136421933}
   - component: {fileID: 2437654376136421932}
   - component: {fileID: 1120956330792967864}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: RotateObject
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2437654376196529089}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: WeaponRoot
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3312595683054262504}
   - component: {fileID: 7930801076730398602}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}

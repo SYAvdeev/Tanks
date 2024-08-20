@@ -20,6 +20,11 @@ namespace Tanks.Game.LevelObjects.Enemy
             _enemyView.CollisionWithDamageableEnded += EnemyViewOnCollisionWithDamageableEnded;
         }
 
+        public void SetActive(bool isActive)
+        {
+            _enemyView.gameObject.SetActive(isActive);
+        }
+
         private void EnemyViewOnCollisionWithDamageableEnded(DamageableView damageableView)
         {
             EnemyService.Model.SetState(EnemyState.Move);
