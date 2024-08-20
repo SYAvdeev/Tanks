@@ -8,6 +8,7 @@ namespace Tanks.Game.LevelObjects.Player
         IPlayerModel Model { get; }
         IDamageableService DamageableService { get; }
         void Initialize();
+        void SetCurrentWeaponOnStart();
         void Update(float deltaTime);
     }
 }

@@ -11,7 +11,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
         order = 2)]
     public class BulletSpawnConfig : ConfigBase, IBulletSpawnConfig
     {
-        [SerializeField] private IEnumerable<BulletConfig> _bulletConfigs;
+        [SerializeField] private List<BulletConfig> _bulletConfigs;
         [SerializeField] private int _prewarmCount;
 
         public int PrewarmCount => _prewarmCount;

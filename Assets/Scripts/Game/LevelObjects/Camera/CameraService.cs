@@ -7,7 +7,7 @@ namespace Tanks.Game.LevelObjects.Camera
     {
         private readonly IPlayerService _playerService;
         public ICameraModel Model { get; }
-        public MovableService MovableService { get; }
+        public IMovableService MovableService { get; }
 
         public CameraService(ICameraModel model, IPlayerService playerService)
         {

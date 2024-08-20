@@ -1,6 +1,5 @@
 ﻿using Tanks.Game.LevelObjects.Basic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace Tanks.Game.LevelObjects.Level
 {

@@ -34,6 +34,12 @@ namespace Tanks.Game.LevelObjects.Player
             _inputService.PreviousWeaponKeyDown += InputServiceOnPreviousWeaponKeyDown;
         }
 
+        public void SetCurrentWeaponOnStart()
+        {
+            var currentWeaponConfig = Model.PlayerConfig.FirstWeaponConfig;
+            Model.SetCurrentWeaponConfig(currentWeaponConfig);
+        }
+
         private void InputServiceOnShootKeyDown()
         {
             if (Mathf.Approximately(Model.CurrentReloadDelay, 0f))

@@ -5,7 +5,7 @@ namespace Tanks.Game.LevelObjects.Camera
     public interface ICameraService
     {
         ICameraModel Model { get; }
-        MovableService MovableService { get; }
+        IMovableService MovableService { get; }
         void Update();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Tanks.Game.LevelObjects.Basic;
 using UnityEngine;
 
 namespace Tanks.Game.LevelObjects.Player
@@ -26,9 +27,9 @@ namespace Tanks.Game.LevelObjects.Player
             _playerView.DamageableView.CollidedWithDamager += DamageableViewOnCollidedWithDamager;
         }
 
-        private void DamageableViewOnCollidedWithDamager(float damage)
+        private void DamageableViewOnCollidedWithDamager(IDamagerService damagerService)
         {
-            _playerService.DamageableService.ConsumeDamage(damage);
+            damagerService.MakeDamage(_playerService.DamageableService);
         }
 
         private void PlayerModelOnCurrentWeaponChanged(IWeaponConfig weaponConfig)

@@ -58,6 +58,19 @@ namespace Tanks.Game.Spawn.EnemySpawn
 
         public void Dispose()
         {
+            foreach (var currentSpawnedEnemyController in _currentSpawnedEnemyControllers)
+            {
+                currentSpawnedEnemyController.Dispose();
+            }
+            
+            foreach (var (_, value) in _enemyControllersPool.Enumerable)
+            {
+                foreach (var enemyController in value)
+                {
+                    enemyController.Dispose();
+                }
+            }
+            
             _enemySpawnService.Model.EnemySpawned -= EnemySpawnModelOnEnemySpawned;
             _enemySpawnService.Model.EnemyAddedToPool -= EnemySpawnModelOnEnemyAddedToPool;
         }

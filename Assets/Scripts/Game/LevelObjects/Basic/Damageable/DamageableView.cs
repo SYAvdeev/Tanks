@@ -5,7 +5,7 @@ namespace Tanks.Game.LevelObjects.Basic
 {
     public class DamageableView : MonoBehaviour
     {
-        public event Action<float> CollidedWithDamager;
-        public void CollideWithDamager(float damage) => CollidedWithDamager?.Invoke(damage);
+        public event Action<IDamagerService> CollidedWithDamager;
+        public void CollideWithDamager(IDamagerService damagerService) => CollidedWithDamager?.Invoke(damagerService);
     }
 }

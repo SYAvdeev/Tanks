@@ -9,6 +9,7 @@ namespace Tanks.Game.LevelObjects.Enemy
         private readonly IMovableModel _playerMovableModel;
         private readonly IDamageableService _playerDamageableService;
 
+        public event Action<IEnemyService> Died;
         public IEnemyModel Model { get; }
         public IMovableService MovableService { get; }
         public IDamageableService DamageableService { get; }
@@ -24,8 +25,16 @@ namespace Tanks.Game.LevelObjects.Enemy
             MovableService = new MovableService(model.Movable);
             DamageableService = new DamageableService(model.Damageable);
             _damagerService = new DamagerService(model.Damager);
+            
+            DamageableService.OutOfHealth += DamageableServiceOnOutOfHealth;
+            model.SetInitialAttackCooldown();
         }
-        
+
+        private void DamageableServiceOnOutOfHealth()
+        {
+            Died?.Invoke(this);
+        }
+
         public void Update(float deltaTime)
         {
             switch (Model.CurrentState)
@@ -41,6 +50,7 @@ namespace Tanks.Game.LevelObjects.Enemy
                     else
                     {
                         _damagerService.MakeDamage(_playerDamageableService);
+                        Model.SetInitialAttackCooldown();
                     }
                     break;
                 default:
@@ -48,6 +58,11 @@ namespace Tanks.Game.LevelObjects.Enemy
             }
             
             MovableService.RotateTowards(_playerMovableModel.Position);
+        }
+
+        public void Dispose()
+        {
+            DamageableService.OutOfHealth -= DamageableServiceOnOutOfHealth;
         }
     }
 }

@@ -35,11 +35,18 @@ namespace Tanks.Game.Spawn.EnemySpawn
                     enemyModel,
                     _playerService.Model.Movable,
                     _playerService.DamageableService);
+                enemyService.Died += EnemyServiceOnDied;
             }
             Model.AddSpawnedEnemy(enemyService);
             enemyService.MovableService.SetPosition(GetRandomOffScreenSpawnPosition());
+            enemyService.DamageableService.RestoreHealth(randomEnemyConfig.DamageableConfig.MaxHealth);
         }
-        
+
+        private void EnemyServiceOnDied(IEnemyService enemyService)
+        {
+            Model.RemoveSpawnedEnemyToPool(enemyService);
+        }
+
         private Vector2 GetRandomOffScreenSpawnPosition()
         {
             SpawnBorderType borderIndex = GetBorderIndex();
@@ -60,9 +67,9 @@ namespace Tanks.Game.Spawn.EnemySpawn
             };
         }
 
-        private float GetPositionNormalized() => Random.Range(0f, 1f);
+        private static float GetPositionNormalized() => Random.Range(0f, 1f);
 
-        private SpawnBorderType GetBorderIndex()
+        private static SpawnBorderType GetBorderIndex()
         {
             var values = Enum.GetValues(typeof(SpawnBorderType));
             return (SpawnBorderType)values.GetValue(Random.Range(0, values.Length));
@@ -84,6 +91,24 @@ namespace Tanks.Game.Spawn.EnemySpawn
                 else
                 {
                     Model.CurrentSpawnDelay -= deltaTime;
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            foreach (var currentSpawnedEnemy in Model.CurrentSpawnedEnemies)
+            {
+                currentSpawnedEnemy.Died -= EnemyServiceOnDied;
+                currentSpawnedEnemy.Dispose();
+            }
+
+            foreach (var (_, value) in Model.EnemiesPool.Enumerable)
+            {
+                foreach (var enemyService in value)
+                {
+                    enemyService.Died -= EnemyServiceOnDied;
+                    enemyService.Dispose();
                 }
             }
         }

@@ -22,7 +22,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
             _bulletSpawnView = bulletSpawnView;
         }
 
-        public UniTask<IBulletController> SpawnBulletControllerTask { get; private set; }
+        private UniTask<IBulletController> _spawnBulletControllerTask;
         
         public void Initialize()
         {
@@ -47,7 +47,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
                 for (int i = 0; i < bulletSpawnConfig.PrewarmCount; i++)
                 {
                     _bulletSpawnService.SpawnBullet(bulletConfig, Vector2.zero, 0f);
-                    await SpawnBulletControllerTask;
+                    await _spawnBulletControllerTask;
                 }
             }
 
@@ -59,7 +59,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
 
         private void BulletSpawnModelOnBulletSpawned(IBulletService bulletService)
         {
-            SpawnBulletControllerTask = SpawnBulletController(bulletService);
+            _spawnBulletControllerTask = SpawnBulletController(bulletService);
         }
         
         private async UniTask<IBulletController> SpawnBulletController(IBulletService bulletService)
@@ -79,6 +79,19 @@ namespace Tanks.Game.Spawn.BulletSpawn
 
         public void Dispose()
         {
+            foreach (var currentSpawnedBulletController in _currentSpawnedBulletControllers)
+            {
+                currentSpawnedBulletController.Dispose();
+            }
+            
+            foreach (var (_, value) in _bulletControllersPool.Enumerable)
+            {
+                foreach (var bulletController in value)
+                {
+                    bulletController.Dispose();
+                }
+            }
+            
             _bulletSpawnService.Model.BulletSpawned -= BulletSpawnModelOnBulletSpawned;
             _bulletSpawnService.Model.BulletAddedToPool -= BulletSpawnModelOnBulletAddedToPool;
         }

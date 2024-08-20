@@ -10,11 +10,11 @@ namespace Tanks.Game.LevelObjects.Player
         public IDamageableModel Damageable { get; }
         public IWeaponConfig CurrentWeaponConfig { get; private set; }
 
-        public PlayerModel(IPlayerConfig playerConfig, IMovableModel movable, IDamageableModel damageableModel)
+        public PlayerModel(IPlayerConfig playerConfig)
         {
             PlayerConfig = playerConfig;
-            Movable = movable;
-            Damageable = damageableModel;
+            Movable = new MovableModel(playerConfig.MovableConfig, new MovableData());
+            Damageable = new DamageableModel(new DamageableData(), playerConfig.DamageableConfig);
         }
 
         public event Action<IWeaponConfig> CurrentWeaponChanged;

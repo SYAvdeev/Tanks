@@ -13,7 +13,7 @@ namespace Tanks.Game.LevelObjects.Enemy
 
         public float CurrentAttackCooldown { get; private set; }
 
-        public EnemyModel(EnemyConfig config)
+        public EnemyModel(IEnemyConfig config)
         {
             Config = config;
             Spawnable = new SpawnableModel(config.SpawnableConfig);

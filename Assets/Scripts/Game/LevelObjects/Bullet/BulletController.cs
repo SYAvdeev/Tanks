@@ -11,16 +11,13 @@ namespace Tanks.Game.LevelObjects.Bullet
         {
             _bulletView = bulletView;
             BulletService = bulletService;
-        }
-
-        public IBulletService BulletService { get; }
-
-        public void Initialize()
-        {
+            
             _bulletView.CollidedWithDamageable += BulletViewOnCollidedWithDamageable;
             BulletService.BulletModel.Movable.PositionUpdated += MovableOnPositionUpdated;
             BulletService.BulletModel.Movable.DirectionAngleUpdated += MovableOnDirectionAngleUpdated;
         }
+
+        public IBulletService BulletService { get; }
 
         private void MovableOnDirectionAngleUpdated(float directionAngle)
         {
@@ -34,7 +31,7 @@ namespace Tanks.Game.LevelObjects.Bullet
 
         private void BulletViewOnCollidedWithDamageable(DamageableView damageableView)
         {
-            damageableView.CollideWithDamager(BulletService.BulletModel.Damager.Config.Damage);
+            damageableView.CollideWithDamager(BulletService.DamagerService);
         }
 
         public void Dispose()

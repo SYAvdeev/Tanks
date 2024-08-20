@@ -73,13 +73,13 @@ namespace Tanks.UnitTests
             spawnableModelMock2.Setup(sm => sm.Config).Returns(spawnableConfigMock2.Object);
             spawnableConfigMock2.Setup(sc => sc.ID).Returns(level2Key);
 
-            var levelSpawnModel = new LevelSpawnModel(levelSpawnData, levelSpawnConfigMock.Object);
+            ILevelSpawnModel levelSpawnModel = new LevelSpawnModel(levelSpawnData, levelSpawnConfigMock.Object);
             levelSpawnModel.CurrentLevelChanged += _ => ++currentLevelChangedFireCounter;
 
             //Act
             
-            void SetLevel1() => ((ILevelSpawnModel)levelSpawnModel).SetCurrentLevel(levelModelMock1.Object);
-            void SetLevel2() => ((ILevelSpawnModel)levelSpawnModel).SetCurrentLevel(levelModelMock2.Object);
+            void SetLevel1() => levelSpawnModel.SetCurrentLevel(levelModelMock1.Object);
+            void SetLevel2() => levelSpawnModel.SetCurrentLevel(levelModelMock2.Object);
             
             //Assert
             Assert.DoesNotThrow(SetLevel1);

@@ -15,7 +15,7 @@ namespace Tanks.Game.LevelObjects.Player
         [SerializeField] private MovableConfig _movableConfig;
         [SerializeField] private DamageableConfig _damageableConfig;
         [SerializeField] private float _rotationVelocity;
-        [SerializeField] private IWeaponConfig _firstWeaponConfig;
+        [SerializeField] private WeaponConfig _firstWeaponConfig;
 
         public IReadOnlyList<WeaponConfig> WeaponConfigs => _weaponConfig;
         public IMovableConfig MovableConfig => _movableConfig;

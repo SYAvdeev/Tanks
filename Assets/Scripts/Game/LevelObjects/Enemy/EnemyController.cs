@@ -12,10 +12,6 @@ namespace Tanks.Game.LevelObjects.Enemy
         {
             EnemyService = enemyService;
             _enemyView = enemyView;
-        }
-
-        public void Initialize()
-        {
             EnemyService.Model.Movable.PositionUpdated += MovableOnPositionUpdated;
             EnemyService.Model.Movable.DirectionAngleUpdated += MovableOnDirectionAngleUpdated;
             EnemyService.Model.Damageable.HealthChanged += DamageableOnHealthChanged;
@@ -34,9 +30,9 @@ namespace Tanks.Game.LevelObjects.Enemy
             EnemyService.Model.SetState(EnemyState.Attack);
         }
 
-        private void DamageableViewOnCollidedWithDamager(float damage)
+        private void DamageableViewOnCollidedWithDamager(IDamagerService damagerService)
         {
-            EnemyService.DamageableService.ConsumeDamage(damage);
+            damagerService.MakeDamage(EnemyService.DamageableService);
         }
 
         private void DamageableOnHealthChanged(float health)
