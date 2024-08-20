@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172a1c4f9dc74eb29e9f9b47f42994a9, type: 3}
   m_Name: Weapon_2_Config
   m_EditorClassIdentifier: 
-  _spawnableConfig: {fileID: 11400000, guid: 180970a49b9267547b648dba0701ba4d, type: 2}
-  _bulletConfig: {fileID: 11400000, guid: ccce73c407aac5a47a62ae8750906747, type: 2}
+  _spawnableConfig: {fileID: 11400000, guid: 133af7afc070e1a46894e2dba1ccf1eb, type: 2}
+  _bulletConfig: {fileID: 11400000, guid: 04208d912372dab40859a1bfdc47cc8f, type: 2}
   _reloadDelay: 1

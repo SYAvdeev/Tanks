@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba896d5bffe45478c4fb2f11a85e239, type: 3}
   m_Name: Bullet_5_Config
   m_EditorClassIdentifier: 
-  _movableConfig: {fileID: 11400000, guid: 0829bcbd31f28a8469580d2d6a01279a, type: 2}
-  _damagerConfig: {fileID: 11400000, guid: e9c3e66ceae4ac745a9bc30d08b93e32, type: 2}
-  _spawnableConfig: {fileID: 11400000, guid: 7f8dd4bdfa54fb14f885c4da12796965, type: 2}
+  _movableConfig: {fileID: 11400000, guid: ad185acb065f7fb4aba5043b906da584, type: 2}
+  _damagerConfig: {fileID: 11400000, guid: 3c7b4eca88a20844d94269dceb96743e, type: 2}
+  _spawnableConfig: {fileID: 11400000, guid: d29afe776346e3d438c8e16c8d7edb94, type: 2}

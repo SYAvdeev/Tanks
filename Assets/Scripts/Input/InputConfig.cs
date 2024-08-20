@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace Tanks.Input
 {
+    [CreateAssetMenu(
+        fileName = nameof(InputConfig), 
+        menuName = "Custom/Input/" + nameof(InputConfig),
+        order = 0)]
     public class InputConfig : ConfigBase, IInputConfig
     {
         [SerializeField] private KeyCode _moveKey;

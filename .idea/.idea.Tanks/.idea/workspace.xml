@@ -6,19 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="279dc010-6d01-475b-9d9e-0a711a15c67b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tanks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tanks/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/DamageableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/DamageableConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/DamagerConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/DamagerConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/Enemy_2_Config.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/Enemy_2_Config.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/MovableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/MovableConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/SpawnableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/SpawnableConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_3/SpawnableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_3/SpawnableConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_4/SpawnableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_4/SpawnableConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_5/SpawnableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_5/SpawnableConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Player/Weapon_1/SpawnableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Player/Weapon_1/SpawnableConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Player/Weapon_2/SpawnableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Player/Weapon_2/SpawnableConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Player/Weapon_2/Weapon_2_Config.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Player/Weapon_2/Weapon_2_Config.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/Spawn/BulletSpawnConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/Spawn/BulletSpawnConfig.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/Spawn/EnemySpawnConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/Spawn/EnemySpawnConfig.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Configs/Root/ConfigsRepository.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Root/ConfigsRepository.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/square.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/square.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bootstrap/BootstrapLifetimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bootstrap/BootstrapLifetimeScope.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bootstrap/Tanks.Bootstrap.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bootstrap/Tanks.Bootstrap.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/InputConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/InputConfig.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/Tanks.Game.Spawn.LevelSpawn.asmdef" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@f057abff0f/Runtime/UniTask.WhenAll.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@f057abff0f/Runtime/UniTaskScheduler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.sprite@1.0.0/Editor/ObjectMenuCreation/ItemCreationUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.22.2/Runtime/AssetReference.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.8.17/Tests/Runtime/BurstJobTester.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/TestRunner/Utils/TestListJob.cs" root0="SKIP_HIGHLIGHTING" />
@@ -67,6 +68,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@f2afd2ac17/Runtime/Annotations/ITickable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@f2afd2ac17/Runtime/ContainerBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@f2afd2ac17/Runtime/Internal/InstanceProviders/CollectionInstanceProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@f2afd2ac17/Runtime/Internal/ReflectionInjector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Tanks_old/Assets/Scripts/Services/Factory/Logic/MovableInputControlLogicFactory.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -135,10 +137,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="18056">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="18056" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -169,7 +171,7 @@
       <workItem from="1723948157199" duration="12307000" />
       <workItem from="1724030229001" duration="9287000" />
       <workItem from="1724041544508" duration="3547000" />
-      <workItem from="1724116614892" duration="15567000" />
+      <workItem from="1724116614892" duration="16970000" />
     </task>
     <servers />
   </component>

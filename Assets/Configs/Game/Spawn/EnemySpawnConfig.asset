@@ -16,4 +16,7 @@ MonoBehaviour:
   _enemyConfigs:
   - {fileID: 11400000, guid: 436d9cce4d9e0084e920f78d3e944fb9, type: 2}
   - {fileID: 11400000, guid: 4b970ed45401f6446bd6a46d14783faf, type: 2}
+  - {fileID: 11400000, guid: 3ab4286ff8e7f694c8bc4f01902486d1, type: 2}
+  - {fileID: 11400000, guid: be89fc50a8d29bd49aa23c4ad53dc8e2, type: 2}
+  - {fileID: 11400000, guid: 9a7ddfc0a58ce374b9cfc556f92244ec, type: 2}
   _enemySpawnDelay: 3

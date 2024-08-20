@@ -15,4 +15,7 @@ MonoBehaviour:
   _bulletConfigs:
   - {fileID: 11400000, guid: ccce73c407aac5a47a62ae8750906747, type: 2}
   - {fileID: 11400000, guid: 04208d912372dab40859a1bfdc47cc8f, type: 2}
+  - {fileID: 11400000, guid: 462ec49806a40694a8bd04fa9c33d1f4, type: 2}
+  - {fileID: 11400000, guid: 8ee2c588521403946be672a638a3714c, type: 2}
+  - {fileID: 11400000, guid: a0d4d5f312f322243a15648566a31c14, type: 2}
   _prewarmCount: 10

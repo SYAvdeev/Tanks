@@ -1,3 +1,4 @@
+using Tanks.Input;
 using Tanks.UI;
 using UnityEngine;
 using VContainer;
@@ -12,9 +13,15 @@ namespace Tanks.Bootstrap
         protected override void Configure(IContainerBuilder builder)
         {
             ConfigureUI(builder);
+            ConfigureInput(builder);
             builder.RegisterEntryPoint<BootstrapSceneStarter>();
         }
-        
+
+        private void ConfigureInput(IContainerBuilder builder)
+        {
+            builder.Register<InputService>(Lifetime.Singleton).As<IInputService>();
+        }
+
         private void ConfigureUI(IContainerBuilder builder)
         {
             DontDestroyOnLoad(_uiViewRoot.gameObject);

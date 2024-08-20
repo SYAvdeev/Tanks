@@ -7,7 +7,8 @@
         "Tanks.Utility",
         "Tanks.Root",
         "Tanks.UI",
-        "Tanks.Scenes"
+        "Tanks.Scenes",
+        "Tanks.Input"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

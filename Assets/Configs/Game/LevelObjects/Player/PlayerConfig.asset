@@ -15,6 +15,9 @@ MonoBehaviour:
   _weaponConfig:
   - {fileID: 11400000, guid: 8a1d28b56d35b734a81ad8c256a2e734, type: 2}
   - {fileID: 11400000, guid: 909606e7de9483744b61554af750dad0, type: 2}
+  - {fileID: 11400000, guid: 4c7a1de3cbe5d404b80ceb4727db7e92, type: 2}
+  - {fileID: 11400000, guid: e7c7f32941a2ebb4c9070ba3fdccb10e, type: 2}
+  - {fileID: 11400000, guid: 170f2c8e91c37724ca622a64e1a9296d, type: 2}
   _movableConfig: {fileID: 11400000, guid: 572ffe966601d4b428294b7a45f3b0e2, type: 2}
   _damageableConfig: {fileID: 11400000, guid: 8b16b0ba09edbf74282c5b4920d875cb, type: 2}
   _rotationVelocity: 180
