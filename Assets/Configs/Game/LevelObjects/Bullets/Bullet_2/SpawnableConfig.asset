@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: bullet-2
   _assetReference:
-    m_AssetGUID: 
+    m_AssetGUID: d69a2c6eedb164641bbc753c55188a27
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

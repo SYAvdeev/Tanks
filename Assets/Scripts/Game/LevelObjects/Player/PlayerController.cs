@@ -42,14 +42,15 @@ namespace Tanks.Game.LevelObjects.Player
 
         private void DamageableOnHealthChanged(float health)
         {
+            float maxHealth = _playerService.Model.PlayerConfig.DamageableConfig.MaxHealth;
             var size = _playerView.HealthSpriteRenderer.size;
-            size.x = health;
+            size.x = _playerView.HealthBarMaxWidth * (health / maxHealth);
             _playerView.HealthSpriteRenderer.size = size;
         }
 
         private void MovableOnDirectionAngleUpdated(float directionAngle)
         {
-            _playerView.transform.localRotation = Quaternion.Euler(0f, 0f, directionAngle);
+            _playerView.RotateTransform.localRotation = Quaternion.Euler(0f, 0f, directionAngle);
         }
 
         private void MovableOnPositionUpdated(Vector2 position)

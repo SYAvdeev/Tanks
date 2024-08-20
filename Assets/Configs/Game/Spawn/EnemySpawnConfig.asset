@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: EnemySpawnConfig
   m_EditorClassIdentifier: 
   _maxEnemiesCount: 10
-  _enemyConfigs: []
+  _enemyConfigs:
+  - {fileID: 11400000, guid: 436d9cce4d9e0084e920f78d3e944fb9, type: 2}
+  - {fileID: 11400000, guid: 4b970ed45401f6446bd6a46d14783faf, type: 2}
   _enemySpawnDelay: 3

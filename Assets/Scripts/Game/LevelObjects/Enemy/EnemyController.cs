@@ -37,8 +37,9 @@ namespace Tanks.Game.LevelObjects.Enemy
 
         private void DamageableOnHealthChanged(float health)
         {
+            float maxHealth = EnemyService.Model.Config.DamageableConfig.MaxHealth;
             var size = _enemyView.HealthSpriteRenderer.size;
-            size.x = health;
+            size.x = _enemyView.HealthBarMaxWidth * (health / maxHealth);
             _enemyView.HealthSpriteRenderer.size = size;
         }
 
@@ -49,7 +50,7 @@ namespace Tanks.Game.LevelObjects.Enemy
 
         private void MovableOnDirectionAngleUpdated(float directionAngle)
         {
-            _enemyView.transform.localRotation = Quaternion.Euler(0f, 0f, directionAngle);
+            _enemyView.RotateTransform.localRotation = Quaternion.Euler(0f, 0f, directionAngle);
         }
 
         public void Dispose()

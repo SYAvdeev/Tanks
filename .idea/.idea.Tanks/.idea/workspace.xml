@@ -6,6 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="279dc010-6d01-475b-9d9e-0a711a15c67b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tanks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tanks/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/DamageableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/DamageableConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/DamagerConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/DamagerConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/Enemy_2_Config.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/Enemy_2_Config.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/MovableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/MovableConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/SpawnableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Enemies/Enemy_2/SpawnableConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/Spawn/BulletSpawnConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/Spawn/BulletSpawnConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/Spawn/EnemySpawnConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/Spawn/EnemySpawnConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Root/ConfigsRepository.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Root/ConfigsRepository.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/square.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/square.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +169,7 @@
       <workItem from="1723948157199" duration="12307000" />
       <workItem from="1724030229001" duration="9287000" />
       <workItem from="1724041544508" duration="3547000" />
-      <workItem from="1724116614892" duration="14088000" />
+      <workItem from="1724116614892" duration="15567000" />
     </task>
     <servers />
   </component>

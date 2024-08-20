@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e950c8bbfdce4b8a91705eafa275320e, type: 3}
   m_Name: BulletSpawnConfig
   m_EditorClassIdentifier: 
-  _bulletConfigs: []
+  _bulletConfigs:
+  - {fileID: 11400000, guid: ccce73c407aac5a47a62ae8750906747, type: 2}
+  - {fileID: 11400000, guid: 04208d912372dab40859a1bfdc47cc8f, type: 2}
   _prewarmCount: 10

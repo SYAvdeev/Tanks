@@ -7,11 +7,15 @@ namespace Tanks.Game.LevelObjects.Enemy
     public class EnemyView : MonoBehaviour
     {
         private const string PlayerTag = "Player";
-        [SerializeField] private DamageableView _damageableView;
+        [SerializeField] private Transform _rotateTransform;
         [SerializeField] private SpriteRenderer _healthSpriteRenderer;
+        [SerializeField] private DamageableView _damageableView;
+        [SerializeField] private float _healthBarMaxWidth;
 
-        public DamageableView DamageableView => _damageableView;
+        public Transform RotateTransform => _rotateTransform;
         public SpriteRenderer HealthSpriteRenderer => _healthSpriteRenderer;
+        public DamageableView DamageableView => _damageableView;
+        public float HealthBarMaxWidth => _healthBarMaxWidth;
 
         internal event Action<DamageableView> CollidedWithDamageable;
         internal event Action<DamageableView> CollisionWithDamageableEnded;

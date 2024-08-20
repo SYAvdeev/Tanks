@@ -17,8 +17,68 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 399b44218c425f6448f625286f77a485
   m_SerializeEntries:
+  - m_GUID: 0d84dc0ea8d2298499f96d0a1148a1ad
+    m_Address: Assets/Prefabs/Game/LevelObjects/Enemies/Enemy1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a50d36f50ed6834287eb25f62fc37d9
+    m_Address: Assets/Prefabs/Game/LevelObjects/Enemies/Enemy0.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 351f8916fe6a7584985b58de15b718db
+    m_Address: Assets/Prefabs/Game/LevelObjects/Weapons/Weapon1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47c21a1a0089d9f4cb6d8f0a1c79636b
+    m_Address: Assets/Prefabs/Game/LevelObjects/Enemies/Enemy3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a9eb64b2dddf7a4bab649d4123571d2
+    m_Address: Assets/Prefabs/Game/LevelObjects/Enemies/Enemy4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d27dd3235de2484bb8c82d362a05fd7
+    m_Address: Assets/Prefabs/Game/LevelObjects/Weapons/Weapon0.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a98b1e2eaa6672d4689a087b9d490127
+    m_Address: Assets/Prefabs/Game/LevelObjects/Weapons/Weapon2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b27205c6c1b03744091a4dc2b4703bbe
+    m_Address: Assets/Prefabs/Game/LevelObjects/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c431626448ba9ab40bb41892bf60e406
+    m_Address: Assets/Prefabs/Game/LevelObjects/Enemies/Enemy2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cea4d5b2b59d73b4fb8dd44df037f618
     m_Address: Assets/Prefabs/Game/LevelObjects/Level/Level1View.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d69a2c6eedb164641bbc753c55188a27
+    m_Address: Assets/Prefabs/Game/LevelObjects/Bullet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d727dffae3a61a441948728271f178fe
+    m_Address: Assets/Prefabs/Game/LevelObjects/Weapons/Weapon4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9d8bb9fd1a93004eb39ff51208b5830
+    m_Address: Assets/Prefabs/Game/LevelObjects/Weapons/Weapon3.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
