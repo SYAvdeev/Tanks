@@ -53,6 +53,8 @@ namespace Tanks.Game.LevelObjects.Player
             
             _movableService.SetPosition(Model.PlayerConfig.InitialPosition);
             _movableService.ClampPositionToRestrictionBorders();
+            
+            DamageableService.SetMaxHealth();
         }
 
         private void InputServiceOnShootKeyDown()

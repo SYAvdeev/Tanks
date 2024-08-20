@@ -10,5 +10,6 @@ namespace Tanks.Game.LevelObjects.Bullet
         IDamagerService DamagerService { get; }
         event Action<IBulletService> Destroyed;
         void Update(float deltaTime);
+        void Destroy();
     }
 }

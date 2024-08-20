@@ -23,14 +23,16 @@ namespace Tanks.Game.Spawn.BulletSpawn
             {
                 var bulletModel = new BulletModel(bulletConfig);
                 bulletService = new BulletService(bulletModel);
-                var currentLevelConfig = _levelSpawnService.LevelSpawnModel.CurrentLevelConfig;
-                bulletService.MovableService.SetRestrictions(
-                    currentLevelConfig.MinPosition,
-                    currentLevelConfig.MaxPosition);
-                bulletService.MovableService.SetPosition(position);
-                bulletService.MovableService.SetDirectionAngle(directionAngle);
                 bulletService.Destroyed += BulletServiceOnDestroyed;
             }
+            
+            var currentLevelConfig = _levelSpawnService.LevelSpawnModel.CurrentLevelConfig;
+            bulletService.MovableService.SetRestrictions(
+                currentLevelConfig.MinPosition,
+                currentLevelConfig.MaxPosition);
+            bulletService.MovableService.SetPosition(position);
+            bulletService.MovableService.SetDirectionAngle(directionAngle);
+            
             Model.AddSpawnedBullet(bulletService);
         }
 

@@ -39,5 +39,10 @@ namespace Tanks.Game.LevelObjects.Basic
             
             _damageableModel.SetCurrentHealth(_damageableModel.GetCurrentHealth() + health);
         }
+
+        public void SetMaxHealth()
+        {
+            _damageableModel.SetCurrentHealth(_damageableModel.Config.MaxHealth);
+        }
     }
 }

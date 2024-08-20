@@ -22,7 +22,7 @@ namespace Tanks.Game.LevelObjects.Bullet
 
         private void MovableOnDirectionAngleUpdated(float directionAngle)
         {
-            _bulletView.transform.localRotation = Quaternion.Euler(0f, 0f, directionAngle);
+            _bulletView.transform.localRotation = Quaternion.Euler(0f, 0f, -directionAngle);
         }
 
         private void MovableOnPositionUpdated(Vector2 position)
@@ -33,6 +33,7 @@ namespace Tanks.Game.LevelObjects.Bullet
         private void BulletViewOnCollidedWithDamageable(DamageableView damageableView)
         {
             damageableView.CollideWithDamager(BulletService.DamagerService);
+            BulletService.Destroy();
         }
 
         public void Dispose()

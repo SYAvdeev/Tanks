@@ -7,5 +7,6 @@ namespace Tanks.Game.LevelObjects.Basic
         event Action OutOfHealth;
         void ConsumeDamage(float damage);
         void RestoreHealth(float health);
+        void SetMaxHealth();
     }
 }

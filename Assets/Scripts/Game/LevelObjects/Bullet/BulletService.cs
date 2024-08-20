@@ -24,8 +24,13 @@ namespace Tanks.Game.LevelObjects.Bullet
             MovableService.MoveAlongDirection(deltaTime);
             if (!MovableService.IsInRestrictionBorders())
             {
-                Destroyed?.Invoke(this);
+                Destroy();
             }
+        }
+
+        public void Destroy()
+        {
+            Destroyed?.Invoke(this);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Tanks.Game.Spawn.EnemySpawn
 
             Model.AddSpawnedEnemy(enemyService);
             enemyService.MovableService.SetPosition(GetRandomOffScreenSpawnPosition());
-            enemyService.DamageableService.RestoreHealth(randomEnemyConfig.DamageableConfig.MaxHealth);
+            enemyService.DamageableService.SetMaxHealth();
         }
 
         private void EnemyServiceOnDied(IEnemyService enemyService)
@@ -93,6 +93,7 @@ namespace Tanks.Game.Spawn.EnemySpawn
                 if (Model.CurrentSpawnDelay < 0f)
                 {
                     SpawnRandomEnemy();
+                    Model.CurrentSpawnDelay = Model.Config.EnemySpawnDelay;
                 }
                 else
                 {
