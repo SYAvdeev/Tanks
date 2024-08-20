@@ -5,6 +5,7 @@ namespace Tanks.Game.LevelObjects.Player
 {
     public interface IPlayerController : IDisposable
     {
-        UniTask Initialize();
+        void Initialize();
+        UniTask InstantiateWeaponViews();
     }
 }

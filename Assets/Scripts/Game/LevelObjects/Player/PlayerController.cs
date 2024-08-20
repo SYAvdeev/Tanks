@@ -17,14 +17,13 @@ namespace Tanks.Game.LevelObjects.Player
             _playerService = playerService;
         }
 
-        public async UniTask Initialize()
+        public void Initialize()
         {
             _playerService.Model.Movable.PositionUpdated += MovableOnPositionUpdated;
             _playerService.Model.Movable.DirectionAngleUpdated += MovableOnDirectionAngleUpdated;
             _playerService.Model.Damageable.HealthChanged += DamageableOnHealthChanged;
             _playerService.Model.CurrentWeaponChanged += PlayerModelOnCurrentWeaponChanged;
             _playerView.DamageableView.CollidedWithDamager += DamageableViewOnCollidedWithDamager;
-            await InstantiateWeaponViews();
         }
 
         private void DamageableViewOnCollidedWithDamager(float damage)
@@ -57,7 +56,7 @@ namespace Tanks.Game.LevelObjects.Player
             _playerView.transform.localPosition = position;
         }
 
-        private async UniTask InstantiateWeaponViews()
+        public async UniTask InstantiateWeaponViews()
         {
             foreach (var weaponConfig in _playerService.Model.PlayerConfig.WeaponConfigs)
             {
@@ -74,6 +73,7 @@ namespace Tanks.Game.LevelObjects.Player
             _playerService.Model.Movable.DirectionAngleUpdated -= MovableOnDirectionAngleUpdated;
             _playerService.Model.Damageable.HealthChanged -= DamageableOnHealthChanged;
             _playerService.Model.CurrentWeaponChanged -= PlayerModelOnCurrentWeaponChanged;
+            _playerView.DamageableView.CollidedWithDamager -= DamageableViewOnCollidedWithDamager;
         }
     }
 }

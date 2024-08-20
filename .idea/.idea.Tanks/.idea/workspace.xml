@@ -5,34 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="279dc010-6d01-475b-9d9e-0a711a15c67b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/SpawnBorderType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/SpawnBorderType.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameSceneStarter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameSceneStarter.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tanks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tanks/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Level/Level1/Level1_Config.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Level/Level1/Level1_Config.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Level/Level1/Level1_SpawnableConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Level/Level1/Level1_SpawnableConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Spawn.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Spawn/LevelSpawnConfig.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Game/LevelObjects/Spawn/LevelSpawnConfig.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Root/ConfigsRepository.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Root/ConfigsRepository.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameLifetimeScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameLifetimeScope.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameplayService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameplayService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/IGameplayService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/IGameplayService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/IMovableConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/IMovableConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/IMovableService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/IMovableService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/MovableConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/MovableConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/MovableService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Basic/Movable/MovableService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/CameraService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/ICameraService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/EnemyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Enemy/IEnemyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/Tanks.Game.LevelObjects.Camera.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Camera/Tanks.Game.LevelObjects.Camera.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/IPlayerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/PlayerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/Tanks.Game.LevelObjects.Player.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/LevelObjects/Player/Tanks.Game.LevelObjects.Player.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/IBulletSpawnService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/EnemySpawnView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/IEnemySpawnService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/Tanks.Game.Spawn.EnemySpawn.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/EnemySpawn/Tanks.Game.Spawn.EnemySpawn.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/ILevelSpawnService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/ILevelSpawnService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/LevelSpawnService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Tanks.Game.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Tanks.Game.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UnitTests/LevelObjects/Level/LevelSpawnServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UnitTests/LevelObjects/Level/LevelSpawnServiceTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,9 +79,22 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Spawn/BulletSpawn/BulletSpawnService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/Spawn/LevelSpawn/Tanks.Game.Spawn.LevelSpawn.asmdef" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@f057abff0f/Runtime/UniTask.WhenAll.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@f057abff0f/Runtime/UniTaskScheduler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.22.2/Runtime/AssetReference.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.8.17/Tests/Runtime/BurstJobTester.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/TestRunner/Utils/TestListJob.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Editor/TMPro_FontAssetCreatorWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/InputFieldEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/GraphicRebuildTracker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Canvas/CanvasGroupInheritedAlpha.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Canvas/CreateSceneUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Canvas/RectMask2DReparentedToDifferentCanvas.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/EventSystem/InputModuleTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Graphic/RawImageTestHook.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/InputField/DesktopInputFieldTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/Util/UIBehaviourExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@f2afd2ac17/Runtime/Annotations/ITickable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@f2afd2ac17/Runtime/ContainerBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/jp.hadashikick.vcontainer@f2afd2ac17/Runtime/Internal/InstanceProviders/CollectionInstanceProvider.cs" root0="SKIP_HIGHLIGHTING" />
@@ -85,26 +115,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CodeLensConfigurable",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Segrei\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Segrei\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Segrei\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Segrei\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Segrei\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Segrei\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\Unity\Editors\2022.3.41f1\Editor\Unity.exe" />
@@ -166,6 +196,7 @@
       <workItem from="1723948157199" duration="12307000" />
       <workItem from="1724030229001" duration="9287000" />
       <workItem from="1724041544508" duration="3547000" />
+      <workItem from="1724116614892" duration="6510000" />
     </task>
     <servers />
   </component>
@@ -197,19 +228,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/UIService.cs</url>
-          <line>29</line>
-          <properties documentPath="D:\Unity Projects\Tanks\Assets\Scripts\UI\UIService.cs" containingFunctionPresentation="Method 'ShowScreen'">
-            <startOffsets>
-              <option value="965" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1045" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

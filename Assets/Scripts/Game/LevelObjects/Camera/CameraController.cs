@@ -10,7 +10,10 @@ namespace Tanks.Game.LevelObjects.Camera
         private readonly ILevelSpawnModel _levelSpawnModel;
         private readonly ICameraService _cameraService;
 
-        public CameraController(UnityEngine.Camera camera, ILevelSpawnModel levelSpawnModel, ICameraService cameraService)
+        public CameraController(
+            UnityEngine.Camera camera, 
+            ILevelSpawnModel levelSpawnModel,
+            ICameraService cameraService)
         {
             _camera = camera;
             _levelSpawnModel = levelSpawnModel;
@@ -24,8 +27,12 @@ namespace Tanks.Game.LevelObjects.Camera
 
         private void LevelSpawnModelOnCurrentLevelChanged(ILevelModel levelModel)
         {
-            float height = 2f * _camera.orthographicSize;
+            float height = _cameraService.Model.CameraConfig.SizeY;
             float width = height * _camera.aspect;
+
+            _camera.orthographicSize = height / 2f;
+            
+            _cameraService.Model.SetSizeX(width);
 
             Vector2 minPosition = levelModel.LevelConfig.MinPosition + new Vector2(height / 2f, width / 2f);
             Vector2 maxPosition = levelModel.LevelConfig.MaxPosition - new Vector2(height / 2f, width / 2f);

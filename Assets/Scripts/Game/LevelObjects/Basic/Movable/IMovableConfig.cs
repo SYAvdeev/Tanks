@@ -3,6 +3,5 @@
     public interface IMovableConfig
     {
         float Velocity { get; }
-        bool IsRestricted { get; }
     }
 }

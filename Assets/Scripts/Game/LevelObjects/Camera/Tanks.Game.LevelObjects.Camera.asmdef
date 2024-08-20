@@ -5,7 +5,8 @@
         "Tanks.Utility",
         "Tanks.Game.LevelObjects.Basic",
         "Tanks.Game.LevelObjects.Level",
-        "Tanks.Game.Spawn.LevelSpawn"
+        "Tanks.Game.Spawn.LevelSpawn",
+        "Tanks.Game.LevelObjects.Player"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

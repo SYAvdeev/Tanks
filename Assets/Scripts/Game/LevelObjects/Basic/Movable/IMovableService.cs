@@ -11,5 +11,6 @@ namespace Tanks.Game.LevelObjects.Basic
         void RotateWithVelocity(float rotationVelocity, bool isClockwise, float deltaTime);
         void SetRestrictions(Vector2 minPosition, Vector2 maxPosition);
         bool IsInRestrictionBorders();
+        void ClampPositionToRestrictionBorders();
     }
 }

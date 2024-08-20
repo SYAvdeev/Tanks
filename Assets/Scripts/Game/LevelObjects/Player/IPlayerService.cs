@@ -9,7 +9,5 @@ namespace Tanks.Game.LevelObjects.Player
         IDamageableService DamageableService { get; }
         void Initialize();
         void Update(float deltaTime);
-        void NextWeapon();
-        void PreviousWeapon();
     }
 }

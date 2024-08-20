@@ -11,7 +11,7 @@ namespace Tanks.Game.Spawn.LevelSpawn
             LevelSpawnModel = levelSpawnModel;
         }
 
-        public void Initialize()
+        public void SpawnCurrentLevel()
         {
             var currentLevelConfig = LevelSpawnModel.IsCurrentLevelIDEmpty
                 ? LevelSpawnModel.Config.FirstLevelConfig

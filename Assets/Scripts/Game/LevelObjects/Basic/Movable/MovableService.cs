@@ -79,5 +79,14 @@ namespace Tanks.Game.LevelObjects.Basic
             return position.x >= restrictions.minPosition.x && position.x <= restrictions.maxPosition.x &&
                    position.y >= restrictions.minPosition.y && position.y <= restrictions.maxPosition.y;
         }
+
+        public void ClampPositionToRestrictionBorders()
+        {
+            var restrictions = _movableModel.Restrictions;
+            var position = _movableModel.Position;
+
+            position.x = Mathf.Clamp(position.x, restrictions.minPosition.x, restrictions.maxPosition.x);
+            position.y = Mathf.Clamp(position.y, restrictions.minPosition.y, restrictions.maxPosition.y);
+        }
     }
 }

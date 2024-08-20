@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: Level1_SpawnableConfig
   m_EditorClassIdentifier: 
   _id: level-1
+  _assetReference:
+    m_AssetGUID: cea4d5b2b59d73b4fb8dd44df037f618
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

@@ -7,7 +7,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
 {
     [CreateAssetMenu(
         fileName = nameof(BulletSpawnConfig),
-        menuName = "Custom/Game/LevelObjects/Spawn" + nameof(BulletSpawnConfig),
+        menuName = "Custom/Game/Spawn/" + nameof(BulletSpawnConfig),
         order = 2)]
     public class BulletSpawnConfig : ConfigBase, IBulletSpawnConfig
     {

@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d993b46a7449dca72d2806cf0d1406, type: 3}
-  m_Name: Level1_Config
+  m_Script: {fileID: 11500000, guid: 52a5cb3d33724a5b950b9bd3c220abb0, type: 3}
+  m_Name: CameraConfig
   m_EditorClassIdentifier: 
-  _spawnableConfig: {fileID: 11400000, guid: 9d5fe4f019f68c943a0f3b85bfb8dc80, type: 2}
-  _minPosition: {x: 0, y: 0}
-  _maxPosition: {x: 250, y: 250}
+  _movableConfig: {fileID: 11400000, guid: f1aa061b2f4dccb4bb3227bca7767449, type: 2}
+  _sizeY: 100

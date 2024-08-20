@@ -1,10 +1,10 @@
 ﻿using System;
-using VContainer.Unity;
+using Cysharp.Threading.Tasks;
 
 namespace Tanks.Game
 {
-    public interface IGameplayService : IDisposable, IAsyncStartable
+    public interface IGameplayService : IDisposable
     {
-        
+        UniTask StartGameAsync();
     }
 }

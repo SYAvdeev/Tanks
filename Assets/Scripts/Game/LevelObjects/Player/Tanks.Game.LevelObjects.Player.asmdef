@@ -11,8 +11,8 @@
         "Unity.ResourceManager",
         "Tanks.Input",
         "VContainer",
-        "Tanks.Game.LevelObjects.Bullet",
-        "Tanks.Game.Spawn.BulletSpawn"
+        "Tanks.Game.Spawn.BulletSpawn",
+        "Tanks.Game.LevelObjects.Bullet"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

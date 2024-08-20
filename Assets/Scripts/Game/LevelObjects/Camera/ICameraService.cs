@@ -6,5 +6,6 @@ namespace Tanks.Game.LevelObjects.Camera
     {
         ICameraModel Model { get; }
         MovableService MovableService { get; }
+        void Update();
     }
 }

@@ -25,12 +25,14 @@ namespace Tanks.Game.Spawn.EnemySpawn
         void IEnemySpawnModel.AddSpawnedEnemy(IEnemyService enemyService)
         {
             _currentSpawnedEnemies.Add(enemyService);
+            EnemySpawned?.Invoke(enemyService);
         }
 
         void IEnemySpawnModel.RemoveSpawnedEnemyToPool(IEnemyService enemyService)
         {
             _currentSpawnedEnemies.Remove(enemyService);
             EnemiesPool.Add(enemyService.Model.Config.SpawnableConfig.ID, enemyService);
+            EnemyAddedToPool?.Invoke(enemyService);
         }
 
         float IEnemySpawnModel.CurrentSpawnDelay { get; set; }

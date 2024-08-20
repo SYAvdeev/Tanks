@@ -25,6 +25,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
         void IBulletSpawnModel.AddSpawnedBullet(IBulletService bulletService)
         {
             _currentSpawnedBullets.Add(bulletService);
+            BulletSpawned?.Invoke(bulletService);
         }
 
         void IBulletSpawnModel.RemoveSpawnedBulletToPool(IBulletService bulletService)

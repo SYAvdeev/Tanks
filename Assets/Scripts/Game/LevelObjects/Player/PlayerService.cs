@@ -12,6 +12,7 @@ namespace Tanks.Game.LevelObjects.Player
         private readonly IMovableService _movableService;
         private readonly IBulletSpawnService _bulletSpawnService;
         public IDamageableService DamageableService { get; }
+        public IPlayerModel Model { get; }
 
         public PlayerService(
             IPlayerModel model,
@@ -19,13 +20,12 @@ namespace Tanks.Game.LevelObjects.Player
             IBulletSpawnService bulletSpawnService)
         {
             Model = model;
-            _movableService = new MovableService(model.Movable);
-            DamageableService = new DamageableService(model.Damageable);
             _inputService = inputService;
             _bulletSpawnService = bulletSpawnService;
+            
+            _movableService = new MovableService(model.Movable);
+            DamageableService = new DamageableService(model.Damageable);
         }
-
-        public IPlayerModel Model { get; }
 
         public void Initialize()
         {
@@ -82,7 +82,7 @@ namespace Tanks.Game.LevelObjects.Player
             }
         }
 
-        public void NextWeapon()
+        private void NextWeapon()
         {
             var currentWeaponConfig = Model.CurrentWeaponConfig;
             var weaponConfigs = Model.PlayerConfig.WeaponConfigs;
@@ -91,7 +91,7 @@ namespace Tanks.Game.LevelObjects.Player
             Model.SetCurrentWeaponConfig(nextWeaponConfig);
         }
 
-        public void PreviousWeapon()
+        private void PreviousWeapon()
         {
             var currentWeaponConfig = Model.CurrentWeaponConfig;
             var weaponConfigs = Model.PlayerConfig.WeaponConfigs;

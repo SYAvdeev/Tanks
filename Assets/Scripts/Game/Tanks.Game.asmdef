@@ -9,7 +9,10 @@
         "VContainer",
         "UniTask",
         "Tanks.Game.Spawn.EnemySpawn",
-        "Tanks.Game.Spawn.LevelSpawn"
+        "Tanks.Game.Spawn.LevelSpawn",
+        "Tanks.Game.LevelObjects.Player",
+        "Tanks.Game.LevelObjects.Camera",
+        "Tanks.Game.Spawn.BulletSpawn"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

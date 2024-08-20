@@ -5,6 +5,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
 {
     public interface IBulletSpawnController : IDisposable
     {
-        UniTask Initialize();
+        void Initialize();
+        UniTask PrewarmBulletControllersPool();
     }
 }

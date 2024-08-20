@@ -32,7 +32,7 @@ namespace Tanks.UnitTests
             
             //Act
 
-            void Initialize() => levelSpawnService.Initialize();
+            void Initialize() => levelSpawnService.SpawnCurrentLevel();
 
             //Assert
             Assert.DoesNotThrow(Initialize);
@@ -65,7 +65,7 @@ namespace Tanks.UnitTests
             
             //Act
 
-            void Initialize() => levelSpawnService.Initialize();
+            void Initialize() => levelSpawnService.SpawnCurrentLevel();
 
             //Assert
             Assert.DoesNotThrow(Initialize);

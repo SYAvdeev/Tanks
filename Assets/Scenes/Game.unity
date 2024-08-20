@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 354359689}
   - component: {fileID: 354359692}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: GameplayCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,6 +353,8 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   _levelSpawnView: {fileID: 1607253514}
+  _playerView: {fileID: 0}
+  _gameplayCamera: {fileID: 354359690}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

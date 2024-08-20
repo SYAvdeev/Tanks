@@ -25,7 +25,7 @@ namespace Tanks.Game.Spawn.EnemySpawn
             _cameraService = cameraService;
         }
 
-        public void SpawnRandomEnemy()
+        private void SpawnRandomEnemy()
         {
             var randomEnemyConfig = Model.Config.EnemyConfigs.ToList().Random();
             if(!Model.EnemiesPool.TryGet(randomEnemyConfig.SpawnableConfig.ID, out var enemyService))
@@ -47,7 +47,7 @@ namespace Tanks.Game.Spawn.EnemySpawn
 
             Vector2 position = _cameraService.Model.Movable.Position;
 
-            float cameraSizeX = _cameraService.Model.CameraConfig.SizeX;
+            float cameraSizeX = _cameraService.Model.SizeX;
             float cameraSizeY = _cameraService.Model.CameraConfig.SizeY;
 
             return borderIndex switch
@@ -70,6 +70,11 @@ namespace Tanks.Game.Spawn.EnemySpawn
 
         public void Update(float deltaTime)
         {
+            foreach (var currentSpawnedEnemy in Model.CurrentSpawnedEnemies)
+            {
+                currentSpawnedEnemy.Update(deltaTime);
+            }
+
             if (Model.CurrentSpawnedEnemies.Count() < Model.Config.MaxEnemiesCount)
             {
                 if (Model.CurrentSpawnDelay < 0f)

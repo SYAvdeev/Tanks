@@ -15,7 +15,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
             _levelSpawnService = levelSpawnService;
         }
 
-        public void SpawnBullet(IBulletConfig bulletConfig, Vector2 position, float rotation)
+        public void SpawnBullet(IBulletConfig bulletConfig, Vector2 position, float directionAngle)
         {
             if (!Model.BulletsPool.TryGet(bulletConfig.SpawnableConfig.ID, out var bulletService))
             {
@@ -25,9 +25,19 @@ namespace Tanks.Game.Spawn.BulletSpawn
                 bulletService.MovableService.SetRestrictions(
                     currentLevelConfig.MinPosition,
                     currentLevelConfig.MaxPosition);
+                bulletService.MovableService.SetPosition(position);
+                bulletService.MovableService.SetDirectionAngle(directionAngle);
                 bulletService.Destroyed += BulletServiceOnDestroyed;
             }
             Model.AddSpawnedBullet(bulletService);
+        }
+
+        public void Update(float deltaTime)
+        {
+            foreach (var currentSpawnedBullet in Model.CurrentSpawnedBullets)
+            {
+                currentSpawnedBullet.Update(deltaTime);
+            }
         }
 
         private void BulletServiceOnDestroyed(IBulletService bulletService)

@@ -24,11 +24,10 @@ namespace Tanks.Game.Spawn.BulletSpawn
 
         public UniTask<IBulletController> SpawnBulletControllerTask { get; private set; }
         
-        public async UniTask Initialize()
+        public void Initialize()
         {
             _bulletSpawnService.Model.BulletSpawned += BulletSpawnModelOnBulletSpawned;
             _bulletSpawnService.Model.BulletAddedToPool += BulletSpawnModelOnBulletAddedToPool;
-            await PrewarmBulletControllersPool();
         }
 
         private void BulletSpawnModelOnBulletAddedToPool(IBulletService bulletService)
@@ -38,7 +37,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
             _bulletControllersPool.Add(bulletService.BulletModel.Spawnable.Config.ID, bulletController);
         }
 
-        private async UniTask PrewarmBulletControllersPool()
+        public async UniTask PrewarmBulletControllersPool()
         {
             var bulletSpawnModel = _bulletSpawnService.Model;
             var bulletSpawnConfig = bulletSpawnModel.Config;
