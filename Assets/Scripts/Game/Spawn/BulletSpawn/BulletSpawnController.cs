@@ -16,14 +16,14 @@ namespace Tanks.Game.Spawn.BulletSpawn
 
         private readonly Pool<string, IBulletController> _bulletControllersPool = new ();
 
+        private UniTask<IBulletController> _spawnBulletControllerTask;
+
         public BulletSpawnController(IBulletSpawnService bulletSpawnService, BulletSpawnView bulletSpawnView)
         {
             _bulletSpawnService = bulletSpawnService;
             _bulletSpawnView = bulletSpawnView;
         }
 
-        private UniTask<IBulletController> _spawnBulletControllerTask;
-        
         public void Initialize()
         {
             _bulletSpawnService.Model.BulletSpawned += BulletSpawnModelOnBulletSpawned;
@@ -52,11 +52,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
                 }
             }
 
-            var spawnedBullets = new List<IBulletService>(bulletSpawnModel.CurrentSpawnedBullets.Count());
-            foreach (var currentSpawnedBullet in bulletSpawnModel.CurrentSpawnedBullets)
-            {
-                spawnedBullets.Add(currentSpawnedBullet);
-            }
+            var spawnedBullets = new List<IBulletService>(bulletSpawnModel.CurrentSpawnedBullets);
             
             foreach (var bulletService in spawnedBullets)
             {

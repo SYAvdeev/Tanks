@@ -1,4 +1,5 @@
 ﻿using Tanks.Game.LevelObjects.Basic;
+using Tanks.Utility;
 using UnityEngine;
 
 namespace Tanks.Game.LevelObjects.Enemy
@@ -7,6 +8,8 @@ namespace Tanks.Game.LevelObjects.Enemy
     {
         private readonly EnemyView _enemyView;
         public IEnemyService EnemyService { get; }
+        
+        private readonly UniTaskRestartable _updateTask;
 
         public EnemyController(IEnemyService enemyService, EnemyView enemyView)
         {
@@ -55,7 +58,7 @@ namespace Tanks.Game.LevelObjects.Enemy
 
         private void MovableOnDirectionAngleUpdated(float directionAngle)
         {
-            _enemyView.RotateTransform.localRotation = Quaternion.Euler(0f, 0f, directionAngle);
+            _enemyView.RotateTransform.localRotation = Quaternion.Euler(0f, 0f, -directionAngle);
         }
 
         public void Dispose()

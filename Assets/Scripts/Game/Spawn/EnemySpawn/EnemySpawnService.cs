@@ -13,11 +13,12 @@ namespace Tanks.Game.Spawn.EnemySpawn
     {
         private readonly IPlayerService _playerService;
         private readonly ICameraService _cameraService;
+        private readonly object _currentSpawnedEnemiesLock = new();
         public IEnemySpawnModel Model { get; }
 
         public EnemySpawnService(
             IEnemySpawnModel model,
-            IPlayerService playerService, 
+            IPlayerService playerService,
             ICameraService cameraService)
         {
             Model = model;
@@ -28,7 +29,7 @@ namespace Tanks.Game.Spawn.EnemySpawn
         private void SpawnRandomEnemy()
         {
             var randomEnemyConfig = Model.Config.EnemyConfigs.ToList().Random();
-            if(!Model.EnemiesPool.TryGet(randomEnemyConfig.SpawnableConfig.ID, out var enemyService))
+            if (!Model.EnemiesPool.TryGet(randomEnemyConfig.SpawnableConfig.ID, out var enemyService))
             {
                 var enemyModel = new EnemyModel(randomEnemyConfig);
                 enemyService = new EnemyService(
@@ -37,6 +38,7 @@ namespace Tanks.Game.Spawn.EnemySpawn
                     _playerService.DamageableService);
                 enemyService.Died += EnemyServiceOnDied;
             }
+
             Model.AddSpawnedEnemy(enemyService);
             enemyService.MovableService.SetPosition(GetRandomOffScreenSpawnPosition());
             enemyService.DamageableService.RestoreHealth(randomEnemyConfig.DamageableConfig.MaxHealth);
@@ -60,7 +62,8 @@ namespace Tanks.Game.Spawn.EnemySpawn
             return borderIndex switch
             {
                 SpawnBorderType.Top => new Vector2(cameraSizeX * positionNormalized, position.y + (cameraSizeY / 2f)),
-                SpawnBorderType.Bottom => new Vector2(cameraSizeX * positionNormalized, position.y - (cameraSizeY / 2f)),
+                SpawnBorderType.Bottom => new Vector2(cameraSizeX * positionNormalized,
+                    position.y - (cameraSizeY / 2f)),
                 SpawnBorderType.Left => new Vector2(position.x - (cameraSizeX / 2f), cameraSizeY * positionNormalized),
                 SpawnBorderType.Right => new Vector2(position.x + (cameraSizeX / 2f), cameraSizeY * positionNormalized),
                 _ => throw new ArgumentOutOfRangeException()
@@ -77,9 +80,12 @@ namespace Tanks.Game.Spawn.EnemySpawn
 
         public void Update(float deltaTime)
         {
-            foreach (var currentSpawnedEnemy in Model.CurrentSpawnedEnemies)
+            lock (_currentSpawnedEnemiesLock)
             {
-                currentSpawnedEnemy.Update(deltaTime);
+                foreach (var currentSpawnedEnemy in Model.CurrentSpawnedEnemies)
+                {
+                    currentSpawnedEnemy.Update(deltaTime);
+                }
             }
 
             if (Model.CurrentSpawnedEnemies.Count() < Model.Config.MaxEnemiesCount)

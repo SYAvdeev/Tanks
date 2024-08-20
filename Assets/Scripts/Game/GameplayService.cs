@@ -54,7 +54,7 @@ namespace Tanks.Game
             _levelSpawnService.SpawnCurrentLevel();
             _cameraService.Update();
             await _playerController.InstantiateWeaponViews();
-            _playerService.SetCurrentWeaponOnStart();
+            _playerService.Start();
             await _bulletSpawnController.PrewarmBulletControllersPool();
 
             await UniTask.WhenAll(_levelSpawnController.UpdateCurrentLevelControllerTask);

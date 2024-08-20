@@ -87,6 +87,8 @@ namespace Tanks.Game.LevelObjects.Basic
 
             position.x = Mathf.Clamp(position.x, restrictions.minPosition.x, restrictions.maxPosition.x);
             position.y = Mathf.Clamp(position.y, restrictions.minPosition.y, restrictions.maxPosition.y);
+
+            SetPosition(position);
         }
     }
 }

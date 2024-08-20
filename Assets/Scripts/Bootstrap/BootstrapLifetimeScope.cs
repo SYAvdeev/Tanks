@@ -19,7 +19,7 @@ namespace Tanks.Bootstrap
 
         private void ConfigureInput(IContainerBuilder builder)
         {
-            builder.Register<InputService>(Lifetime.Singleton).As<IInputService>();
+            builder.Register<InputService>(Lifetime.Singleton).AsImplementedInterfaces();
         }
 
         private void ConfigureUI(IContainerBuilder builder)

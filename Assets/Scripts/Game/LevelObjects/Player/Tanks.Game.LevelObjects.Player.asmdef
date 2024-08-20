@@ -12,7 +12,8 @@
         "Tanks.Input",
         "VContainer",
         "Tanks.Game.Spawn.BulletSpawn",
-        "Tanks.Game.LevelObjects.Bullet"
+        "Tanks.Game.LevelObjects.Bullet",
+        "Tanks.Game.Spawn.LevelSpawn"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

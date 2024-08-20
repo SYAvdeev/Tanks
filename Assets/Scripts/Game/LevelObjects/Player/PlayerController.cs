@@ -50,7 +50,7 @@ namespace Tanks.Game.LevelObjects.Player
 
         private void MovableOnDirectionAngleUpdated(float directionAngle)
         {
-            _playerView.RotateTransform.localRotation = Quaternion.Euler(0f, 0f, directionAngle);
+            _playerView.RotateTransform.localRotation = Quaternion.Euler(0f, 0f, -directionAngle);
         }
 
         private void MovableOnPositionUpdated(Vector2 position)

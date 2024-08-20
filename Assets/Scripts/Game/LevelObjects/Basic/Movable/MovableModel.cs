@@ -53,7 +53,7 @@ namespace Tanks.Game.LevelObjects.Basic
 
         void IMovableModel.SetRestrictions(Vector2 minPosition, Vector2 maxPosition)
         {
-            if (_movableData.RestrictionMinPosition == minPosition ||
+            if (_movableData.RestrictionMinPosition == minPosition &&
                 _movableData.RestrictionMaxPosition == maxPosition)
             {
                 return;

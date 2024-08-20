@@ -1,4 +1,5 @@
-﻿using Tanks.Game.LevelObjects.Bullet;
+﻿using System.Collections.Generic;
+using Tanks.Game.LevelObjects.Bullet;
 using Tanks.Game.Spawn.LevelSpawn;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace Tanks.Game.Spawn.BulletSpawn
     public class BulletSpawnService : IBulletSpawnService
     {
         private readonly ILevelSpawnService _levelSpawnService;
+        private readonly object _currentSpawnedBulletsLock = new ();
         public IBulletSpawnModel Model { get; }
 
         public BulletSpawnService(IBulletSpawnModel model, ILevelSpawnService levelSpawnService)
@@ -34,9 +36,13 @@ namespace Tanks.Game.Spawn.BulletSpawn
 
         public void Update(float deltaTime)
         {
-            foreach (var currentSpawnedBullet in Model.CurrentSpawnedBullets)
+            lock (_currentSpawnedBulletsLock)
             {
-                currentSpawnedBullet.Update(deltaTime);
+                var spawnedBullets = new List<IBulletService>(Model.CurrentSpawnedBullets);
+                foreach (var currentSpawnedBullet in spawnedBullets)
+                {
+                    currentSpawnedBullet.Update(deltaTime);
+                }
             }
         }
 
